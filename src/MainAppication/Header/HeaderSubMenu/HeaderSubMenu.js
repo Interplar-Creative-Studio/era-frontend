@@ -18,7 +18,7 @@ export const HeaderSubMenu = (props) => {
     return(
         <div className="menu__second-block container">
             <ul>
-                {menu.map(item => <SubMenuElement menulink={item.href} menuName={item.text}/>)}
+                {menu.map((item, i) => <SubMenuElement key={i} menulink={item.href} menuName={item.text}/>)}
             </ul>
         </div>
     );
