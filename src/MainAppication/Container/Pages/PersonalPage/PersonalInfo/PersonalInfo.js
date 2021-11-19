@@ -5,11 +5,12 @@ import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
 import {PersonalDescription} from "./PersonalDescription/PersonalDescription";
 import {MenuElement} from "../../../../Components/MenuElement/MenuElement";
 import {PersonalAvatar} from "./PersonalAvatar/PersonalAvatar";
+import {PERSONAL_COLLECTIONS, PERSONAL_GALLERY} from "../../../../../UrlsConst";
 
 let menu = [
-    {href: "#", text: "Галерея"},
-    {href: "#", text: "Коллекции"},
-    {href: "#", text: "Статистика"},
+    {href: PERSONAL_GALLERY, text: "Галерея"},
+    {href: PERSONAL_COLLECTIONS, text: "Коллекции"},
+    {href: "/personal/statistics", text: "Статистика"},
 ];
 let person = {
     profileName: "Top Waifu",
@@ -37,7 +38,7 @@ export const PersonalInfo = (props) => {
             </div>
             <div className="personal-area__menu">
                 <ul>
-                    {menu.map(elem => <MenuElement menulink={elem.href} menuName={elem.text}/>)}
+                    {menu.map((elem, i) => <MenuElement key={i} menulink={elem.href} menuName={elem.text}/>)}
                 </ul>
             </div>
         </div>
