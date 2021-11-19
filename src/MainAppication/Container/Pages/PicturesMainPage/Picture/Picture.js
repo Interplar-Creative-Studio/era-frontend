@@ -1,10 +1,10 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {ThreeDots} from "./Icons/ThreeDots";
-import {Share} from "./Icons/Share";
-import {SaveFolder} from "./Icons/SaveFolder";
-import {Like} from "./Icons/Like";
-import {UnderText} from "./Icons/UnderText";
+import {ThreeDots} from "../../../../Components/Icons/ThreeDots";
+import {Share} from "../../../../Components/Icons/Share";
+import {SaveFolder} from "../../../../Components/Icons/SaveFolder";
+import {Like} from "../../../../Components/Icons/Like";
+import {UnderText} from "../../../../Components/Icons/UnderText";
 
 //assets/img/testImg2.png
 export const Picture = (props) => {

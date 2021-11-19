@@ -8,6 +8,20 @@ export const PicturesMainPage = () => {
                 <div className="picture__page">
                     <Picture imgLink={"#"} img={"assets/img/testImg2.png"} pictureNameLink={"#"}
                              pictureName={"Caption caption"}/>
+                    <Picture imgLink={"#"} img={"assets/img/testImg.png"} pictureNameLink={"#"}
+                             pictureName={"Caption caption"}/>
+                    <Picture imgLink={"#"} img={"assets/img/testImg3.png"} pictureNameLink={"#"}
+                             pictureName={"Caption caption"}/>
+                    <Picture imgLink={"#"} img={"assets/img/testImg2.png"} pictureNameLink={"#"}
+                             pictureName={"Caption caption"}/>
+                    <Picture imgLink={"#"} img={"assets/img/testImg2.png"} pictureNameLink={"#"}
+                             pictureName={"Caption caption"}/>
+                    <Picture imgLink={"#"} img={"assets/img/testImg2.png"} pictureNameLink={"#"}
+                             pictureName={"Caption caption"}/>
+                    <Picture imgLink={"#"} img={"assets/img/testImg2.png"} pictureNameLink={"#"}
+                             pictureName={"Caption caption"}/>
+
+
                 </div>
             </div>
 
