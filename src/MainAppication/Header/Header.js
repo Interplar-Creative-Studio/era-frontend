@@ -4,6 +4,7 @@ import {HeaderSubMenu} from "./HeaderSubMenu/HeaderSubMenu";
 
 export const Header = (props) => {
     return(
+        /*<div className="menu">*/
         <div>
             <HeaderMainMenu/>
             <HeaderSubMenu/>

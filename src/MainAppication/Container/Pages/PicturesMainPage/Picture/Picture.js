@@ -6,7 +6,6 @@ import {SaveFolder} from "./PictureIcons/SaveFolder";
 import {Like} from "./PictureIcons/Like";
 import {UnderText} from "./PictureIcons/UnderText";
 
-//assets/img/testImg2.png
 export const Picture = (props) => {
     return(
         <div className="main__page__picture">

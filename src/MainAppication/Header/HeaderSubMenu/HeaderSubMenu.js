@@ -1,5 +1,6 @@
 import React from "react";
-import {SubMenuElement} from "./SubMenuElement/SubMenuElement";
+import {MenuElement} from "../../Components/MenuElement/MenuElement";
+import {TabPanelIcons} from "./TabPanelIcons/TabPanelIcons";
 
 let menu = [
     {href: "#", text: "Wallpapers"},
@@ -18,8 +19,9 @@ export const HeaderSubMenu = (props) => {
     return(
         <div className="menu__second-block container">
             <ul>
-                {menu.map((item, i) => <SubMenuElement key={i} menulink={item.href} menuName={item.text}/>)}
+                {menu.map((item, i) => <MenuElement key={i} menulink={item.href} menuName={item.text}/>)}
             </ul>
+            <TabPanelIcons/>
         </div>
     );
 };
