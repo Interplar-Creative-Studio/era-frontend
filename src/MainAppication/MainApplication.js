@@ -4,7 +4,7 @@ import {Container} from "./Container/Container";
 
 export const MainApplication = (props) => {
     return(
-        <div>
+        <div id={"app"}>
             <Header/>
             <Container/>
         </div>

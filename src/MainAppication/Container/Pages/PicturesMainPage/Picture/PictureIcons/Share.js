@@ -1,9 +1,9 @@
 import React from "react";
 
 export const Share = () => {
-    return(
+    return (
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
+                 xmlns="http://www.w3.org/2000/svg">
             <path d="M32 0H0V32H32V0Z" fill="white" fillOpacity="0.01"/>
             <path
                 d="M23.3333 10.6667C25.1743 10.6667 26.6667 9.17427 26.6667 7.33333C26.6667 5.49239 25.1743 4 23.3333 4C21.4924 4 20 5.49239 20 7.33333C20 9.17427 21.4924 10.6667 23.3333 10.6667Z"
