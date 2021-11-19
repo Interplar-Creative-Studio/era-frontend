@@ -11,7 +11,7 @@ export const Container = (props) => {
     return (
         <Switch>
             <Route exact path="/">
-                <Redirect to={PERSONAL}/>
+                <Redirect to={PERSONAL_SETTINGS}/>
             </Route>
             <Route path={PAGE} render={() => <PicturesMainPage/>}/>
             <Route path={PERSONAL} render={() => <PersonalPage/>}/>
