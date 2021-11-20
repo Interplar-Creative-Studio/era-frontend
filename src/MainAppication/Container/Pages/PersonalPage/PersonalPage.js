@@ -19,21 +19,19 @@ let images = [
 
 
 export const PersonalPage = () => {
-
     return (
         <div className="container">
-            <PersonalInfo/>
-            <div className="personal-area__galery">
-                <Switch>
-                    <Route exact path={PERSONAL}>
-                        <Redirect to={PERSONAL_GALLERY}/>
-                    </Route>
-                    <Route path={PERSONAL_GALLERY} render={() => <Gallery images={images}/>}/>
-                    <Route path={PERSONAL_COLLECTIONS} render={() => <Collections/>}/>
-                    <Route path={PERSONAL_STATISTICS} render={() => <Statistics/>}/>
-
-                </Switch>
-
+            <div className="personal-area">
+                <PersonalInfo/>
+                    <Gallery images={images}/>
+              {/*      <Switch>
+                        <Route exact path={PERSONAL}>
+                            <Redirect to={PERSONAL_GALLERY}/>
+                        </Route>
+                        <Route path={PERSONAL_GALLERY} render={() => <Gallery images={images}/>}/>
+                        <Route path={PERSONAL_COLLECTIONS} render={() => <Collections/>}/>
+                        <Route path={PERSONAL_STATISTICS} render={() => <Statistics/>}/>
+                    </Switch>*/}
             </div>
         </div>
     );
