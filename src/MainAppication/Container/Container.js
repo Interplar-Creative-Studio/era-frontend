@@ -4,17 +4,20 @@ import {PicturesMainPage} from "./Pages/PicturesMainPage/PicturesMainPage";
 import {Redirect, Switch} from "react-router";
 import {PersonalPage} from "./Pages/PersonalPage/PersonalPage";
 import {PersonalSettingsPage} from "./Pages/PersonalSettingsPage/PersonalSettingsPage";
+import {CART, PAGE, PERSONAL, PERSONAL_SETTINGS} from "../../UrlsConst";
+import {Cart} from "./Pages/Cart/Cart";
+
 
 export const Container = (props) => {
     return (
         <Switch>
             <Route exact path="/">
-                <Redirect to={"/personal"}/>
+                <Redirect to={PERSONAL}/>
             </Route>
-            <Route exact path={"/page"} render={() => <PicturesMainPage/>}/>
-            <Route exact path={"/personal"} render={() => <PersonalPage/>}/>
-            <Route exact path={"/personalSettings"} render={() => <PersonalSettingsPage/>}/>
-
+            <Route path={PAGE} render={() => <PicturesMainPage/>}/>
+            <Route path={PERSONAL} render={() => <PersonalPage/>}/>
+            <Route path={PERSONAL_SETTINGS} render={() => <PersonalSettingsPage/>}/>
+            <Route path={CART} render={()=><Cart/>}/>
         </Switch>
 
     );

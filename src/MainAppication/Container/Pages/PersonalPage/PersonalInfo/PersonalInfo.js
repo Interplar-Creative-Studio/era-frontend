@@ -5,12 +5,10 @@ import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
 import {PersonalDescription} from "./PersonalDescription/PersonalDescription";
 import {MenuElement} from "../../../../Components/MenuElement/MenuElement";
 import {PersonalAvatar} from "./PersonalAvatar/PersonalAvatar";
+import {PERSONAL_COLLECTIONS, PERSONAL_GALLERY} from "../../../../../UrlsConst";
+import {useRouteMatch} from "react-router-dom";
 
-let menu = [
-    {href: "#", text: "Галерея"},
-    {href: "#", text: "Коллекции"},
-    {href: "#", text: "Статистика"},
-];
+
 let person = {
     profileName: "Top Waifu",
     profileTag : "@topwaifu",
@@ -19,6 +17,13 @@ let person = {
     subscriptions: 246,
 };
 export const PersonalInfo = (props) => {
+    const { url, path } = useRouteMatch();
+    console.log(url);
+    let menu = [
+        {href: `${url}/gallery`, text: "Галерея"},
+        {href: `${url}/collections`, text: "Коллекции"},
+        {href: `${url}/statistics`, text: "Статистика"},
+    ];
     return (
         <div>
             <div className="personal-area__profile">
@@ -37,7 +42,7 @@ export const PersonalInfo = (props) => {
             </div>
             <div className="personal-area__menu">
                 <ul>
-                    {menu.map(elem => <MenuElement menulink={elem.href} menuName={elem.text}/>)}
+                    {menu.map((elem, i) => <MenuElement key={i} menulink={elem.href} menuName={elem.text}/>)}
                 </ul>
             </div>
         </div>
