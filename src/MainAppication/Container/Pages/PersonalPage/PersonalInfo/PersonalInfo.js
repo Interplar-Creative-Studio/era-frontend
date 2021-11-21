@@ -15,12 +15,11 @@ let person = {
     subscriptions: 246,
 };
 export const PersonalInfo = (props) => {
-    const { url, path } = useRouteMatch();
 
     let menu = [
-        {href: `${url}/gallery`, text: "Галерея"},
-        {href: `${url}/collections`, text: "Коллекции"},
-        {href: `${url}/statistics`, text: "Статистика"},
+        {href: `/gallery`, text: "Галерея"},
+        {href: `/collections`, text: "Коллекции"},
+        {href: `/statistics`, text: "Статистика"},
     ];
 
     return (

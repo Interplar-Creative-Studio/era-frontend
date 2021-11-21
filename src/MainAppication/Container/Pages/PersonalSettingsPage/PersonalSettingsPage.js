@@ -1,10 +1,10 @@
 import React from "react";
 import {PersonalAvatar} from "../PersonalPage/PersonalInfo/UserFullInfo/PersonalAvatar/PersonalAvatar";
-import {Input} from "./Input/Input";
-import {Textarea} from "./Textarea/Textarea";
-import {Authentication} from "./Authentication/Authentication";
-import {Option} from "./Option/Option";
-import {Checkbox} from "./Checkbox/Checkbox";
+import {Input} from "../../../Components/AuthorizationComponents/Input/Input";
+import {Textarea} from "../../../Components/AuthorizationComponents/Textarea/Textarea";
+import {Authentication} from "../../../Components/AuthorizationComponents/Authentication/Authentication";
+import {Option} from "../../../Components/AuthorizationComponents/Option/Option";
+import {Checkbox} from "../../../Components/AuthorizationComponents/Checkbox/Checkbox";
 import {MenuElement} from "../../../Components/MenuElement/MenuElement";
 
 let languages = [
