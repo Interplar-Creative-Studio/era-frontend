@@ -23,15 +23,16 @@ export const PersonalPage = () => {
         <div className="container">
             <div className="personal-area">
                 <PersonalInfo/>
-                    <Gallery images={images}/>
-              {/*      <Switch>
-                        <Route exact path={PERSONAL}>
+                   {/* <Gallery images={images}/>*/}
+                    <Switch>
+                     {/*   <Route exact path={PERSONAL}>
                             <Redirect to={PERSONAL_GALLERY}/>
-                        </Route>
+                        </Route>*/}
+                        <Route path="/" exact />
                         <Route path={PERSONAL_GALLERY} render={() => <Gallery images={images}/>}/>
                         <Route path={PERSONAL_COLLECTIONS} render={() => <Collections/>}/>
                         <Route path={PERSONAL_STATISTICS} render={() => <Statistics/>}/>
-                    </Switch>*/}
+                    </Switch>
             </div>
         </div>
     );
