@@ -1,5 +1,5 @@
 import React from "react";
-import {MenuElement} from "../../Components/MenuElement/MenuElement";
+import {MenuElement} from "../../Components/MenuElement/MenuElement/MenuElement";
 import {TabPanelIcons} from "./TabPanelIcons/TabPanelIcons";
 
 let menu = [

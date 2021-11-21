@@ -1,11 +1,11 @@
 import React from "react";
 import {PersonalAvatar} from "../PersonalPage/PersonalInfo/UserFullInfo/PersonalAvatar/PersonalAvatar";
-import {Input} from "./Input/Input";
-import {Textarea} from "./Textarea/Textarea";
-import {Authentication} from "./Authentication/Authentication";
-import {Option} from "./Option/Option";
-import {Checkbox} from "./Checkbox/Checkbox";
-import {MenuElement} from "../../../Components/MenuElement/MenuElement";
+import {Input} from "../../../Components/AuthorizationComponents/Input/Input";
+import {Textarea} from "../../../Components/AuthorizationComponents/Textarea/Textarea";
+import {Authentication} from "../../../Components/AuthorizationComponents/Authentication/Authentication";
+import {Option} from "../../../Components/AuthorizationComponents/Option/Option";
+import {Checkbox} from "../../../Components/AuthorizationComponents/Checkbox/Checkbox";
+import {MenuMap} from "../../../Components/MenuElement/MenuMap";
 
 let languages = [
     {value: 1, label: "Русский"},
@@ -38,7 +38,7 @@ export const PersonalSettingsPage = (props) => {
     return (
         <div className="container">
             <div className="personal-area__settings">
-                <a href="#"><PersonalAvatar img={"assets/img/testImg2.png"}/></a>
+                    <PersonalAvatar img={"assets/img/testImg2.png"} href={"#"}/>
                 <div className="personal-area__settings__area">
                     <div className="personal-area__settings__area__profile">
                         <h2>Настройки профиля</h2>
@@ -99,7 +99,7 @@ export const PersonalSettingsPage = (props) => {
                 </div>
                 <div className="personal-area__settings__menu">
                     <ul>
-                        {menu.map(elem => <MenuElement menulink={elem.href} menuName={elem.text}/>)}
+                        <MenuMap arr={menu}/>
                     </ul>
                     <div className="personal-area__settings__menu__button"><a href="#">Сохранить изменения</a></div>
                 </div>

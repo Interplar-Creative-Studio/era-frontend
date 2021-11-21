@@ -2,9 +2,8 @@ import React from "react";
 import {Share} from "../../../../Components/Icons/Share";
 import {Settings} from "../../../../Components/Icons/Settings";
 import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
-import {MenuElement} from "../../../../Components/MenuElement/MenuElement";
-import {useRouteMatch} from "react-router-dom";
 import {UserFullInfo} from "./UserFullInfo/UserFullInfo";
+import {MenuMap} from "../../../../Components/MenuElement/MenuMap";
 
 
 let person = {
@@ -14,14 +13,16 @@ let person = {
     subscribers:  "5.1m",
     subscriptions: 246,
 };
-export const PersonalInfo = (props) => {
-    const { url, path } = useRouteMatch();
 
-    let menu = [
-        {href: `${url}/gallery`, text: "Галерея"},
-        {href: `${url}/collections`, text: "Коллекции"},
-        {href: `${url}/statistics`, text: "Статистика"},
-    ];
+let menu = [
+    {href: `/gallery`, text: "Галерея"},
+    {href: `/collections`, text: "Коллекции"},
+    {href: `/statistics`, text: "Статистика"},
+];
+
+
+export const PersonalInfo = (props) => {
+
 
     return (
         <div>
@@ -37,7 +38,7 @@ export const PersonalInfo = (props) => {
             </div>
             <div className="personal-area__menu">
                 <ul>
-                    {menu.map((elem, i) => <MenuElement key={i} menulink={elem.href} menuName={elem.text}/>)}
+                    <MenuMap arr={menu}/>
                 </ul>
             </div>
         </div>
