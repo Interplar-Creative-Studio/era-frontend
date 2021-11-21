@@ -7,32 +7,34 @@ import {Option} from "./Option/Option";
 import {Checkbox} from "./Checkbox/Checkbox";
 import {MenuElement} from "../../../Components/MenuElement/MenuElement";
 
-export const PersonalSettingsPage = (props) => {
-    let languages = [
-        {value: 1, label: "Русский"},
-        {value: 2, label: "Український"},
-        {value: 3, label: "English"},
-    ];
-    let countries = [
-        {value: 1, label: "Россия (РФ)"},
-        {value: 2, label: "Украина"},
-        {value: 3, label: "США"},
-    ];
-    let sex = [
-        {value: 1, label: "Мужчина"},
-        {value: 2, label: "Женщина"},
-        {value: 3, label: "Другое"},
-    ];
+let languages = [
+    {value: 1, label: "Русский"},
+    {value: 2, label: "Український"},
+    {value: 3, label: "English"},
+];
+let countries = [
+    {value: 1, label: "Россия (РФ)"},
+    {value: 2, label: "Украина"},
+    {value: 3, label: "США"},
+];
+let sex = [
+    {value: 1, label: "Мужчина"},
+    {value: 2, label: "Женщина"},
+    {value: 3, label: "Другое"},
+];
 
-    let menu = [
-        {href: "#", text: "Настройки профиля"},
-        {href: "#", text: "Настройки аккаунта"},
-        {href: "#", text: "Настройки ленты"},
-        {href: "#", text: "Подтвердить аккаунт"},
-        {href: "#", text: "Разрешения"},
-        {href: "#", text: "Конфиденциальность"},
-        {href: "#", text: "Безопасность"},
-    ];
+let menu = [
+    {href: "#", text: "Настройки профиля"},
+    {href: "#", text: "Настройки аккаунта"},
+    {href: "#", text: "Настройки ленты"},
+    {href: "#", text: "Подтвердить аккаунт"},
+    {href: "#", text: "Разрешения"},
+    {href: "#", text: "Конфиденциальность"},
+    {href: "#", text: "Безопасность"},
+];
+
+export const PersonalSettingsPage = (props) => {
+
     return (
         <div className="container">
             <div className="personal-area__settings">

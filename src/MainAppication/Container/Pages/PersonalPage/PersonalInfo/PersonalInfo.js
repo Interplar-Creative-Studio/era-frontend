@@ -34,9 +34,9 @@ export const PersonalInfo = (props) => {
                                          subscribers={person.subscribers} subscriptions={person.subscriptions}
                     />
                     <div className="personal-area__profile__description__icons">
-                        <Share/>
-                        <Settings/>
-                        <MoreOptions/>
+                        <Share color={"black"}/>
+                        <Settings color={"black"}/>
+                        <MoreOptions color={"black"}/>
                     </div>
                 </div>
             </div>
