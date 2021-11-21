@@ -13,7 +13,7 @@ export const Container = () => {
     return (
         <Switch>
             <Route exact path="/">
-                <Redirect to={PERSONAL}/>
+                <Redirect to={COLLECTIONS}/>
             </Route>
             <Route path={PAGE} render={() => <PicturesMainPage/>}/>
             <Route path={PERSONAL} render={() => <PersonalPage/>}/>

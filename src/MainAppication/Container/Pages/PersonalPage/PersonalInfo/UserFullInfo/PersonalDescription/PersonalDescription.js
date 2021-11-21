@@ -1,5 +1,5 @@
 import React from "react";
-import {Verify} from "../../../../../Components/Icons/Verify";
+import {Verify} from "../../../../../../Components/Icons/Verify";
 
 export const PersonalDescription = (props) => {
     return(

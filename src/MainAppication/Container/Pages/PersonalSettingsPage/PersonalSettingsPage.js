@@ -1,5 +1,5 @@
 import React from "react";
-import {PersonalAvatar} from "../PersonalPage/PersonalInfo/PersonalAvatar/PersonalAvatar";
+import {PersonalAvatar} from "../PersonalPage/PersonalInfo/UserFullInfo/PersonalAvatar/PersonalAvatar";
 import {Input} from "./Input/Input";
 import {Textarea} from "./Textarea/Textarea";
 import {Authentication} from "./Authentication/Authentication";
