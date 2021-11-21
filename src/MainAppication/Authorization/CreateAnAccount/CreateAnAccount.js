@@ -1,6 +1,7 @@
 import React from "react";
 import {Input} from "../../Components/AuthorizationComponents/Input/Input";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
+import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
 
 export const CreateAnAccount = (props) => {
     return (
@@ -18,11 +19,7 @@ export const CreateAnAccount = (props) => {
                     <Button className={"auth__block__form__auth-button"} href={"#"} text={"Создать аккаунт"}/>
                     <div className="auth__block__form__sn">
                         <p>Или зарегистрируйтесь с помощью</p>
-                        <div className="auth__block__form__sn__icons">
-                            <a href="#">Google</a>
-                            <a href="#">VK</a>
-                            <a href="#">Facebook</a>
-                        </div>
+                        <SocialNetworks/>
                     </div>
                     <Button className={"auth__block__form__reg-button"} href={"#"}
                             text={"Войти в существующий аккаунт"}/>

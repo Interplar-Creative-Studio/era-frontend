@@ -1,9 +1,9 @@
 import React from "react";
 import {PersonalInfo} from "./PersonalInfo/PersonalInfo";
-import {Route, useRouteMatch} from "react-router-dom";
-import {Redirect, Switch} from "react-router";
+import {Route} from "react-router-dom";
+import {Switch} from "react-router";
 import {Gallery} from "./Gallery/Gallery";
-import {PERSONAL, PERSONAL_COLLECTIONS, PERSONAL_GALLERY, PERSONAL_STATISTICS} from "../../../../UrlsConst";
+import {PERSONAL_COLLECTIONS, PERSONAL_GALLERY, PERSONAL_STATISTICS} from "../../../../UrlsConst";
 import {Collections} from "./Collections/Collections";
 import {Statistics} from "./Statistics/Statistics";
 

@@ -17,7 +17,7 @@ export const DescriptionOfCollection = (props) => {
                     </div>
                 </div>
                 <div className="collection__description">
-                    <img src="assets/img/testImg3.png "/>
+                    <img alt={""} src="assets/img/testImg3.png "/>
                     <div className="collection__description__text-block">
                         <h3>Описание</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi deleniti ipsam, ipsum labore minima neque provident veritatis. A accusamus animi impedit laudantium minima praesentium quia quibusdam ratione, ullam voluptate.</p>

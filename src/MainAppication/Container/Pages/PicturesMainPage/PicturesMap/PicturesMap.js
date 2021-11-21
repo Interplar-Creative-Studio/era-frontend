@@ -14,7 +14,7 @@ export const PicturesMap = (props) => {
     return (
         <div className="main main-first">
             <div className="picture__page">
-                {pictures.map(pic => <Picture imgLink={pic.imgLink} img={pic.img} pictureNameLink={pic.pictureNameLink}
+                {pictures.map((pic,i) => <Picture key={i} imgLink={pic.imgLink} img={pic.img} pictureNameLink={pic.pictureNameLink}
                                               pictureName={pic.pictureName}/>)}
             </div>
         </div>
