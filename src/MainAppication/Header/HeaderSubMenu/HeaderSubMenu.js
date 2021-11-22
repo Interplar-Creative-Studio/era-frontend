@@ -1,9 +1,11 @@
 import React from "react";
 import {MenuElement} from "../../Components/MenuElement/MenuElement/MenuElement";
 import {TabPanelIcons} from "./TabPanelIcons/TabPanelIcons";
+import {PICTURE_PAGE} from "../../../UrlsConst";
+import {MenuMap} from "../../Components/MenuElement/MenuMap";
 
 let menu = [
-    {href: "#", text: "Wallpapers"},
+    {href: PICTURE_PAGE, text: "Wallpapers"},
     {href: "#", text: "3D Renders"},
     {href: "#", text: "Textures & Patterns"},
     {href: "#", text: "Architecture"},
@@ -19,7 +21,7 @@ export const HeaderSubMenu = (props) => {
     return(
         <div className="menu__second-block container">
             <ul>
-                {menu.map((item, i) => <MenuElement key={i} menulink={item.href} menuName={item.text}/>)}
+                <MenuMap arr={menu}/>
             </ul>
             <TabPanelIcons/>
         </div>

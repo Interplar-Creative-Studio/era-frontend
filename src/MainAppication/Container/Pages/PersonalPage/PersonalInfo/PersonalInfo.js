@@ -4,6 +4,7 @@ import {Settings} from "../../../../Components/Icons/Settings";
 import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
 import {UserFullInfo} from "./UserFullInfo/UserFullInfo";
 import {MenuMap} from "../../../../Components/MenuElement/MenuMap";
+import {PERSONAL_SETTINGS} from "../../../../../UrlsConst";
 
 
 let person = {
@@ -31,7 +32,7 @@ export const PersonalInfo = (props) => {
                     <UserFullInfo person={person} img={"assets/img/testImg4.png"}/>
                     <div className="personal-area__profile__description__icons">
                         <Share color={"black"}/>
-                        <Settings color={"black"}/>
+                        <Settings color={"black"} href={PERSONAL_SETTINGS}/>
                         <MoreOptions color={"black"}/>
                     </div>
                 </div>

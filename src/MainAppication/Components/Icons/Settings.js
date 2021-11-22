@@ -2,8 +2,8 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 export const Settings = (props) => {
-    return(
-        <NavLink to="#">
+    return (
+        <NavLink to={props.href ?? "#"}>
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M30 0H0V30H30V0Z" fill="white" fillOpacity="0.01"/>
                 <path

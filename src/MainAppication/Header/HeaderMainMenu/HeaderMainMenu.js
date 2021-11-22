@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import {Notification} from "./Notification/Notification";
 import {Message} from "./Message/Message";
 import {User} from "../../Components/User/User";
+import {PERSONAL} from "../../../UrlsConst";
 export const HeaderMainMenu = () => {
     return(
         <div className="menu__first-block">
@@ -16,7 +17,7 @@ export const HeaderMainMenu = () => {
             <Search/>
             <Notification/>
             <Message/>
-            <User imgLink={"#"} img={"assets/img/ProfileLogo.png"} nameLink={"#"} name={"Top Waifu"}/>
+            <User imgLink={PERSONAL} img={"assets/img/ProfileLogo.png"} nameLink={PERSONAL} name={"Top Waifu"}/>
         </div>
     );
 };
