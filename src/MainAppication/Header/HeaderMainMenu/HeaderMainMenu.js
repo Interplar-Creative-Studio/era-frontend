@@ -4,11 +4,11 @@ import {NavLink} from "react-router-dom";
 import {Notification} from "./Notification/Notification";
 import {Message} from "./Message/Message";
 import {User} from "../../Components/User/User";
-import {PERSONAL} from "../../../UrlsConst";
+import {PERSONAL, PICTURE_PAGE} from "../../../UrlsConst";
 export const HeaderMainMenu = () => {
     return(
         <div className="menu__first-block">
-            <NavLink to="#" className="menu__first-block__logo">
+            <NavLink to={PICTURE_PAGE} className="menu__first-block__logo">
                 <p>Era</p>
             </NavLink>
             <div className="menu__first-block__description">
