@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {Notification} from "../../Components/Icons/Notification";
 import {User} from "../../Components/User/User";
 import {PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
-import {Card} from "../../Components/Icons/Card";
+import {Cart} from "../../Components/Icons/Cart";
 
 
 export const HeaderMainMenu = () => {
@@ -20,8 +20,9 @@ export const HeaderMainMenu = () => {
                 <p>Лента</p>
             </div>
             <Search/>
-            <Notification amount={"1"} onMouseOver={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}  notification={notification}/>
-            <Card/>
+            <Notification amount={"1"} onClick={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}
+                          notification={notification}/>
+            <Cart/>
             <User imgLink={link} img={"assets/img/ProfileLogo.png"} nameLink={link} name={"Top Waifu"}/>
         </div>
     );
