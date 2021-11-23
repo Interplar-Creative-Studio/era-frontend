@@ -1,15 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import {Search} from "./Search/Search";
 import {NavLink} from "react-router-dom";
 import {Notification} from "../../Components/Icons/Notification";
-import {Message} from "../../Components/Icons/Message";
 import {User} from "../../Components/User/User";
 import {PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
 import {Card} from "../../Components/Icons/Card";
-import {NotificationModal} from "./NotificationModal/NotificationModal";
 
 
 export const HeaderMainMenu = () => {
+    let link = `${PERSONAL}?name=${PERSONAL_GALLERY}`;
+    const [notification, setNotification] = useState(false);
+
     return(
         <div className="menu__first-block">
             <NavLink to={PICTURE_PAGE} className="menu__first-block__logo">
@@ -19,10 +20,9 @@ export const HeaderMainMenu = () => {
                 <p>Лента</p>
             </div>
             <Search/>
-            <Notification amount={"1"}/>
-            <NotificationModal/>
+            <Notification amount={"1"} onMouseOver={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}  notification={notification}/>
             <Card/>
-            <User imgLink={`${PERSONAL}?name=${PERSONAL_GALLERY}`} img={"assets/img/ProfileLogo.png"} nameLink={PERSONAL} name={"Top Waifu"}/>
+            <User imgLink={link} img={"assets/img/ProfileLogo.png"} nameLink={link} name={"Top Waifu"}/>
         </div>
     );
 };

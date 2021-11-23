@@ -1,5 +1,4 @@
 import React from "react";
-import {MenuElement} from "../../Components/MenuElement/MenuElement/MenuElement";
 import {TabPanelIcons} from "./TabPanelIcons/TabPanelIcons";
 import {PICTURE_PAGE} from "../../../UrlsConst";
 import {MenuMap} from "../../Components/MenuElement/MenuMap";

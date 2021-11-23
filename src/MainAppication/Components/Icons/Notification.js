@@ -1,9 +1,12 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {NotificationModal} from "../../Header/HeaderMainMenu/NotificationModal/NotificationModal";
 
 export const Notification = (props) => {
     return (
-        <div onClick={props.onClick} className="menu__first-block__burger__block__icons__notification menu__first-block__notification" id="notification-activator-mini">
+        <div onMouseOver={props.onMouseOver} onMouseLeave={props.onMouseLeave}
+             className="menu__first-block__burger__block__icons__notification menu__first-block__notification"
+             id="notification-activator-mini">
             <NavLink to="#">
                 <svg width="24" height="24" viewBox="0 0 24 24"
                      fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +20,7 @@ export const Notification = (props) => {
                           stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <div className="notification-alert"><span>{props.amount}</span></div>
+                {props.notification && <NotificationModal onMouseOver={props.onMouseOver}/>}
             </NavLink>
         </div>
     );

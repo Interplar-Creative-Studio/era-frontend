@@ -1,14 +1,17 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 export const TabPanelIcons = (props) => {
     return(
-        <div className="menu__third-block"><a href="#">
+        <div className="menu__third-block">
+            <NavLink to="#">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M10.9999 0.333374C10.2635 0.333374 9.66658 0.930334 9.66658 1.66671V9.66671H1.66659C0.930212 9.66671 0.333252 10.2636 0.333252 11C0.333252 11.7364 0.930212 12.3334 1.66659 12.3334H9.66658V20.3334C9.66658 21.0698 10.2635 21.6667 10.9999 21.6667C11.7363 21.6667 12.3333 21.0698 12.3333 20.3334V12.3334H20.3333C21.0697 12.3334 21.6666 11.7364 21.6666 11C21.6666 10.2636 21.0697 9.66671 20.3333 9.66671H12.3333V1.66671C12.3333 0.930334 11.7363 0.333374 10.9999 0.333374Z"
                     fill="black"/>
             </svg>
-        </a><a href="#">
+        </NavLink>
+            <NavLink to="#">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M32 0H0V32H32V0Z" fill="white" fillOpacity="0.01"/>
                 <path
@@ -21,6 +24,6 @@ export const TabPanelIcons = (props) => {
                       d="M15.9999 25.0833C16.9204 25.0833 17.6666 24.3371 17.6666 23.4167C17.6666 22.4962 16.9204 21.75 15.9999 21.75C15.0795 21.75 14.3333 22.4962 14.3333 23.4167C14.3333 24.3371 15.0795 25.0833 15.9999 25.0833Z"
                       fill="black"/>
             </svg>
-        </a></div>
+        </NavLink></div>
     );
 };

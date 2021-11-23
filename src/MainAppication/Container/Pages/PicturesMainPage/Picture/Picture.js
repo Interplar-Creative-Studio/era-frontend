@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
 import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
 import {Share} from "../../../../Components/Icons/Share";
@@ -9,6 +9,10 @@ import {LikeActive} from "../../../../Components/Icons/Like/LikeActive";
 import {SaveFolderActive} from "../../../../Components/Icons/SaveFolder/SaveFolderActive";
 
 export const Picture = (props) => {
+    const [like, setLike] = useState(false);
+    const [save, setSave] = useState(false);
+    const onClickLike = () => { setLike(!like); };
+    const onClickSave = () => { setSave(!save); };
     return (
         <div className="main__page__picture">
             <NavLink to={props.imgLink}><img src={props.img} alt={""}/>
@@ -20,16 +24,10 @@ export const Picture = (props) => {
                         <Share color={"white"}/>
                     </div>
                     <div className="main__page__picture__hidden-info__save-icon">
-                        <SaveFolder color={"white"}/>
-                    </div>
-                    <div className="main__page__picture__hidden-info__save-icon-active">
-                        <SaveFolderActive/>
+                        {save ?  <SaveFolderActive onClick={onClickSave}/> : <SaveFolder onClick={onClickSave} color={"white"}/> }
                     </div>
                     <div className="main__page__picture__hidden-info__like-icon">
-                        <Like color={"white"}/>
-                    </div>
-                    <div className="main__page__picture__hidden-info__like-icon-active">
-                        <LikeActive color={"white"}/>
+                        {like ? <LikeActive color={"white"} onClick={onClickLike}/> : <Like color={"white"} onClick={onClickLike}/>}
                     </div>
                 </div>
 
