@@ -20,7 +20,8 @@ export const HeaderMainMenu = () => {
                 <p>Лента</p>
             </div>
             <Search/>
-            <Notification amount={"1"} onMouseOver={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}  notification={notification}/>
+            <Notification amount={"1"} onClick={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}
+                          notification={notification}/>
             <Cart/>
             <User imgLink={link} img={"assets/img/ProfileLogo.png"} nameLink={link} name={"Top Waifu"}/>
         </div>

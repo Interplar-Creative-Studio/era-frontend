@@ -18,10 +18,10 @@ export const CartElem = (props) => {
                     <Question/>
                 </div>
                 <p>Фотография доступна для комерческого использования.</p>
-                    <Delete/>
+                    <Delete background={"white"} color={"black"}/>
             </div>
             <div className="cart__contents__unit__price">
-                <p>{cart.price}</p>
+                <p>{cart.price}p</p>
             </div>
         </div>
     );

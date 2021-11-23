@@ -4,7 +4,7 @@ import {NotificationModal} from "../../Header/HeaderMainMenu/NotificationModal/N
 
 export const Notification = (props) => {
     return (
-        <div onMouseOver={props.onMouseOver} onMouseLeave={props.onMouseLeave}
+        <div onClick={props.onClick} onMouseLeave={props.onMouseLeave}
              className="menu__first-block__burger__block__icons__notification menu__first-block__notification"
              id="notification-activator-mini">
             <NavLink to="#">
