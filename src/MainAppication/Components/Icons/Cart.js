@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 
-export const Card = (props) => {
+export const Cart = (props) => {
     return(
         <div className="menu__first-block__cart">
             <NavLink to={props.href ?? "#"}>
