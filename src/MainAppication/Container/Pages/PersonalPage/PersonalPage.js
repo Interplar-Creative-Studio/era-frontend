@@ -2,7 +2,7 @@ import React from "react";
 import {PersonalInfo} from "./PersonalInfo/PersonalInfo";
 import {useLocation} from "react-router-dom";
 import {Gallery} from "./Gallery/Gallery";
-import {PERSONAL} from "../../../../UrlsConst";
+import {PERSONAL, PERSONAL_COLLECTIONS, PERSONAL_GALLERY, PERSONAL_STATISTICS} from "../../../../UrlsConst";
 import {Collections} from "./Collections/Collections";
 import {Statistics} from "./Statistics/Statistics";
 import {PersonalMenu} from "./PersonalInfo/PersonalMenu/PersonalMenu";
@@ -23,9 +23,9 @@ let images = [
 ];*/
 
 let menu = [
-    {href: `${PERSONAL}?name=gallery`, text: "Галерея"},
-    {href: `${PERSONAL}?name=collections`, text: "Коллекции"},
-    {href: `${PERSONAL}?name=statistics`, text: "Статистика"},
+    {href: `${PERSONAL}?name=${PERSONAL_GALLERY}`, text: "Галерея"},
+    {href: `${PERSONAL}?name=${PERSONAL_COLLECTIONS}`, text: "Коллекции"},
+    {href: `${PERSONAL}?name=${PERSONAL_STATISTICS}`, text: "Статистика"},
 ];
 function useQuery() {
     const { search } = useLocation();
@@ -51,9 +51,9 @@ function Child({ name }) {
     //TODO:: заменить сравнения строк
     return (
         <div>
-            {name === "gallery" && <Gallery images={images}/>}
-            {name === "collections" && <Collections/>}
-            {name === "statistics" && <Statistics/>}
+            {name === PERSONAL_GALLERY && <Gallery images={images}/>}
+            {name === PERSONAL_COLLECTIONS && <Collections/>}
+            {name === PERSONAL_STATISTICS && <Statistics/>}
         </div>
     );
 }

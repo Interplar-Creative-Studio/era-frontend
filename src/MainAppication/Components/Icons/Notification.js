@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 export const Notification = (props) => {
     return (
-        <div className="menu__first-block__notification">
+        <div onClick={props.onClick} className="menu__first-block__burger__block__icons__notification menu__first-block__notification" id="notification-activator-mini">
             <NavLink to="#">
                 <svg width="24" height="24" viewBox="0 0 24 24"
                      fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,6 +16,7 @@ export const Notification = (props) => {
                     <path d="M12 22C13.3807 22 14.5 20.8807 14.5 19.5V19H9.5V19.5C9.5 20.8807 10.6193 22 12 22Z"
                           stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
+                <div className="notification-alert"><span>{props.amount}</span></div>
             </NavLink>
         </div>
     );

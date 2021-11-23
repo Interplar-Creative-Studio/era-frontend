@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {Views} from "../../../../Components/Icons/Views";
-import {FilledLike} from "../../../../Components/Icons/FilledLike";
+import {IconsForPictures} from "./Icons/IconsForPictures";
+
 
 export const PictureForPersonalPage = (props) => {
     return (
@@ -11,16 +11,7 @@ export const PictureForPersonalPage = (props) => {
                 </NavLink>
                 <div className="personal-area__galery__unit__description">
                     <p>{props.pictureName}</p>
-                    <div className="personal-area__galery__unit__description__stats">
-                        <div className="personal-area__galery__unit__description__stats__views">
-                            <Views/>
-                            <p>{props.views}</p>
-                        </div>
-                        <div className="personal-area__galery__unit__description__stats__likes">
-                           <FilledLike/>
-                            <p>{props.likes}</p>
-                        </div>
-                    </div>
+                    <IconsForPictures views={props.views} likes={props.likes}/>
                 </div>
             </div>
 

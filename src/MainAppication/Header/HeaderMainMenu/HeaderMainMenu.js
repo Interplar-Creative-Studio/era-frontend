@@ -1,10 +1,14 @@
 import React from "react";
 import {Search} from "./Search/Search";
 import {NavLink} from "react-router-dom";
-import {Notification} from "./Notification/Notification";
-import {Message} from "./Message/Message";
+import {Notification} from "../../Components/Icons/Notification";
+import {Message} from "../../Components/Icons/Message";
 import {User} from "../../Components/User/User";
-import {PERSONAL, PICTURE_PAGE} from "../../../UrlsConst";
+import {PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
+import {Card} from "../../Components/Icons/Card";
+import {NotificationModal} from "./NotificationModal/NotificationModal";
+
+
 export const HeaderMainMenu = () => {
     return(
         <div className="menu__first-block">
@@ -15,9 +19,10 @@ export const HeaderMainMenu = () => {
                 <p>Лента</p>
             </div>
             <Search/>
-            <Notification/>
-            <Message/>
-            <User imgLink={PERSONAL} img={"assets/img/ProfileLogo.png"} nameLink={PERSONAL} name={"Top Waifu"}/>
+            <Notification amount={"1"}/>
+            <NotificationModal/>
+            <Card/>
+            <User imgLink={`${PERSONAL}?name=${PERSONAL_GALLERY}`} img={"assets/img/ProfileLogo.png"} nameLink={PERSONAL} name={"Top Waifu"}/>
         </div>
     );
 };
