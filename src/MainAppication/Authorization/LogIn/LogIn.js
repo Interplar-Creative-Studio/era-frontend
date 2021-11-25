@@ -5,6 +5,7 @@ export const LogIn = (props) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState({login: "", password: ""});
+    console.log(user);
     const changeLogin = (e) => {
         setLogin(e.target.value);
     };
