@@ -23,16 +23,15 @@ export const Container = () => {
     return (
         <Switch>
             <Route exact path="/">
-                <Redirect to={ADD_PHOTO}/>
+                <Redirect to={PICTURE_PAGE}/>
             </Route>
-            <Route path={PICTURE_PAGE} render={() => <PicturesMainPage/>}/>
-            <Route path={PERSONAL} render={() => <PersonalPage/>}/>
-            <Route path={PERSONAL_SETTINGS} render={() => <PersonalSettingsPage/>}/>
-            <Route path={COLLECTIONS} render={() => <Collections/>}/>
-            <Route path={CART} render={()=><Cart/>}/>
-            <Route path={INFORMATION_ABOUT_PHOTO} render={()=><InformationAboutPhoto/>}/>
-            <Route path={ADD_PHOTO} render={()=><AddPhoto/>}/>
-
+            <Route exact path={PICTURE_PAGE} render={() => <PicturesMainPage/>}/>
+            <Route exact path={PERSONAL} render={() => <PersonalPage/>}/>
+            <Route exact path={PERSONAL_SETTINGS} render={() => <PersonalSettingsPage/>}/>
+            <Route exact path={COLLECTIONS} render={() => <Collections/>}/>
+            <Route exact path={CART} render={()=><Cart/>}/>
+            <Route exact path={INFORMATION_ABOUT_PHOTO} render={()=><InformationAboutPhoto/>}/>
+            <Route exact path={ADD_PHOTO} render={()=><AddPhoto/>}/>
         </Switch>
 
     );

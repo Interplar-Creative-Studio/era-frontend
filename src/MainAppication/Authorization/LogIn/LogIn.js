@@ -4,6 +4,7 @@ import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
 
 export const LogIn = (props) => {
+    console.log("!!!"); 
     return(
         <div className="auth reg">
             <div className="auth__block reg__block"><h3>Era</h3>
