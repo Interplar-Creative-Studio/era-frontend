@@ -3,9 +3,7 @@ import {Share} from "../../../../Components/Icons/Share";
 import {Settings} from "../../../../Components/Icons/Settings";
 import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
 import {UserFullInfo} from "./UserFullInfo/UserFullInfo";
-import {PERSONAL_SETTINGS} from "../../../../../UrlsConst";
-import {PersonalMenu} from "./PersonalMenu/PersonalMenu";
-
+import {PERSONAL_SETTINGS, PERSONAL_SETTINGS_PROFILE} from "../../../../../UrlsConst";
 
 let person = {
     profileName: "Top Waifu",
@@ -16,8 +14,6 @@ let person = {
 };
 
 
-
-
 export const PersonalInfo = (props) => {
     return (
             <div className="personal-area__profile">
@@ -25,7 +21,7 @@ export const PersonalInfo = (props) => {
                     <UserFullInfo person={person} img={"assets/img/testImg2.png"}/>
                     <div className="personal-area__profile__description__icons">
                         <Share color={"black"}/>
-                        <Settings color={"black"} href={PERSONAL_SETTINGS}/>
+                        <Settings color={"black"} href={`${PERSONAL_SETTINGS}?settings=${PERSONAL_SETTINGS_PROFILE}`}/>
                         <MoreOptions color={"black"}/>
                     </div>
                 </div>
