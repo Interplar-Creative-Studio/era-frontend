@@ -1,7 +1,13 @@
 import React from "react";
 import {PersonalInfo} from "./PersonalInfo/PersonalInfo";
 import {Gallery} from "./Gallery/Gallery";
-import {PERSONAL, PERSONAL_COLLECTIONS, PERSONAL_GALLERY, PERSONAL_STATISTICS} from "../../../../UrlsConst";
+import {
+    COLLECTIONS,
+    PERSONAL,
+    PERSONAL_COLLECTIONS,
+    PERSONAL_GALLERY,
+    PERSONAL_STATISTICS
+} from "../../../../UrlsConst";
 import {Collections} from "./Collections/Collections";
 import {Statistics} from "./Statistics/Statistics";
 import {PersonalMenu} from "./PersonalInfo/PersonalMenu/PersonalMenu";
@@ -16,11 +22,16 @@ let images = [
     {imgLink: "#", img: "assets/img/testImg4.png", pictureName: "Caption caption", views: 123, likes: 45},
     {imgLink: "#", img: "assets/img/testImg4.png", pictureName: "Caption caption", views: 123, likes: 45},
 ];
-/*let menu = [
-    {href: `/gallery`, text: "Галерея"},
-    {href: `/collections`, text: "Коллекции"},
-    {href: `/statistics`, text: "Статистика"},
-];*/
+
+let collections = [
+    {imgLink: COLLECTIONS, img: "assets/img/testImg4.png", pictureName: "Caption caption"},
+    {imgLink: COLLECTIONS, img: "assets/img/testImg4.png", pictureName: "Caption caption"},
+    {imgLink: COLLECTIONS, img: "assets/img/testImg4.png", pictureName: "Caption caption"},
+    {imgLink: COLLECTIONS, img: "assets/img/testImg4.png", pictureName: "Caption caption"},
+    {imgLink: COLLECTIONS, img: "assets/img/testImg4.png", pictureName: "Caption caption"},
+    {imgLink: COLLECTIONS, img: "assets/img/testImg4.png", pictureName: "Caption caption"},
+    {imgLink: COLLECTIONS, img: "assets/img/testImg4.png", pictureName: "Caption caption"},
+];
 
 let menu = [
     {href: `${PERSONAL}?name=${PERSONAL_GALLERY}`, text: "Галерея"},
@@ -47,7 +58,7 @@ function Child({ name }) {
     return (
         <div>
             {name === PERSONAL_GALLERY && <Gallery images={images}/>}
-            {name === PERSONAL_COLLECTIONS && <Collections/>}
+            {name === PERSONAL_COLLECTIONS && <Collections collections={collections}/>}
             {name === PERSONAL_STATISTICS && <Statistics/>}
         </div>
     );

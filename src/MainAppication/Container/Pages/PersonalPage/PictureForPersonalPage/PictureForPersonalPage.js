@@ -4,14 +4,15 @@ import {IconsForPictures} from "./Icons/IconsForPictures";
 
 
 export const PictureForPersonalPage = (props) => {
+    let image = props.image;
     return (
             <div className="personal-area__galery__unit">
-                <NavLink to={props.imgLink}>
-                    <img alt={""} src={props.img}/>
+                <NavLink to={image.imgLink}>
+                    <img alt={""} src={image.img}/>
                 </NavLink>
                 <div className="personal-area__galery__unit__description">
-                    <p>{props.pictureName}</p>
-                    <IconsForPictures views={props.views} likes={props.likes}/>
+                    <p>{image.pictureName}</p>
+                    <IconsForPictures views={image.views} likes={image.likes}/>
                 </div>
             </div>
 
