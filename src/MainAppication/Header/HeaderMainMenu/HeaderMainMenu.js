@@ -3,7 +3,7 @@ import {Search} from "./Search/Search";
 import {NavLink} from "react-router-dom";
 import {Notification} from "../../Components/Icons/Notification";
 import {User} from "../../Components/User/User";
-import {PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
+import {CART, PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
 import {Cart} from "../../Components/Icons/Cart";
 
 
@@ -22,7 +22,7 @@ export const HeaderMainMenu = () => {
             <Search/>
             <Notification amount={"1"} onClick={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}
                           notification={notification}/>
-            <Cart/>
+            <Cart href={CART}/>
             <User imgLink={link} img={"assets/img/ProfileLogo.png"} nameLink={link} name={"Top Waifu"}/>
         </div>
     );

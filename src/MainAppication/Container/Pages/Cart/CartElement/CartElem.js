@@ -18,7 +18,7 @@ export const CartElem = (props) => {
                     <Question/>
                 </div>
                 <p>Фотография доступна для комерческого использования.</p>
-                    <Delete background={"white"} color={"black"}/>
+                    <Delete background={"white"} color={"black"} deleteBtnOnClick={props.deleteBtnOnClick}/>
             </div>
             <div className="cart__contents__unit__price">
                 <p>{cart.price}p</p>

@@ -1,7 +1,5 @@
-
-
+export const PICTURE_PAGE = "/pictureMainPage";
 export const PERSONAL = "/personal";
-export const PICTURE_PAGE = "/picturePage";
 export const PERSONAL_SETTINGS = "/personalSettings";
 export const CART = "/cart";
 export const COLLECTIONS = "/collections";
