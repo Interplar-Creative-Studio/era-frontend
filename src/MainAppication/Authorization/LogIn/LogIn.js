@@ -1,29 +1,45 @@
-import React from "react";
-import {Input} from "../../Components/AuthorizationComponents/Input/Input";
-import {Button} from "../../Components/AuthorizationComponents/Button/Button";
-import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
-import {CREATE_AN_ACCOUNT} from "../../../UrlsConst";
+import React, {useState} from "react";
+import {LoginForm} from "./LoginForm/LoginForm";
 
-export const LogIn = (props) => {
-    console.log("!!!"); 
-    return(
-        <div className="auth reg">
-            <div className="auth__block reg__block"><h3>Era</h3>
-                <div className="auth__block__form"><h2>Вход</h2>
-                    <Input className={"auth__block__form__input"} text={"Логин"} type={"type"}
-                           placeholder={"Введите логин"}/>
-                    <Input className={"auth__block__form__input"} text={"Пароль"} type={"password"}
-                           placeholder={"Введите пароль"}/>
-                    <Button className={"auth__block__form__auth-button"} href={"#"} text={"Войти"}/>
-                    <div className="auth__block__form__sn">
-                        <p>Войти с помощью</p>
-                        <SocialNetworks/>
-                    </div>
-                    <Button className={"auth__block__form__reg-button"} href={CREATE_AN_ACCOUNT}
-                            text={"Нет аккаунта"}/>
-                </div>
+async function getUsers(){
+    const url = `http://37.140.198.127/api/auth/users/1`;
+    let response = await fetch(url, {headers: {'Access-Control-Allow-Origin': '*'}});
+    if (response.ok){
+        return await response.json();
+    }else {
+        return response.status;
+    }
+}
 
-            </div>
+export const LogIn = ({verify, match}) => {
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+    const [user, setUser] = useState({login: "", password: ""});
+    const [verified, setVerified] = useState(false);
+    const verify_account = (e) => {
+        const uid = match.params.uid;
+        const token = match.params.token;
+
+        verify(uid, token);
+        setVerified(true);
+    };
+
+    const changeLogin = (e) => {
+        setLogin(e.target.value);
+    };
+    const changePassword = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const submitButtonClick = () => {
+        setUser({...user, login: login, password: password})
+    }
+
+
+    return (
+        <div>
+            <LoginForm changeLogin={changeLogin} login={login} changePassword={changePassword} password={password}
+                       submitButtonClick={submitButtonClick} verified={verified}/>
         </div>
     );
 };

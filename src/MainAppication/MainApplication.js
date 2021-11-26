@@ -4,7 +4,7 @@ import {Container} from "./Container/Container";
 import {Switch} from "react-router";
 import {Route} from "react-router";
 import {LogIn} from "./Authorization/LogIn/LogIn";
-import {ALL_URL, CART, CREATE_AN_ACCOUNT, LOG_IN, PICTURE_PAGE} from "../UrlsConst";
+import {ALL_URL, CART, CREATE_AN_ACCOUNT, LOG_IN} from "../UrlsConst";
 import {CreateAnAccount} from "./Authorization/CreateAnAccount/CreateAnAccount";
 
 export const MainApplication = (props) => {
