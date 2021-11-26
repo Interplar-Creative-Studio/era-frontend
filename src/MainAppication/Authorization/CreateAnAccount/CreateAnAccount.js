@@ -4,19 +4,21 @@ import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
 import {LOG_IN} from "../../../UrlsConst";
 
+// 'Content-Type': 'multipart/form-data',
+// 'Content-Type': 'application/x-www-form-urlencoded'
+// 'Content-Type': 'text/plain'
+// 'Content-Type': 'application/json'
+
 async function sendUser(user) {
     const url = `http://37.140.198.127/api/auth/users/`;
     await fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(user),
-        referrerPolicy: "unsafe-url",
-        mode: "no-cors"
     });
-    //let result = await response.json();
-    //alert(result.message);
+
 }
 
 export const CreateAnAccount = (props) => {
@@ -24,6 +26,8 @@ export const CreateAnAccount = (props) => {
     const [createPassword, setCreatePassword] = useState("");
     const [createEmail, setCreateEmail] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
+    const [userName, setUserName] = useState("");
+    const [userSurname, setUserSurname] = useState("");
     const [createUser, setCreateUser] = useState({});
     // syperOlao
     // 2132343498LdsFS
@@ -49,12 +53,11 @@ export const CreateAnAccount = (props) => {
             alert(`Пароль содержит меньше ${passwordLength} символов`);
         } else {
             setCreateUser({...createUser, username: createLogin, password: createPassword, email: createEmail});
-            let user = {username: createLogin, password: createPassword, email: createEmail};
-            sendUser(user).then(res => console.log(res));
+            let user = {username: createLogin, password: createPassword, email: createEmail, first_name: userName, last_name: userSurname};
+            sendUser(user).then(res => console.log("res: ", res));
             console.log("json: ", JSON.stringify(user));
         }
     }
-
 
     console.log("user: ", createUser);
 
@@ -73,9 +76,15 @@ export const CreateAnAccount = (props) => {
                     <Input className={"auth__block__form__input"} text={"Повторите пароль"} type={"password"}
                            value={repeatPassword} onChange={changeRepeatPassword}
                            placeholder={"Повторите пароль"}/>
-                    <Input className={"auth__block__form__input"} text={"Электронная почта"} type={"type"}
+                    <Input className={"auth__block__form__input"} text={"Электронная почта"} type={"email"}
                            value={createEmail} onChange={changeCreateEmail}
                            placeholder={"Укажите электронную почту"}/>
+                    <Input className={"auth__block__form__input"} text={"Введите имя"} type={"text"}
+                           value={userName} onChange={(e)=>setUserName(e.target.value)}
+                           placeholder={"Имя"}/>
+                    <Input className={"auth__block__form__input"} text={"Введите фамилию"} type={"text"}
+                           value={userSurname} onChange={e => setUserSurname(e.target.value)}
+                           placeholder={"Фамилия"}/>
                     <Button className={"auth__block__form__auth-button"} href={"#"} text={"Создать аккаунт"}
                             onClick={onClickCreateUser}/>
                     <div className="auth__block__form__sn">
