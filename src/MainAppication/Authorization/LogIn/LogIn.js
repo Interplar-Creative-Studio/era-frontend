@@ -16,10 +16,10 @@ export const LogIn = ({verify, match}) => {
     const [password, setPassword] = useState("");
     const [user, setUser] = useState({login: "", password: ""});
     const [verified, setVerified] = useState(false);
+
     const verify_account = (e) => {
         const uid = match.params.uid;
         const token = match.params.token;
-
         verify(uid, token);
         setVerified(true);
     };
@@ -32,7 +32,8 @@ export const LogIn = ({verify, match}) => {
     }
 
     const submitButtonClick = () => {
-        setUser({...user, login: login, password: password})
+        setUser({...user, login: login, password: password});
+        getUsers();
     }
 
 

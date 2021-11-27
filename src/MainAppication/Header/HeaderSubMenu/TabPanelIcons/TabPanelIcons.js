@@ -1,10 +1,11 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {ADD_PHOTO, ADD_PHOTO_SETTINGS_PHOTO} from "../../../../UrlsConst";
 
 export const TabPanelIcons = (props) => {
     return(
         <div className="menu__third-block">
-            <NavLink to="#">
+            <NavLink to={`${ADD_PHOTO}?settings=${ADD_PHOTO_SETTINGS_PHOTO}`}>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M10.9999 0.333374C10.2635 0.333374 9.66658 0.930334 9.66658 1.66671V9.66671H1.66659C0.930212 9.66671 0.333252 10.2636 0.333252 11C0.333252 11.7364 0.930212 12.3334 1.66659 12.3334H9.66658V20.3334C9.66658 21.0698 10.2635 21.6667 10.9999 21.6667C11.7363 21.6667 12.3333 21.0698 12.3333 20.3334V12.3334H20.3333C21.0697 12.3334 21.6666 11.7364 21.6666 11C21.6666 10.2636 21.0697 9.66671 20.3333 9.66671H12.3333V1.66671C12.3333 0.930334 11.7363 0.333374 10.9999 0.333374Z"

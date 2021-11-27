@@ -15,3 +15,7 @@ export const PERSONAL_SETTINGS_ACCOUNT = `account`;
 export const PERSONAL_GALLERY = "gallery";
 export const PERSONAL_COLLECTIONS  = "collections";
 export const PERSONAL_STATISTICS = "statistics";
+
+export const ADD_PHOTO_SETTINGS_PHOTO = "settingsPhoto";
+export const ADD_PHOTO_SETTINGS_SERIES = "settingsSeries";
+export const ADD_PHOTO_SETTINGS_MONETIZATION = "settingsMonetization";
