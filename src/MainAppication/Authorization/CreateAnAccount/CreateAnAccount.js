@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Input} from "../../Components/AuthorizationComponents/Input/Input";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
 import {LOG_IN} from "../../../UrlsConst";
+import {signUpActionCreator,} from "../../../store/actionCreators/authorization/signUpActionCreator";
+import {connect} from 'react-redux';
 
 // 'Content-Type': 'multipart/form-data',
 // 'Content-Type': 'application/x-www-form-urlencoded'
@@ -21,7 +23,7 @@ async function sendUser(user) {
 
 }
 
-export const CreateAnAccount = (props) => {
+const CreateAnAccount = (props) => {
     const [createLogin, setCreateLogin] = useState("");
     const [createPassword, setCreatePassword] = useState("");
     const [createEmail, setCreateEmail] = useState("");
@@ -53,13 +55,26 @@ export const CreateAnAccount = (props) => {
             alert(`Пароль содержит меньше ${passwordLength} символов`);
         } else {
             setCreateUser({...createUser, username: createLogin, password: createPassword, email: createEmail});
-            let user = {username: createLogin, password: createPassword, email: createEmail, first_name: userName, last_name: userSurname};
+            let user = {
+                username: createLogin,
+                password: createPassword,
+                email: createEmail,
+                first_name: userName,
+                last_name: userSurname
+            };
             sendUser(user).then(res => console.log("res: ", res));
             console.log("json: ", JSON.stringify(user));
         }
+        let user1 = {
+            username: "syperOlao",
+            password: "2132343498LdsFS",
+            email: "olay1234538@gmail.com",
+            first_name: "Anna",
+            last_name: "Moklyakova"
+        };
+        props.singUp(user1);
     }
 
-    console.log("user: ", createUser);
 
     return (
         <div className="auth reg">
@@ -80,7 +95,7 @@ export const CreateAnAccount = (props) => {
                            value={createEmail} onChange={changeCreateEmail}
                            placeholder={"Укажите электронную почту"}/>
                     <Input className={"auth__block__form__input"} text={"Введите имя"} type={"text"}
-                           value={userName} onChange={(e)=>setUserName(e.target.value)}
+                           value={userName} onChange={(e) => setUserName(e.target.value)}
                            placeholder={"Имя"}/>
                     <Input className={"auth__block__form__input"} text={"Введите фамилию"} type={"text"}
                            value={userSurname} onChange={e => setUserSurname(e.target.value)}
@@ -98,3 +113,14 @@ export const CreateAnAccount = (props) => {
         </div>
     );
 };
+
+const mapDispatchToProps = {
+    singUp: signUpActionCreator,
+};
+
+const mapStateToProps = (state) => {
+    console.log("state: ", state);
+    return {state};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAnAccount)
