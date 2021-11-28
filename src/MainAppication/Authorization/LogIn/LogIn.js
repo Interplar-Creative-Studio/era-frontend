@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import {LoginForm} from "./LoginForm/LoginForm";
+import axios from 'axios';
 
 async function getUsers(){
-    const url = `http://37.140.198.127/api/auth/users/1`;
+    const url = `http://37.140.198.127/api/auth/users`;
     let response = await fetch(url, {headers: {'Access-Control-Allow-Origin': '*'}});
     if (response.ok){
         return await response.json();
@@ -10,6 +11,15 @@ async function getUsers(){
         return response.status;
     }
 }
+
+const continueWithGoogle = async () => {
+    try {
+        const res = await fetch.get(`${process.env.REACT_APP_API_URL}/auth/o/google-oauth2/?redirect_uri=${process.env.REACT_APP_API_URL}/google`)
+        window.location.replace(res.data.authorization_url);
+    } catch (err) {
+
+    }
+};
 
 export const LogIn = ({verify, match}) => {
     const [login, setLogin] = useState("");

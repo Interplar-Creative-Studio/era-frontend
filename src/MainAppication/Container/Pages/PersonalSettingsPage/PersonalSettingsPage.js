@@ -4,7 +4,8 @@ import {MenuSettings} from "./MenuSettings/MenuSettings";
 import {PERSONAL_SETTINGS, PERSONAL_SETTINGS_ACCOUNT, PERSONAL_SETTINGS_PROFILE} from "../../../../UrlsConst";
 import {useQuery} from "../../../Components/functions/functions";
 import {SettingsRoute} from "./SettingsPages/SettingsRoute";
-
+import {NavLink} from "react-router-dom";
+import {ExitButton} from "./ExitButton/ExitButton";
 
 
 let menu = [
@@ -23,6 +24,7 @@ export const PersonalSettingsPage = (props) => {
         <div className="container">
             <div className="personal-area__settings">
                 <PersonalAvatar img={"assets/img/testImg2.png"} href={"#"}/>
+                <ExitButton/>
                 <div className="personal-area__settings__area">
                     <SettingsRoute settings={query.get("settings")}/>
                 </div>
