@@ -1,9 +1,9 @@
 export function singUpFetch(user) {
-    const url = `http://37.140.198.127/api/auth/users/`;
+    const url = `${process.env.REACT_APP_API_URL}/api/auth/users/`;
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(user),
     }).then(res => {

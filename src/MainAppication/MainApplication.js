@@ -3,7 +3,7 @@ import {Header} from "./Header/Header";
 import {Container} from "./Container/Container";
 import {Switch} from "react-router";
 import {Route} from "react-router";
-import {LogIn} from "./Authorization/LogIn/LogIn";
+import LogIn from "./Authorization/LogIn/LogIn";
 import {ALL_URL, CREATE_AN_ACCOUNT, LOG_IN} from "../UrlsConst";
 import CreateAnAccount from "./Authorization/CreateAnAccount/CreateAnAccount";
 

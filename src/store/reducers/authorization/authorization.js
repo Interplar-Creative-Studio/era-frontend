@@ -1,7 +1,7 @@
 import React from "react";
 import {LOGIN_USER, SIGN_UP_SUCCESS} from "../../actionsTypes/actionsTypes";
 import {singUpFetch} from "./functions/signUp/sighUp";
-
+import {login} from "./functions/login/login";
 
 const initialState = {
     access: localStorage.getItem('access'),
@@ -14,7 +14,13 @@ const initialState = {
 export const authorization = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_USER:
-            return {...state, user: action.payload};
+            let token;
+            login(action.payload).then(res=> {
+                state.access = res.access;
+
+            });
+            console.log("token1: ", token);
+            return {...state, };
         case SIGN_UP_SUCCESS:
             singUpFetch(action.payload);
             return  {...state, isAuthenticated: false};
