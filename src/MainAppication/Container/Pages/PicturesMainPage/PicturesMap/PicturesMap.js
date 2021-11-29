@@ -1,21 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Picture} from "../Picture/Picture";
 
+
+function getPhotos(setPictures) {
+    const url = `${process.env.REACT_APP_API_URL}/api/photostock/`;
+    fetch(url).then(response => response.json().then(res => setPictures(res)));
+}
+
 export const PicturesMap = (props) => {
-    const pictures = [
-        {imgLink: "#", img: "assets/img/testImg2.png", pictureNameLink: "#", pictureName: "Caption caption"},
-        {imgLink: "#", img: "assets/img/testImg.png", pictureNameLink: "#", pictureName: "Caption caption"},
-        {imgLink: "#", img: "assets/img/testImg3.png", pictureNameLink: "#", pictureName: "Caption caption"},
-        {imgLink: "#", img: "assets/img/testImg2.png", pictureNameLink: "#", pictureName: "Caption caption"},
-        {imgLink: "#", img: "assets/img/testImg2.png", pictureNameLink: "#", pictureName: "Caption caption"},
-        {imgLink: "#", img: "assets/img/testImg1.png", pictureNameLink: "#", pictureName: "Caption caption"},
-        {imgLink: "#", img: "assets/img/testImg3.png", pictureNameLink: "#", pictureName: "Caption caption"},
-    ];
+    const [pictures, setPictures] = useState([]);
+    useEffect(() => {
+        getPhotos(setPictures);
+    }, []);
+
     return (
         <div className="main main-first">
             <div className="picture__page">
-                {pictures.map((pic,i) => <Picture key={i} imgLink={pic.imgLink} img={pic.img} pictureNameLink={pic.pictureNameLink}
-                                              pictureName={pic.pictureName}/>)}
+                {pictures.map((pic, i) => <Picture key={i} id={pic.id} imgLink={pic.imgLink ?? "#"}
+                                                                   img={`${process.env.REACT_APP_API_URL}${pic.series_photos[0]?.photo}`}
+                                                                   pictureNameLink={"#"}
+                                                                   pictureName={pic.name}/>)}
             </div>
         </div>
     );

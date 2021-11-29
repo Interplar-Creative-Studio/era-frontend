@@ -19,3 +19,4 @@ export const PERSONAL_STATISTICS = "statistics";
 export const ADD_PHOTO_SETTINGS_PHOTO = "settingsPhoto";
 export const ADD_PHOTO_SETTINGS_SERIES = "settingsSeries";
 export const ADD_PHOTO_SETTINGS_MONETIZATION = "settingsMonetization";
+
