@@ -83,7 +83,15 @@ const LogIn = (props) => {
         </div>
     );
 };
+
+const mapStateToProps = (state) => {
+    console.log("login state: ", state);
+ return {
+     state: state,
+ }
+};
+
 const mapDispatchToProps = {
     logIn: logInActionCreator,
 }
-export default connect(null, mapDispatchToProps)(LogIn);
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
