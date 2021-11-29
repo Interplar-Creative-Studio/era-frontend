@@ -9,12 +9,13 @@ import {LikeActive} from "../../../../Components/Icons/Like/LikeActive";
 import {SaveFolderActive} from "../../../../Components/Icons/SaveFolder/SaveFolderActive";
 
 export const Picture = (props) => {
+    console.log("props.img: ", props.img);
     const [like, setLike] = useState(false);
     const [save, setSave] = useState(false);
     const onClickLike = () => { setLike(!like); };
     const onClickSave = () => { setSave(!save); };
     return (
-        <div className="main__page__picture">
+        <div className="main__page__picture" id={props.id}>
             <NavLink to={props.imgLink}><img src={props.img} alt={""}/>
                 <div className="main__page__picture__hidden-info">
                     <div className="main__page__picture__hidden-info__more-button">
