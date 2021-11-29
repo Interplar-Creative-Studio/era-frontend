@@ -2,28 +2,20 @@ import React, {useState} from "react";
 import {Input} from "../../Components/AuthorizationComponents/Input/Input";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
-import {LOG_IN} from "../../../UrlsConst";
-import {signUpActionCreator,} from "../../../store/actionCreators/authorization/signUpActionCreator";
+import {LOG_IN, PICTURE_PAGE} from "../../../UrlsConst";
 import {connect} from 'react-redux';
+import {signup} from "../../../store/actions/auth";
 
-// 'Content-Type': 'multipart/form-data',
-// 'Content-Type': 'application/x-www-form-urlencoded'
-// 'Content-Type': 'text/plain'
-// 'Content-Type': 'application/json'
 
-async function sendUser(user) {
-    const url = `http://37.140.198.127/api/auth/users/`;
-    await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user),
-    });
+/*let user1 = {
+    username: "syperOlao",
+    password: "2132343498LdsFS",
+    email: "olay1234538@gmail.com",
+    first_name: "Anna",
+    last_name: "Moklyakova"
+};*/
 
-}
-
-const CreateAnAccount = (props) => {
+const CreateAnAccount = ({signup, isAuthenticated}) => {
     const [createLogin, setCreateLogin] = useState("");
     const [createPassword, setCreatePassword] = useState("");
     const [createEmail, setCreateEmail] = useState("");
@@ -60,17 +52,8 @@ const CreateAnAccount = (props) => {
                 first_name: userName,
                 last_name: userSurname
             };
-            sendUser(user).then(res => console.log("res: ", res));
-            console.log("json: ", JSON.stringify(user));
+            signup(user);
         }
-        let user1 = {
-            username: "syperOlao",
-            password: "2132343498LdsFS",
-            email: "olay1234538@gmail.com",
-            first_name: "Anna",
-            last_name: "Moklyakova"
-        };
-        props.singUp(user1);
     }
 
 
@@ -98,7 +81,8 @@ const CreateAnAccount = (props) => {
                     <Input className={"auth__block__form__input"} text={"Введите фамилию"} type={"text"}
                            value={userSurname} onChange={e => setUserSurname(e.target.value)}
                            placeholder={"Фамилия"}/>
-                    <Button className={"auth__block__form__auth-button"} href={"#"} text={"Создать аккаунт"}
+                    <Button className={"auth__block__form__auth-button"} href={isAuthenticated ? PICTURE_PAGE : "#"}
+                            text={"Создать аккаунт"}
                             onClick={onClickCreateUser}/>
                     <div className="auth__block__form__sn">
                         <p>Или зарегистрируйтесь с помощью</p>
@@ -112,13 +96,9 @@ const CreateAnAccount = (props) => {
     );
 };
 
-const mapDispatchToProps = {
-    singUp: signUpActionCreator,
-};
 
 const mapStateToProps = (state) => {
-    console.log("state: ", state);
-    return {state};
+    return {isAuthenticated: state.auth.isAuthenticated};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateAnAccount)
+export default connect(mapStateToProps, {signup})(CreateAnAccount)

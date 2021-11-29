@@ -3,5 +3,5 @@ import {NavLink} from "react-router-dom";
 
 
 export const MenuElement = (props) => {
-    return(<li><NavLink to={props.menulink}>{props.menuName}</NavLink></li>);
+    return(<li onClick={props.onClick ?? null}><NavLink to={props.menulink}>{props.menuName}</NavLink></li>);
 };

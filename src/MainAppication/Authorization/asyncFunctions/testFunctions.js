@@ -19,3 +19,15 @@ export const sendVerify = async () => {
         //mode: "no-cors",
     })
 }
+
+async function sendUser(user) {
+    const url = `http://37.140.198.127/api/auth/users/`;
+    await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user),
+    });
+
+}
