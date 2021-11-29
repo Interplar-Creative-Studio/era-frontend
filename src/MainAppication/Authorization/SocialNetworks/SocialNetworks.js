@@ -3,9 +3,9 @@ import {MenuMap} from "../../Components/MenuElement/MenuMap";
 
 export const SocialNetworks = (props) => {
     let socialNetworks = [
-        {href: "#", text: "Google"},
+        {href: "#", text: "Google", onClick: props.onClickGoogle},
         {href: "#", text: "VK"},
-        {href: "#", text: "Facebook"},
+        {href: "#", text: "Facebook", onClick: props.onClickFacebook},
 
     ];
     return (

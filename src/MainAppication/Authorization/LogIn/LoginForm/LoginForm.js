@@ -10,16 +10,19 @@ export const LoginForm = (props) => {
         <div className="auth reg">
             <div className="auth__block reg__block"><h3>Era</h3>
                 <div className="auth__block__form"><h2>Вход</h2>
-                    <Input onChange={props.changeLogin} value={props.login} className={"auth__block__form__input"}
+                    <Input onChange={props.changeUsername} value={props.username} className={"auth__block__form__input"}
                            text={"Логин"} type={"type"}
                            placeholder={"Введите логин"}/>
                     <Input onChange={props.changePassword} value={props.password} className={"auth__block__form__input"}
                            text={"Пароль"} type={"password"}
                            placeholder={"Введите пароль"}/>
-                    <Button className={"auth__block__form__auth-button"} href={props.verified ? PICTURE_PAGE : "#"} text={"Войти"}  onClick={props.submitButtonClick}/>
+                    <Button className={"auth__block__form__auth-button"} href={props.isAuthenticated ? PICTURE_PAGE : "#"} text={"Войти"}  onClick={props.submitButtonClick}/>
                     <div className="auth__block__form__sn">
                         <p>Войти с помощью</p>
-                        <SocialNetworks/>
+                        <SocialNetworks
+                            onClickFacebook={props.onClickFacebook}
+                            onClickGoogle={props.onClickGoogle}
+                        />
                     </div>
                     <Button className={"auth__block__form__reg-button"} href={CREATE_AN_ACCOUNT}
                             text={"Нет аккаунта"} />
