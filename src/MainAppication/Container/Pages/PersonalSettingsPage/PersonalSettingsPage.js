@@ -4,7 +4,6 @@ import {MenuSettings} from "./MenuSettings/MenuSettings";
 import {PERSONAL_SETTINGS, PERSONAL_SETTINGS_ACCOUNT, PERSONAL_SETTINGS_PROFILE} from "../../../../UrlsConst";
 import {useQuery} from "../../../Components/functions/functions";
 import {SettingsRoute} from "./SettingsPages/SettingsRoute";
-import {NavLink} from "react-router-dom";
 import {ExitButton} from "./ExitButton/ExitButton";
 
 

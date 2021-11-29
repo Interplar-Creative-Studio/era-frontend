@@ -150,14 +150,14 @@ export const checkAuthenticated = () => async dispatch => {
     }
 };
 
-export const login = (email, password) => async dispatch => {
+export const login = (user) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
 
-    const body = JSON.stringify({ email, password });
+    const body = JSON.stringify(user);
 
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/jwt/create/`, body, config);
@@ -175,14 +175,14 @@ export const login = (email, password) => async dispatch => {
     }
 };
 
-export const signup = (first_name, last_name, email, password, re_password) => async dispatch => {
+export const signup = (user) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
 
-    const body = JSON.stringify({ first_name, last_name, email, password, re_password });
+    const body = JSON.stringify(user);
 
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/`, body, config);

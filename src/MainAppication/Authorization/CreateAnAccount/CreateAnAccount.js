@@ -31,9 +31,7 @@ const CreateAnAccount = (props) => {
     const [userName, setUserName] = useState("");
     const [userSurname, setUserSurname] = useState("");
     const [createUser, setCreateUser] = useState({});
-    // syperOlao
-    // 2132343498LdsFS
-    // olay1234538@gmail.com
+
     const passwordLength = 6;
 
     const changeCreateLogin = (e) => {
