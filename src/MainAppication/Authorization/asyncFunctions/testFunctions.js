@@ -1,11 +1,11 @@
 export async function getApi() {
-    const url = `http://37.140.198.127/api/`;
+    const url = `${process.env.REACT_APP_API_URL}/api/`;
     return fetch(url, {method: 'POST', headers: {'Content-Type': 'application/json',},
         body: JSON.stringify({a: "don't cry :)"})})
 }
 
 export const sendVerify = async () => {
-    const url = `http://37.140.198.127/api/auth/users/activation/`;
+    const url = `${process.env.REACT_APP_API_URL}/api/auth/users/activation/`;
     await fetch(url, {
         method: "POST",
         headers: {
@@ -21,7 +21,7 @@ export const sendVerify = async () => {
 }
 
 async function sendUser(user) {
-    const url = `http://37.140.198.127/api/auth/users/`;
+    const url = `${process.env.REACT_APP_API_URL}/api/auth/users/`;
     await fetch(url, {
         method: 'POST',
         headers: {

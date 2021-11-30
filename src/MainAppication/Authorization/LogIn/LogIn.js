@@ -3,6 +3,7 @@ import {LoginForm} from "./LoginForm/LoginForm";
 import {connect} from "react-redux";
 import {login} from "../../../store/actions/auth";
 import {continueWithFacebook, continueWithGoogle} from "../asyncFunctions/continueWith";
+import {getApi} from "../asyncFunctions/testFunctions";
 
 /*
 let temp_user1 = {
@@ -26,6 +27,7 @@ const LogIn = (props) => {
 
     const submitButtonClick = () => {
         props.logIn({username: username, password: password});
+        getApi().then(res => console.log("api res: ", res));
     }
 
 

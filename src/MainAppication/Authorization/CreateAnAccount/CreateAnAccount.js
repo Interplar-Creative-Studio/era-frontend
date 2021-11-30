@@ -5,6 +5,7 @@ import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
 import {LOG_IN, PICTURE_PAGE} from "../../../UrlsConst";
 import {connect} from 'react-redux';
 import {signup} from "../../../store/actions/auth";
+import {getApi} from "../asyncFunctions/testFunctions";
 
 
 /*let user1 = {

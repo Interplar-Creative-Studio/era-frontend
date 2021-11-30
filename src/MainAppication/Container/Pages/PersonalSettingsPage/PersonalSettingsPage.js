@@ -5,6 +5,7 @@ import {PERSONAL_SETTINGS, PERSONAL_SETTINGS_ACCOUNT, PERSONAL_SETTINGS_PROFILE}
 import {useQuery} from "../../../Components/functions/functions";
 import {SettingsRoute} from "./SettingsPages/SettingsRoute";
 import {ExitButton} from "./ExitButton/ExitButton";
+import {connect} from "react-redux";
 
 
 let menu = [
@@ -17,18 +18,25 @@ let menu = [
     {href: `${PERSONAL_SETTINGS}`, text: "Безопасность"},
 ];
 
-export const PersonalSettingsPage = (props) => {
+const PersonalSettingsPage = (props) => {
+    let user = props.user;
     let query = useQuery();
     return (
         <div className="container">
             <div className="personal-area__settings">
-                <PersonalAvatar img={"assets/img/testImg2.png"} href={"#"}/>
+                <PersonalAvatar img={user?.profile_pic} href={"#"}/>
                 <ExitButton/>
                 <div className="personal-area__settings__area">
-                    <SettingsRoute settings={query.get("settings")}/>
+                    <SettingsRoute user={user} settings={query.get("settings")}/>
                 </div>
                 <MenuSettings menu={menu}/>
             </div>
         </div>
     );
 };
+
+const mapStateToProps = (state) =>{
+    return {user: state.auth.user,}
+}
+
+export default connect(mapStateToProps)(PersonalSettingsPage);

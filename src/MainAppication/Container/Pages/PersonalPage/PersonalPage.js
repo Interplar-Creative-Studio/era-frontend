@@ -1,5 +1,5 @@
 import React from "react";
-import {PersonalInfo} from "./PersonalInfo/PersonalInfo";
+import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import {Gallery} from "./Gallery/Gallery";
 import {
     COLLECTIONS,

@@ -4,6 +4,7 @@ import {Settings} from "../../../../Components/Icons/Settings";
 import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
 import {UserFullInfo} from "./UserFullInfo/UserFullInfo";
 import {PERSONAL_SETTINGS, PERSONAL_SETTINGS_PROFILE} from "../../../../../UrlsConst";
+import {connect} from "react-redux";
 
 let person = {
     profileName: "Top Waifu",
@@ -14,11 +15,13 @@ let person = {
 };
 
 
-export const PersonalInfo = (props) => {
+const PersonalInfo = (props) => {
+    let user = props.user;
+
     return (
             <div className="personal-area__profile">
                 <div className="personal-area__profile__description">
-                    <UserFullInfo person={person} img={"assets/img/testImg2.png"}/>
+                    <UserFullInfo user={user} img={"assets/img/testImg2.png"}/>
                     <div className="personal-area__profile__description__icons">
                         <Share color={"black"}/>
                         <Settings color={"black"} href={`${PERSONAL_SETTINGS}?settings=${PERSONAL_SETTINGS_PROFILE}`}/>
@@ -29,3 +32,9 @@ export const PersonalInfo = (props) => {
 
     );
 };
+
+const mapStateToProps = (state) =>{
+    return {user: state.auth.user,}
+}
+
+export default connect(mapStateToProps)(PersonalInfo);

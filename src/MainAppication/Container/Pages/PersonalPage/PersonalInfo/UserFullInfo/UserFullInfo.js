@@ -3,13 +3,13 @@ import {PersonalAvatar} from "./PersonalAvatar/PersonalAvatar";
 import {PersonalDescription} from "./PersonalDescription/PersonalDescription";
 
 export const UserFullInfo = (props) => {
-    let person = props.person;
+    let person = props.user;
     return(
         <>
-            <PersonalAvatar img={props.img}/>
-            <PersonalDescription profileName={person.profileName} profileTag={person.profileTag}
-                                 profileDescription={person.profileDescription}
-                                 subscribers={person.subscribers} subscriptions={person.subscriptions}
+            <PersonalAvatar img={person?.profile_pic}/>
+            <PersonalDescription profileName={person?.username} profileTag={person?.profileTag}
+                                 profileDescription={person?.description}
+                                 subscribers={person?.subscribers} subscriptions={person?.subscriptions}
             />
         </>
     );
