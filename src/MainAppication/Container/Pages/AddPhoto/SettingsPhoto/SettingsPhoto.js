@@ -8,6 +8,7 @@ import {
     ADD_PHOTO_SETTINGS_PHOTO,
     ADD_PHOTO_SETTINGS_SERIES
 } from "../../../../../UrlsConst";
+import {PhotoMonetization} from "../Pages/PhotoMonetization/PhotoMonetization";
 
 export const SettingsPhoto = (props) => {
     let query = useQuery();
@@ -15,20 +16,20 @@ export const SettingsPhoto = (props) => {
     return(
         <div className="add-photo__description">
             <div className="personal-area__settings__area">
-                {settingsRoute(settings)}
+                {settingsRoute(settings, props.onChange)}
             </div>
-            <AddPhotoMenu/>
+            <AddPhotoMenu onClickSubmit={props.onClickSubmit}/>
         </div>
     );
 };
 
-function settingsRoute(settings) {
+function settingsRoute(settings, onChange) {
     switch (settings) {
         case ADD_PHOTO_SETTINGS_PHOTO:
-            return <PhotoDescription/>;
+            return <PhotoDescription onChange={onChange} />;
         case ADD_PHOTO_SETTINGS_SERIES:
-            return <PhotoSettings/>;
+            return <PhotoSettings onChange={onChange}/>;
         case ADD_PHOTO_SETTINGS_MONETIZATION:
-            return "В разработке"
+            return <PhotoMonetization onChange={onChange}/>
     }
 }

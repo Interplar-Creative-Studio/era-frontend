@@ -1,5 +1,5 @@
 import React from "react";
-import {DescriptionOfCollection} from "./DescriptionOfCollection/DescriptionOfCollection";
+import DescriptionOfCollection from "./DescriptionOfCollection/DescriptionOfCollection";
 import {PicturesMap} from "../PicturesMainPage/PicturesMap/PicturesMap";
 
 export const Collections = (props) => {

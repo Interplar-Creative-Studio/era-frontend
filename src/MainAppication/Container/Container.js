@@ -2,7 +2,7 @@ import React from "react";
 import {Route} from "react-router-dom";
 import {PicturesMainPage} from "./Pages/PicturesMainPage/PicturesMainPage";
 import {Redirect, Switch} from "react-router";
-import {PersonalPage} from "./Pages/PersonalPage/PersonalPage";
+import PersonalPage from "./Pages/PersonalPage/PersonalPage";
 import PersonalSettingsPage from "./Pages/PersonalSettingsPage/PersonalSettingsPage";
 import {Cart} from "./Pages/Cart/Cart";
 import {Collections} from "./Pages/Collections/Collections";
@@ -23,7 +23,7 @@ export const Container = () => {
     return (
         <Switch>
             <Route exact path="/">
-                <Redirect to={ADD_PHOTO}/>
+                <Redirect to={PICTURE_PAGE}/>
             </Route>
             <Route exact path={PICTURE_PAGE} render={() => <PicturesMainPage/>}/>
             <Route exact path={PERSONAL} render={() => <PersonalPage/>}/>

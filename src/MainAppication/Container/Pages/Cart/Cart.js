@@ -5,21 +5,21 @@ import {CartInformation} from "./CartInformation/CartInformation";
 let cart = [
     {
         imgHref: "#",
-        img: "assets/img/testImg2.png",
+        img: "https://chudo-udo.info/media/k2/items/cache/46b48ff5dea1e8c04bc5a53cc4723d74_XL.jpg",
         title: "Лолля разозлись и всех убила",
         price: 240,
         parameters: "3000 x 2000px / 25.4 x 16.93cm @300dpi"
     },
     {
         imgHref: "#",
-        img: "assets/img/testImg.png",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6TeDtfXT2M85H4dkykueYhzUx1ZfsA0VFsA&usqp=CAU",
         title: "Тролли",
         price: 550,
         parameters: "3000 x 2000px / 25.4 x 16.93cm @300dpi"
     },
     {
         imgHref: "#",
-        img: "assets/img/testImg3.png",
+        img: "https://obojki.ru/uploads/posts/2020-11/1604296270_gory-les-ozero-leto-utro.jpg",
         title: "Мыши",
         price: 160,
         parameters: "3000 x 2000px / 25.4 x 16.93cm @300dpi"

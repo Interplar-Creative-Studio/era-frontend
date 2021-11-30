@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {Picture} from "../Picture/Picture";
+import {fetchGet} from "../../../../Components/functions/asyncFunctions";
 
 
-function getPhotos(setPictures) {
-    const url = `${process.env.REACT_APP_API_URL}/api/photostock/`;
-    fetch(url).then(response => response.json().then(res => setPictures(res)));
-}
 
 export const PicturesMap = (props) => {
     const [pictures, setPictures] = useState([]);
+    const url = `${process.env.REACT_APP_API_URL}/api/photostock/`;
     useEffect(() => {
-        getPhotos(setPictures);
+        fetchGet(setPictures, url);
     }, []);
 
     return (
