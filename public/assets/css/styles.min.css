@@ -27313,6 +27313,17 @@ textarea.form-control-lg {
     font-size: 10px
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 3px;
+    background-color: #fff
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3;
+    border-radius: 2px
+}
+
 .container {
     max-width: 1440px;
     padding: 0 25px;
@@ -27644,11 +27655,10 @@ textarea.form-control-lg {
     font-weight: 400
 }
 
-.menu__first-block__user-profile__list {
-    opacity: 0;
-    visibility: hidden;
+.menu__first-block__user-profile__list, .menu__first-block__user-profile__list-mini {
     position: absolute;
     top: 50px;
+    z-index: 10;
     right: 0;
     background: #fff;
     -webkit-transition: .5s ease;
@@ -27659,13 +27669,13 @@ textarea.form-control-lg {
     display: block
 }
 
-.menu__first-block__user-profile__list ul {
+.menu__first-block__user-profile__list ul, .menu__first-block__user-profile__list-mini ul {
     pointer-events: none;
     padding: 0;
     margin: 0
 }
 
-.menu__first-block__user-profile__list ul li a {
+.menu__first-block__user-profile__list ul li a, .menu__first-block__user-profile__list-mini ul li a {
     pointer-events: visible;
     text-decoration: none;
     white-space: nowrap;
@@ -27679,7 +27689,7 @@ textarea.form-control-lg {
     cursor: pointer
 }
 
-.menu__first-block__user-profile__list ul li a:after {
+.menu__first-block__user-profile__list ul li a:after, .menu__first-block__user-profile__list-mini ul li a:after {
     position: absolute;
     content: "";
     height: 1px;
@@ -27693,13 +27703,19 @@ textarea.form-control-lg {
     background: #000
 }
 
-.menu__first-block__user-profile__list ul li a:hover:after {
+.menu__first-block__user-profile__list ul li a:hover:after, .menu__first-block__user-profile__list-mini ul li a:hover:after {
     width: 100%
 }
 
 .menu__first-block__user-profile__list-active {
     opacity: 1;
     visibility: visible
+}
+
+.menu__first-block__user-profile__list-mini-active {
+    opacity: 1;
+    visibility: visible;
+    right: -22px
 }
 
 .menu__second-block ul {
@@ -27874,6 +27890,7 @@ textarea.form-control-lg {
 }
 
 .main__page__picture a:nth-child(2) svg {
+    margin: auto 0;
     opacity: 0;
     -webkit-transition: .5s ease;
     -o-transition: .5s ease;
@@ -27902,15 +27919,26 @@ textarea.form-control-lg {
     transition: .5s ease
 }
 
-.add-photo-modal, .photo-modal-window, .create-collection-modal {
+.add-photo-modal, .create-collection-modal {
     -webkit-transition: .2s ease;
     -o-transition: .2s ease;
-    transition: .2s ease
+    transition: .2s ease;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px
+}
+
+.photo-modal-window {
+    visibility: visible;
+    opacity: 1
 }
 
 .photo-modal {
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
     display: block;
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
     z-index: 10;
     width: 98%;
     height: 100%;
@@ -28046,7 +28074,25 @@ textarea.form-control-lg {
     justify-content: center
 }
 
-.photo-modal__slider img {
+.photo-modal__slider__slide__prev-button, .photo-modal__slider__slide__next-button {
+    position: absolute;
+    width: 30px;
+    top: 45%;
+    -webkit-transform: translate(-45%);
+    -ms-transform: translate(-45%);
+    transform: translate(-45%);
+    cursor: pointer
+}
+
+.photo-modal__slider__slide__prev-button {
+    left: 30px
+}
+
+.photo-modal__slider__slide__next-button {
+    right: 0
+}
+
+.photo-modal__slider__slide img {
     max-width: 1180px;
     max-height: 692px;
     -o-object-fit: contain;
@@ -28226,8 +28272,12 @@ textarea.form-control-lg {
 }
 
 .create-collection {
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
     display: block;
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 98%;
     height: 540px;
     padding: 0 72px;
@@ -28405,8 +28455,12 @@ textarea.form-control-lg {
 }
 
 .add-photo {
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
     display: block;
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
     z-index: 10;
     width: 98%;
     height: 100%;
@@ -28429,12 +28483,36 @@ textarea.form-control-lg {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    padding: 80px 120px 40px 120px
+    padding: 80px 120px 40px 120px;
+    position: relative;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap
+}
+
+.add-photo__slider__prev-button, .add-photo__slider__next-button {
+    position: absolute;
+    width: 30px;
+    top: 50%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+    cursor: pointer
+}
+
+.add-photo__slider__prev-button {
+    left: 30px
+}
+
+.add-photo__slider__next-button {
+    right: 0
 }
 
 .add-photo__slider__input-file {
     width: 100%;
-    height: 100%
+    height: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
 }
 
 .add-photo__slider__input-file input {
@@ -28464,18 +28542,18 @@ textarea.form-control-lg {
     display: none
 }
 
-.add-photo__slider__input-file #drop-area-photo.hover {
+.add-photo__slider__input-file .drop-area-photo-active {
     width: 100%;
     height: 700px;
     border: none;
     background-image: url("data:image/svg+xml;utf8,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill: none; stroke: grey; stroke-width: 4; stroke-dasharray: 8 8'/></svg>")
 }
 
-.add-photo__slider__input-file #drop-area-photo.hover .simple-text {
+.add-photo__slider__input-file .drop-area-photo-active .simple-text {
     display: none !important
 }
 
-.add-photo__slider__input-file #drop-area-photo.hover .drop-text {
+.add-photo__slider__input-file .drop-area-photo-active .drop-text {
     display: block !important
 }
 
@@ -28526,7 +28604,8 @@ textarea.form-control-lg {
 .add-photo__close-button {
     position: absolute;
     right: 20px;
-    top: 20px
+    top: 20px;
+    z-index: 15
 }
 
 .add-photo__close-button svg {
@@ -28825,7 +28904,7 @@ textarea.form-control-lg {
     .add-photo__close-button {
         position: absolute;
         right: 0;
-        top: -10px
+        top: 0
     }
 
     .add-photo__close-button svg {
@@ -28834,7 +28913,22 @@ textarea.form-control-lg {
     }
 
     .add-photo__slider {
-        padding: 5px
+        padding: 20px
+    }
+
+    .add-photo__slider__prev-button, .add-photo__slider__next-button {
+        top: 45%;
+        -webkit-transform: translate(-45%);
+        -ms-transform: translate(-45%);
+        transform: translate(-45%)
+    }
+
+    .add-photo__slider__prev-button {
+        left: 30px
+    }
+
+    .add-photo__slider__next-button {
+        right: 0
     }
 
     .add-photo__slider__input-file label {
@@ -28868,7 +28962,8 @@ textarea.form-control-lg {
     }
 
     .create-collection__close-button {
-        top: -5px
+        top: 2px;
+        right: 2px
     }
 
     .create-collection h2, .create-collection .h2 {
@@ -28903,7 +28998,7 @@ textarea.form-control-lg {
     }
 
     .create-collection__button {
-        top: 20px;
+        top: 50px;
         right: 20px
     }
 }
@@ -28917,7 +29012,33 @@ textarea.form-control-lg {
 
     .photo-modal__header {
         margin: 20px 0 0 0;
-        padding: 0
+        padding: 0;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    .photo-modal__header__slider__slide__prev-button, .photo-modal__header__slider__slide__next-button {
+        position: absolute;
+        width: 30px;
+        top: 45%;
+        -webkit-transform: translate(-45%);
+        -ms-transform: translate(-45%);
+        transform: translate(-45%);
+        cursor: pointer
+    }
+
+    .photo-modal__header__user-profile {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center
+    }
+
+    .photo-modal__header__information {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between
     }
 
     .photo-modal__header__information__stats {

@@ -4,8 +4,12 @@ import {AiOutlineClose} from "react-icons/all";
 import {SettingsPhoto} from "./SettingsPhoto/SettingsPhoto";
 import {NavLink} from "react-router-dom";
 import {PICTURE_PAGE} from "../../../../UrlsConst";
+import axios from "axios";
+import {connect} from "react-redux";
 
-const sendPhoto = (photo) => {
+
+
+const sendPhoto = (photo, access) => {
     const url = `${process.env.REACT_APP_API_URL}/api/post/`;
     let formData = new FormData();
 
@@ -13,29 +17,40 @@ const sendPhoto = (photo) => {
     formData.append('description', photo.description);
     formData.append('price', photo.price);
     formData.append('tag', photo.tag);
-    formData.append('series_photos', photo.series_photos);
-
+    formData.append('series_photos', photo.series_photos[0], photo.series_photos[0].name);
 
     for (const [key, value] of formData) {
         console.log(key, value);
     }
-    console.log("formData: ", formData);
+/*    console.log("formData: ", formData);
     fetch(url, {
         method: 'POST',
         headers: {
             'content-type': 'multipart/form-data',
-            /*'Accept': 'application/json'*/
+            /!*'Accept': 'application/json'*!/
         },
         body: formData,
 
-    }).then(res => res.json().then(r=>console.log(r)))
+    }).then(res => res.json().then(r=>console.log(r)))*/
+
+    axios.post(url, formData, {
+        headers: {
+            'content-type': 'multipart/form-data',
+            'Authorization': `Bearer ${access}`,
+        }
+    })
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err => console.log(err))
+
 }
 
-export const AddPhoto = (props) => {
+const AddPhoto = (props) => {
     const [photo, setPhoto] = useState(null);
     const [photoSetting, setPhotoSetting] = useState({
-        name: "POPOPOP",
-        description: "SDFDSFDS",
+        name: "",
+        description: "default",
         price: 228,
         tag: [1],
         series_photos: []
@@ -45,9 +60,9 @@ export const AddPhoto = (props) => {
     const upLoadPhoto = e => setPhoto(e.target.files[0]);
     const onClickSubmit = () => {
         // debugger;
-        let photoUpt = {...photoSetting, series_photos: [photo]};
+        let photoUpt = {...photoSetting, series_photos: [photo], };
         console.log("photoSetting:", photoUpt);
-        sendPhoto(photoUpt);
+        sendPhoto(photoUpt, props.access);
 
     }
     /*
@@ -67,5 +82,12 @@ export const AddPhoto = (props) => {
         </div>
     );
 };
+
+const mapStateToProps = (state) => {
+    return {access: state.auth.access,}
+};
+
+
+export default connect(mapStateToProps)(AddPhoto);
 
 

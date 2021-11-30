@@ -6,6 +6,7 @@ import {User} from "../../Components/User/User";
 import {CART, PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
 import {Cart} from "../../Components/Icons/Cart";
 import {connect} from "react-redux";
+import {ExitPanel} from "./ExitPanel/ExitPanel";
 
 
 export const HeaderMainMenu = (props) => {
@@ -22,9 +23,11 @@ export const HeaderMainMenu = (props) => {
             </div>
             <Search/>
             <Notification amount={"1"} onClick={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}
-                          notification={notification}/>
+                          notification={notification} />
+
             <Cart href={CART}/>
             <User imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>
+
         </div>
     );
 };

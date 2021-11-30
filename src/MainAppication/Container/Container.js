@@ -7,7 +7,7 @@ import PersonalSettingsPage from "./Pages/PersonalSettingsPage/PersonalSettingsP
 import {Cart} from "./Pages/Cart/Cart";
 import {Collections} from "./Pages/Collections/Collections";
 import {InformationAboutPhoto} from "./Pages/InformationAboutPhoto/InformationAboutPhoto";
-import {AddPhoto} from "./Pages/AddPhoto/AddPhoto";
+import AddPhoto from "./Pages/AddPhoto/AddPhoto";
 import {
     CART,
     COLLECTIONS,
