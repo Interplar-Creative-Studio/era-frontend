@@ -1,39 +1,54 @@
 import React, {useState} from "react";
 import {ElemsAddPhoto} from "./ElemsAddPhoto/ElemsAddPhoto";
 import {AiOutlineClose} from "react-icons/all";
-import {useQuery} from "../../../Components/functions/functions";
 import {SettingsPhoto} from "./SettingsPhoto/SettingsPhoto";
 import {NavLink} from "react-router-dom";
 import {PICTURE_PAGE} from "../../../../UrlsConst";
 
 const sendPhoto = (photo) => {
-    const url = `${process.env.REACT_APP_API_URL}/api/post/`
+    const url = `${process.env.REACT_APP_API_URL}/api/post/`;
+    let formData = new FormData();
+
+    formData.append('name', photo.name);
+    formData.append('description', photo.description);
+    formData.append('price', photo.price);
+    formData.append('tag', photo.tag);
+    formData.append('series_photos', photo.series_photos);
+
+
+    for (const [key, value] of formData) {
+        console.log(key, value);
+    }
+    console.log("formData: ", formData);
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'content-type': 'multipart/form-data',
+            /*'Accept': 'application/json'*/
         },
-        body: JSON.stringify(photo),
+        body: formData,
 
-    }).then(r => r);
+    }).then(res => res.json().then(r=>console.log(r)))
 }
 
 export const AddPhoto = (props) => {
-    const [photo, setPhoto] = useState( {});
+    const [photo, setPhoto] = useState(null);
     const [photoSetting, setPhotoSetting] = useState({
-        name: "",
-        description: "",
-        price: 0,
-        tag: "",
+        name: "POPOPOP",
+        description: "SDFDSFDS",
+        price: 228,
+        tag: [1],
         series_photos: []
     });
 
     const onChange = e => setPhotoSetting({...photoSetting, [e.target.name]: e.target.value});
-    const upLoadPhoto = e => setPhoto({photo: e.target.value});
+    const upLoadPhoto = e => setPhoto(e.target.files[0]);
     const onClickSubmit = () => {
-        let photo_upt = {...photoSetting, series_photos: [photo], tag: photoSetting.tag.split(" ")};
-        sendPhoto(photo_upt);
-        console.log("photoSetting:", photo_upt);
+        // debugger;
+        let photoUpt = {...photoSetting, series_photos: [photo]};
+        console.log("photoSetting:", photoUpt);
+        sendPhoto(photoUpt);
+
     }
     /*
     console.log("photoSetting: ", photoSetting);

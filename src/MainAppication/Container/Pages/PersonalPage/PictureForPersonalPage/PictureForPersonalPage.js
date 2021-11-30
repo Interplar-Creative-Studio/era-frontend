@@ -5,10 +5,11 @@ import {IconsForPictures} from "./Icons/IconsForPictures";
 
 export const PictureForPersonalPage = (props) => {
     let image = props.image;
+    console.log("image: ", image);
     return (
         <div className="personal-area__galery__unit">
             <NavLink to={image.imgLink ?? "#"}>
-                <img alt={""} src={image.img}/>
+                <img alt={""} src={image}/>
             </NavLink>
             <div className="personal-area__galery__unit__description">
                 <p>{image.pictureName}</p>

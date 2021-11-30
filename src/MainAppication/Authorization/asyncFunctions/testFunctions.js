@@ -16,7 +16,6 @@ export const sendVerify = async () => {
             uid: "MTg",
             token: "awucgc-6c6d499332c3860ccccd5905d2b2ee76",
         }),
-        //mode: "no-cors",
     })
 }
 
