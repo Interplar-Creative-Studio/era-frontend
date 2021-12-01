@@ -1,7 +1,16 @@
 import React from "react";
+import {MenuMap} from "../../../../Components/MenuElement/MenuMap";
 
 export const ViewPhotoDescription = (props) => {
-    return(
+    let tags = [
+        {href: "#", text: "Wallpapers"},
+        {href: "#", text: "Wallpapers"},
+        {href: "#", text: "Wallpapers"},
+        {href: "#", text: "Wallpapers"},
+        {href: "#", text: "Wallpapers"},
+        {href: "#", text: "Wallpapers"},
+    ];
+    return (
         <div className="photo-modal__description">
             <div className="photo-modal__description__text-block">
                 <h2>Описание фото</h2>
@@ -30,15 +39,7 @@ export const ViewPhotoDescription = (props) => {
             <div className="photo-modal__description__hashtags">
                 <h2>Хештеги</h2>
                 <ul>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
-                    <li><a href="#">Wallpapers</a></li>
+                    {<MenuMap arr={tags}/>}
                 </ul>
             </div>
         </div>

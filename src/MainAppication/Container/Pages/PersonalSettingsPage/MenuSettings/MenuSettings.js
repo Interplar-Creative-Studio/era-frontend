@@ -1,5 +1,7 @@
 import React from "react";
 import {MenuMap} from "../../../../Components/MenuElement/MenuMap";
+import {NavLink} from "react-router-dom";
+import {PERSONAL_SETTINGS, PERSONAL_SETTINGS_PROFILE} from "../../../../../UrlsConst";
 
 export const MenuSettings = (props) => {
     return (
@@ -8,7 +10,7 @@ export const MenuSettings = (props) => {
                 <MenuMap arr={props.menu}/>
             </ul>
             <div className="personal-area__settings__menu__button">
-                <a href="#">Сохранить изменения</a>
+                <NavLink to={`${PERSONAL_SETTINGS}?settings=${PERSONAL_SETTINGS_PROFILE}`}>Сохранить изменения</NavLink>
             </div>
         </div>
     );

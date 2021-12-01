@@ -49,15 +49,10 @@ const AddPhoto = (props) => {
     const onChange = e => setPhotoSetting({...photoSetting, [e.target.name]: e.target.value});
     const upLoadPhoto = e => setPhoto(e.target.files[0]);
     const onClickSubmit = () => {
-        // debugger;
         let photoUpt = {...photoSetting, series_photos: [photo], };
-        console.log("photoSetting:", photoUpt);
         sendPhoto(photoUpt, props.access);
 
     }
-    /*
-    console.log("photoSetting: ", photoSetting);
-    console.log("photo: ", photo);*/
     return (
         <div className="add-photo-modal">
             <div className="add-photo">
