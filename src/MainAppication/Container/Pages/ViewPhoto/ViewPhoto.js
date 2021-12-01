@@ -9,7 +9,7 @@ export const ViewPhoto = (props) => {
     return (
         <div className="photo-modal-window">
             <div className="photo-modal">
-                <ViewPhotoHeader/>
+                <ViewPhotoHeader onClick={props.onClick}/>
                 <Slider/>
                 <PhotoModalTitle/>
                 <ViewPhotoDescription/>
