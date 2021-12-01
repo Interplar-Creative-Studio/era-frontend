@@ -22,17 +22,7 @@ const sendPhoto = (photo, access) => {
     for (const [key, value] of formData) {
         console.log(key, value);
     }
-/*    console.log("formData: ", formData);
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'content-type': 'multipart/form-data',
-            /!*'Accept': 'application/json'*!/
-        },
-        body: formData,
-
-    }).then(res => res.json().then(r=>console.log(r)))*/
-
+    
     axios.post(url, formData, {
         headers: {
             'content-type': 'multipart/form-data',
@@ -51,7 +41,7 @@ const AddPhoto = (props) => {
     const [photoSetting, setPhotoSetting] = useState({
         name: "",
         description: "default",
-        price: 228,
+        price: 0,
         tag: [1],
         series_photos: []
     });

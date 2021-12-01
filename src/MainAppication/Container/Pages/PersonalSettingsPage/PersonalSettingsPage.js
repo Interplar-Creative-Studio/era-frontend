@@ -25,7 +25,6 @@ const PersonalSettingsPage = (props) => {
         <div className="container">
             <div className="personal-area__settings">
                 <PersonalAvatar img={user?.profile_pic} href={"#"}/>
-                <ExitButton/>
                 <div className="personal-area__settings__area">
                     <SettingsRoute user={user} settings={query.get("settings")}/>
                 </div>

@@ -19,7 +19,7 @@ export const AddPhotoMenu = (props) => {
         <div className="add-photo__button">
             <div className="personal-area__settings__menu">
                 <div className="personal-area__settings__menu__button" onClick={props.onClickSubmit}>
-                    <NavLink to="#">Опубликовать</NavLink></div>
+                    <NavLink to={PICTURE_PAGE}>Опубликовать</NavLink></div>
                 <ul>
                     <MenuMap arr={menu}/>
                 </ul>
