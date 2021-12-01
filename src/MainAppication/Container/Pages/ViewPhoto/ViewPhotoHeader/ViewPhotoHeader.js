@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {User} from "../../../../Components/User/User";
 import {Views} from "../../../../Components/Icons/Views";
 import {FilledLike} from "../../../../Components/Icons/FilledLike";
@@ -6,12 +6,20 @@ import {MoreOptions} from "../../../../Components/Icons/MoreOptions";
 import {NavLink} from "react-router-dom";
 import {PICTURE_PAGE} from "../../../../../UrlsConst";
 import {AiOutlineClose} from "react-icons/all";
+import {fetchGet} from "../../../../Components/functions/asyncFunctions";
 
 export const ViewPhotoHeader = (props) => {
+    const [user, userSet] = useState({});
+    let picture = props.picture;
+    useEffect(()=>{
+        let url = `${process.env.REACT_APP_API_URL}/api/user/shortinfo/${picture?.owner ?? 0}`;
+        fetchGet(userSet, url);
+    },[picture?.owner]);
+    let date = new Date(picture?.created_at);
     return(
         <div className="photo-modal__header">
             <div className="photo-modal__header__user-profile">
-                <User name={"Top Waifu"} img={"assets/img/ProfileLogo.png"}/>
+                <User name={user?.username} img={`${process.env.REACT_APP_API_URL}${user?.profile_pic}`}/>
             </div>
             <div className="photo-modal__header__information">
                 <div className="photo-modal__header__information__stats">
@@ -26,7 +34,7 @@ export const ViewPhotoHeader = (props) => {
                         </div>
                     </div>
                     <div className="photo-modal__header__information__stats__date">
-                        <p>Published<span>10.11.21</span></p>
+                        <p>Published<span>{date.getDay()}.{date.getMonth()}.{date.getFullYear()}</span></p>
                     </div>
                 </div>
                     <MoreOptions/>

@@ -1,11 +1,22 @@
-[
-  {
-    "id": 4,
-    "name": "Алексей",
-    "series_photos": [
-      {
-        "photo": "/media/pictures/photos/Levi_Ackermann_28Anime29_character_image.png"
-      }
-    ]
-  }
-]
+{
+  "id": 27,
+  "name": "Юрий",
+  "owner": 35,
+  "tag": [
+    {
+      "id": 1,
+      "tag": "anime"
+    }
+  ],
+  "description": "Юрий на льду",
+  "collection": [],
+  "created_at": "2021-12-01T18:50:25.085045+03:00",
+  "price": "228.00",
+  "series_photos": [
+    {
+      "id": 31,
+      "photo": "/media/pictures/photos/loxpng.png",
+      "order": 0
+    }
+  ]
+}

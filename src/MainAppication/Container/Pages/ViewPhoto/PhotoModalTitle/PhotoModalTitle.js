@@ -15,9 +15,10 @@ export const PhotoModalTitle = (props) => {
     const onClickSave = () => {
         setSave(!save);
     };
+    let picture = props.picture;
     return (
         <div className="photo-modal__title">
-            <h1>Caption caption caption caption</h1>
+            <h1>{picture?.name}</h1>
             <div className="photo-modal__title__information">
                 <div className="photo-modal__title__information__icons">
                     <div className="photo-modal__title__information__icons__like-icon">
@@ -36,7 +37,7 @@ export const PhotoModalTitle = (props) => {
                 </div>
                 <div className="photo-modal__title__information__button">
                     <NavLink to="#">Купить</NavLink>
-                    <p>150р</p>
+                    <p>{picture?.price}р</p>
                 </div>
             </div>
         </div>

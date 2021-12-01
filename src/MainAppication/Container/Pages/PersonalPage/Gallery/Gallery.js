@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {PictureForPersonalPage} from "../PictureForPersonalPage/PictureForPersonalPage";
 import {fetchGet} from "../../../../Components/functions/asyncFunctions";
 import {connect} from "react-redux";
-import {ViewPhoto} from "../../ViewPhoto/ViewPhoto";
+import ViewPhoto from "../../ViewPhoto/ViewPhoto";
 
 const Gallery = (props) => {
     const [userGallery, setUserGallery] = useState([]);
