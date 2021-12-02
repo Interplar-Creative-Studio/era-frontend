@@ -19,11 +19,11 @@ const ViewPhoto = (props) => {
     return (
         <div className="photo-modal-window">
             <div className="photo-modal">
-                <ViewPhotoHeader picture={picture} onClick={props.onClick}/>
+                <ViewPhotoHeader picture={picture} onClickOnPhoto={props.onClickOnPhoto} onClick={props.onClick}/>
                 <Slider picture={picture}/>
                 <PhotoModalTitle picture={picture}/>
                 <ViewPhotoDescription picture={picture}/>
-                <MorePhotos/>
+                <MorePhotos onClick={props.onClick}/>
             </div>
         </div>
     );

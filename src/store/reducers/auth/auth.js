@@ -17,7 +17,7 @@ import {
     GOOGLE_AUTH_FAIL,
     FACEBOOK_AUTH_SUCCESS,
     FACEBOOK_AUTH_FAIL,
-    LOGOUT, GET_INDEX
+    LOGOUT, GET_INDEX, TAG_ID
 } from '../../actions/types';
 
 const initialState = {
@@ -26,6 +26,7 @@ const initialState = {
     isAuthenticated: null,
     user: null,
     idCollection: localStorage.getItem('idCollection'),
+    tagId: localStorage.getItem('tagId'),
 };
 
 export const auth = (state = initialState, action) => {
@@ -94,6 +95,9 @@ export const auth = (state = initialState, action) => {
         case GET_INDEX:
             localStorage.setItem('idCollection', payload);
             return {...state, idCollection: payload}
+        case TAG_ID:
+            localStorage.setItem('tagId', payload);
+            return {...state, tagId: payload }
         default:
             return state
     }

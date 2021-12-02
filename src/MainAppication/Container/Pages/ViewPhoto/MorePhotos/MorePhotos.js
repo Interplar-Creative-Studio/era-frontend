@@ -13,7 +13,7 @@ export const MorePhotos = (props) => {
         <div className="photo-modal__photo">
             <h1>Больше фото</h1>
             <div className="photo-modal__photo__block">
-                <PicturesMap pictures={pictures}/>
+                <PicturesMap onClickOnPhoto={props.onClickOnPhoto} onClick={props.onClick} pictures={pictures}/>
             </div>
         </div>
     );

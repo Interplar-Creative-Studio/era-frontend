@@ -1,12 +1,11 @@
 import React from "react";
 import {Route} from "react-router";
-import {PicturesMainPage} from "./Pages/PicturesMainPage/PicturesMainPage";
+import PicturesMainPage from "./Pages/PicturesMainPage/PicturesMainPage";
 import {Redirect, Switch} from "react-router";
 import PersonalPage from "./Pages/PersonalPage/PersonalPage";
 import PersonalSettingsPage from "./Pages/PersonalSettingsPage/PersonalSettingsPage";
 import {Cart} from "./Pages/Cart/Cart";
 import InfoAboutCollections from "./Pages/Collections/InfoAboutCollections";
-import {InformationAboutPhoto} from "./Pages/InformationAboutPhoto/InformationAboutPhoto";
 import AddPhoto from "./Pages/AddPhoto/AddPhoto";
 import {
     CART,
@@ -14,8 +13,7 @@ import {
     PICTURE_PAGE,
     PERSONAL,
     PERSONAL_SETTINGS,
-    INFORMATION_ABOUT_PHOTO,
-    ADD_PHOTO, VIEW_PHOTO, PERSONAL_GALLERY, PERSONAL_COLLECTIONS, PERSONAL_STATISTICS
+    ADD_PHOTO, PERSONAL_GALLERY, PERSONAL_COLLECTIONS, PERSONAL_STATISTICS
 } from "../../UrlsConst";
 
 
@@ -31,7 +29,6 @@ export const Container = () => {
             <Route exact path={PERSONAL_SETTINGS} render={() => <PersonalSettingsPage/>}/>
             <Route exact path={COLLECTIONS} render={() => <InfoAboutCollections/>}/>
             <Route exact path={CART} render={() => <Cart/>}/>
-            <Route exact path={INFORMATION_ABOUT_PHOTO} render={() => <InformationAboutPhoto/>}/>
             <Route exact path={ADD_PHOTO} render={() => <AddPhoto/>}/>
         </Switch>
 

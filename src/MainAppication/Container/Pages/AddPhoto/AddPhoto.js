@@ -17,7 +17,7 @@ const sendPhoto = (photo, access) => {
     formData.append('price', photo.price);
     formData.append('tag', photo.tag);
     for (let i = 0; i < photo.series_photos.length; i++) {
-    formData.append(`series_photos[]`, photo.series_photos[i][0], photo.series_photos[i][0].name);
+        formData.append(`series_photos[]`, photo.series_photos[i][0], photo.series_photos[i][0].name);
     }
 
     for (const [key, value] of formData) {
