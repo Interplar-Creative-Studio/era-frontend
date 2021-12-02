@@ -19,3 +19,4 @@ export const FACEBOOK_AUTH_FAIL = 'FACEBOOK_AUTH_FAIL';
 export const LOGOUT = 'LOGOUT';
 
 export const GET_USER = "GET_USER";
+export const GET_INDEX = "GET_INDEX";

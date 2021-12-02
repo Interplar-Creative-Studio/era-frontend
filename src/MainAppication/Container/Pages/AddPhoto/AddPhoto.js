@@ -8,7 +8,6 @@ import axios from "axios";
 import {connect} from "react-redux";
 
 
-
 const sendPhoto = (photo, access) => {
     const url = `${process.env.REACT_APP_API_URL}/api/post/`;
     let formData = new FormData();
@@ -17,12 +16,14 @@ const sendPhoto = (photo, access) => {
     formData.append('description', photo.description);
     formData.append('price', photo.price);
     formData.append('tag', photo.tag);
-    formData.append('series_photos', photo.series_photos[0], photo.series_photos[0].name);
+    for (let i = 0; i < photo.series_photos.length; i++) {
+    formData.append(`series_photos[]`, photo.series_photos[i][0], photo.series_photos[i][0].name);
+    }
 
     for (const [key, value] of formData) {
         console.log(key, value);
     }
-    
+
     axios.post(url, formData, {
         headers: {
             'content-type': 'multipart/form-data',
@@ -37,7 +38,7 @@ const sendPhoto = (photo, access) => {
 }
 
 const AddPhoto = (props) => {
-    const [photo, setPhoto] = useState(null);
+    const [photo, setPhoto] = useState([]);
     const [photoSetting, setPhotoSetting] = useState({
         name: "",
         description: "default",
@@ -47,9 +48,9 @@ const AddPhoto = (props) => {
     });
 
     const onChange = e => setPhotoSetting({...photoSetting, [e.target.name]: e.target.value});
-    const upLoadPhoto = e => setPhoto(e.target.files[0]);
+    const upLoadPhoto = e => setPhoto([...photo, e.target.files[0]]);
     const onClickSubmit = () => {
-        let photoUpt = {...photoSetting, series_photos: [photo], };
+        let photoUpt = {...photoSetting, series_photos: [photo],};
         sendPhoto(photoUpt, props.access);
 
     }

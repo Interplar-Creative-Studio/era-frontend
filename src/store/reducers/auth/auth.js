@@ -17,20 +17,21 @@ import {
     GOOGLE_AUTH_FAIL,
     FACEBOOK_AUTH_SUCCESS,
     FACEBOOK_AUTH_FAIL,
-    LOGOUT
+    LOGOUT, GET_INDEX
 } from '../../actions/types';
 
 const initialState = {
     access: localStorage.getItem('access'),
     refresh: localStorage.getItem('refresh'),
     isAuthenticated: null,
-    user: null
+    user: null,
+    idCollection: localStorage.getItem('idCollection'),
 };
 
 export const auth = (state = initialState, action) => {
-    const { type, payload } = action;
+    const {type, payload} = action;
 
-    switch(type) {
+    switch (type) {
         case AUTHENTICATED_SUCCESS:
             return {
                 ...state,
@@ -90,6 +91,9 @@ export const auth = (state = initialState, action) => {
             return {
                 ...state
             }
+        case GET_INDEX:
+            localStorage.setItem('idCollection', payload);
+            return {...state, idCollection: payload}
         default:
             return state
     }

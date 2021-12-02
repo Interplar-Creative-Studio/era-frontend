@@ -1,18 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Picture} from "../Picture/Picture";
-import {fetchGet} from "../../../../Components/functions/asyncFunctions";
 import ViewPhoto from "../../ViewPhoto/ViewPhoto";
 
 
 export const PicturesMap = (props) => {
-    const [pictures, setPictures] = useState([]);
+    let pictures = props.pictures;
     const [pictureId, setPictureId] = useState(0);
-    const [showPictures, setShowPictures] = useState(false);
-    const url = `${process.env.REACT_APP_API_URL}/api/photostock/`;
-
-    useEffect(() => {
-        fetchGet(setPictures, url);
-    }, []);
+    const [showPictures, setShowPictures] = useState(false)
 
     const onClick = () => {
         setShowPictures(!showPictures);

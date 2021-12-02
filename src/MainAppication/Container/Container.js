@@ -5,7 +5,7 @@ import {Redirect, Switch} from "react-router";
 import PersonalPage from "./Pages/PersonalPage/PersonalPage";
 import PersonalSettingsPage from "./Pages/PersonalSettingsPage/PersonalSettingsPage";
 import {Cart} from "./Pages/Cart/Cart";
-import {Collections} from "./Pages/Collections/Collections";
+import InfoAboutCollections from "./Pages/Collections/InfoAboutCollections";
 import {InformationAboutPhoto} from "./Pages/InformationAboutPhoto/InformationAboutPhoto";
 import AddPhoto from "./Pages/AddPhoto/AddPhoto";
 import {
@@ -29,7 +29,7 @@ export const Container = () => {
             <Route exact path={[PERSONAL, PERSONAL_GALLERY, PERSONAL_COLLECTIONS, PERSONAL_STATISTICS]}
                    render={() => <PersonalPage/>}/>
             <Route exact path={PERSONAL_SETTINGS} render={() => <PersonalSettingsPage/>}/>
-            <Route exact path={COLLECTIONS} render={() => <Collections/>}/>
+            <Route exact path={COLLECTIONS} render={() => <InfoAboutCollections/>}/>
             <Route exact path={CART} render={() => <Cart/>}/>
             <Route exact path={INFORMATION_ABOUT_PHOTO} render={() => <InformationAboutPhoto/>}/>
             <Route exact path={ADD_PHOTO} render={() => <AddPhoto/>}/>

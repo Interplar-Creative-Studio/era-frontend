@@ -1,22 +1,133 @@
-{
-  "id": 27,
-  "name": "Юрий",
-  "owner": 35,
-  "tag": [
-    {
-      "id": 1,
-      "tag": "anime"
-    }
-  ],
-  "description": "Юрий на льду",
-  "collection": [],
-  "created_at": "2021-12-01T18:50:25.085045+03:00",
-  "price": "228.00",
-  "series_photos": [
-    {
-      "id": 31,
-      "photo": "/media/pictures/photos/loxpng.png",
-      "order": 0
-    }
-  ]
-}
+[
+  {
+    "id": 25,
+    "name": "Армин",
+    "owner": 35,
+    "tag": [
+      {
+        "id": 1,
+        "tag": "anime"
+      }
+    ],
+    "description": "Атака тиатнов",
+    "collection": [
+      3
+    ],
+    "created_at": "2021-12-01T02:41:36.781516+03:00",
+    "price": "228.00",
+    "series_photos": [
+      {
+        "id": 29,
+        "photo": "/media/pictures/photos/armin.png",
+        "order": 0
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Юрий",
+    "owner": 35,
+    "tag": [],
+    "description": "История повествует о Юри Кацуки, на чьи плечи возложены надежды всей Японии, но в финале Гран-при по фигурному катанию он терпит сокрушительное поражение. Парень возвращается домой на Кюсю, где не был уже 5 лет, и им овладевают смешанные чувства. Юри не может решить: бросить фигурное катание или всё",
+    "collection": [
+      3
+    ],
+    "created_at": "2021-12-01T18:50:25+03:00",
+    "price": "228.00",
+    "series_photos": [
+      {
+        "id": 31,
+        "photo": "/media/pictures/photos/loxpng.png",
+        "order": 0
+      },
+      {
+        "id": 40,
+        "photo": "/media/pictures/photos/mikasa.png",
+        "order": 0
+      },
+      {
+        "id": 41,
+        "photo": "/media/pictures/photos/armin_qf9VdLt.png",
+        "order": 0
+      },
+      {
+        "id": 42,
+        "photo": "/media/pictures/photos/ereneger.png",
+        "order": 0
+      },
+      {
+        "id": 43,
+        "photo": "/media/pictures/photos/hanzhi.png",
+        "order": 0
+      },
+      {
+        "id": 44,
+        "photo": "/media/pictures/photos/mikasa1.png",
+        "order": 0
+      },
+      {
+        "id": 45,
+        "photo": "/media/pictures/photos/mikasa2.png",
+        "order": 0
+      },
+      {
+        "id": 46,
+        "photo": "/media/pictures/photos/hanji.png",
+        "order": 0
+      },
+      {
+        "id": 47,
+        "photo": "/media/pictures/photos/handgylevi.png",
+        "order": 0
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Атака титанов",
+    "owner": 35,
+    "tag": [
+      {
+        "id": 1,
+        "tag": "anime"
+      }
+    ],
+    "description": "Нападение",
+    "collection": [
+      3
+    ],
+    "created_at": "2021-12-01T02:43:30.345099+03:00",
+    "price": "69.00",
+    "series_photos": [
+      {
+        "id": 30,
+        "photo": "/media/pictures/photos/visual_02.jpg",
+        "order": 0
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Виталий",
+    "owner": 35,
+    "tag": [
+      {
+        "id": 1,
+        "tag": "anime"
+      }
+    ],
+    "description": "Валериевич",
+    "collection": [
+      3
+    ],
+    "created_at": "2021-12-01T18:57:22.370948+03:00",
+    "price": "228.00",
+    "series_photos": [
+      {
+        "id": 34,
+        "photo": "/media/pictures/photos/visual_05.jpg",
+        "order": 0
+      }
+    ]
+  }
+]

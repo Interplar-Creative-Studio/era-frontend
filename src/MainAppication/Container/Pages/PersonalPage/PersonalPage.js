@@ -8,7 +8,7 @@ import {
     PERSONAL_GALLERY,
     PERSONAL_STATISTICS
 } from "../../../../UrlsConst";
-import {Collections} from "./Collections/Collections";
+import Collections from "./Collections/Collections";
 import {Statistics} from "./Statistics/Statistics";
 import {PersonalMenu} from "./PersonalInfo/PersonalMenu/PersonalMenu";
 import {useQuery} from "../../../Components/functions/functions";
