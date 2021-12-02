@@ -5,9 +5,8 @@ import {IconsForPictures} from "./Icons/IconsForPictures";
 
 export const PictureForPersonalPage = (props) => {
     let image = props.image;
-    console.log("image: ", image);
     return (
-        <div className="personal-area__galery__unit">
+        <div className="personal-area__galery__unit" onClick={props.onClick}>
             <NavLink to={image.imgLink ?? "#"}>
                 <img alt={""} src={image}/>
             </NavLink>

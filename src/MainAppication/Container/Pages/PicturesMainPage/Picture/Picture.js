@@ -7,15 +7,22 @@ import {Like} from "../../../../Components/Icons/Like/Like";
 import {UnderText} from "../../../../Components/Icons/UnderText";
 import {LikeActive} from "../../../../Components/Icons/Like/LikeActive";
 import {SaveFolderActive} from "../../../../Components/Icons/SaveFolder/SaveFolderActive";
+import ViewPhoto from "../../ViewPhoto/ViewPhoto";
 
 export const Picture = (props) => {
-    console.log("props.img: ", props.img);
     const [like, setLike] = useState(false);
     const [save, setSave] = useState(false);
-    const onClickLike = () => { setLike(!like); };
-    const onClickSave = () => { setSave(!save); };
+    const onClickLike = () => {
+        setLike(!like);
+    };
+    const onClickSave = () => {
+        setSave(!save);
+    };
     return (
-        <div className="main__page__picture" id={props.id}>
+        <div className="main__page__picture" id={props.id} onClick={() => {
+            props.onClick();
+            props.onClickPictureId(props.id)
+        }}>
             <NavLink to={props.imgLink}><img src={props.img} alt={""}/>
                 <div className="main__page__picture__hidden-info">
                     <div className="main__page__picture__hidden-info__more-button">
@@ -25,10 +32,12 @@ export const Picture = (props) => {
                         <Share color={"white"}/>
                     </div>
                     <div className="main__page__picture__hidden-info__save-icon">
-                        {save ?  <SaveFolderActive onClick={onClickSave}/> : <SaveFolder onClick={onClickSave} color={"white"}/> }
+                        {save ? <SaveFolderActive onClick={onClickSave}/> :
+                            <SaveFolder onClick={onClickSave} color={"white"}/>}
                     </div>
                     <div className="main__page__picture__hidden-info__like-icon">
-                        {like ? <LikeActive color={"white"} onClick={onClickLike}/> : <Like color={"white"} onClick={onClickLike}/>}
+                        {like ? <LikeActive color={"white"} onClick={onClickLike}/> :
+                            <Like color={"white"} onClick={onClickLike}/>}
                     </div>
                 </div>
 

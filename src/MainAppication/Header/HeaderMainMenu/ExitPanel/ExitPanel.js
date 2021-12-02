@@ -16,7 +16,8 @@ export const ExitPanel = (props) => {
     ];
 
     return(
-        <nav className="menu__first-block__user-profile__list-mini">
+        <nav className="menu__first-block__user-profile__list-mini"
+             onMouseLeave={props.onMouseLeave} onMouseOver={props.onMouseOver}>
             <ul>
                 <MenuMap arr={menu}/>
             </ul>

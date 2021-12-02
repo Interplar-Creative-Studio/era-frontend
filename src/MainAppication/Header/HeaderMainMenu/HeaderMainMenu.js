@@ -2,15 +2,15 @@ import React, {useState} from "react";
 import {Search} from "./Search/Search";
 import {NavLink} from "react-router-dom";
 import {Notification} from "../../Components/Icons/Notification";
-import {User} from "../../Components/User/User";
 import {CART, PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
 import {Cart} from "../../Components/Icons/Cart";
 import {connect} from "react-redux";
-import {ExitPanel} from "./ExitPanel/ExitPanel";
+import {HeaderUser} from "./HeaderUser/HeaderUser";
 
 
 export const HeaderMainMenu = (props) => {
-    let link = `${PERSONAL}?name=${PERSONAL_GALLERY}`;
+    //let link = `${PERSONAL}?name=${PERSONAL_GALLERY}`;
+    let link = `${PERSONAL_GALLERY}`;
     const [notification, setNotification] = useState(false);
     let user = props.user;
     return(
@@ -26,7 +26,7 @@ export const HeaderMainMenu = (props) => {
                           notification={notification} />
 
             <Cart href={CART}/>
-            <User imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>
+            <HeaderUser imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>
 
         </div>
     );
