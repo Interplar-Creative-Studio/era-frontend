@@ -15,7 +15,6 @@ let temp_user1 = {
 const LogIn = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [user, setUser] = useState({login: "", password: ""});
 
 
     const changeUsername = (e) => {
@@ -27,7 +26,6 @@ const LogIn = (props) => {
 
     const submitButtonClick = () => {
         props.logIn({username: username, password: password});
-        getApi().then(res => console.log("api res: ", res));
     }
 
 

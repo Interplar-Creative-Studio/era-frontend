@@ -23,7 +23,7 @@ const ViewPhoto = (props) => {
                 <Slider picture={picture}/>
                 <PhotoModalTitle picture={picture}/>
                 <ViewPhotoDescription picture={picture}/>
-                <MorePhotos picture={picture}/>
+                <MorePhotos/>
             </div>
         </div>
     );

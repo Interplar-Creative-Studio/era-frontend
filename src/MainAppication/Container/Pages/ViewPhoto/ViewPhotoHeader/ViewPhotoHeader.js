@@ -39,9 +39,7 @@ export const ViewPhotoHeader = (props) => {
                 </div>
                     <MoreOptions/>
                 <div className="photo-modal__header__information__close-button">
-                    <NavLink to={PICTURE_PAGE}>
                         <AiOutlineClose style={{transform: "scale(3, 3)", marginTop: "-20px"}} onClick={props.onClick}/>
-                    </NavLink>
                 </div>
             </div>
         </div>

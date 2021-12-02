@@ -12,7 +12,7 @@ export const HeaderUser = (props) => {
              onMouseLeave={() => setExitMenu(false)}
              onMouseOver={onMouseOverMenu}>
             <User imgLink={props.imgLink} img={props.img} nameLink={props.nameLink} name={props.name}/>
-            {exitMenu && <ExitPanel onMouseOver={onMouseOverMenu} onMouseLeave={() => {setExitMenu(false)}}/>}
+            {exitMenu && <ExitPanel logOut={props.logOut} onMouseOver={onMouseOverMenu} onMouseLeave={() => {setExitMenu(false)}}/>}
         </div>
     );
 };

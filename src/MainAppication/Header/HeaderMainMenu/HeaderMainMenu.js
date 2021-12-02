@@ -2,10 +2,12 @@ import React, {useState} from "react";
 import {Search} from "./Search/Search";
 import {NavLink} from "react-router-dom";
 import {Notification} from "../../Components/Icons/Notification";
-import {CART, PERSONAL, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
+import {CART, LOG_IN, PERSONAL_GALLERY, PICTURE_PAGE} from "../../../UrlsConst";
 import {Cart} from "../../Components/Icons/Cart";
 import {connect} from "react-redux";
 import {HeaderUser} from "./HeaderUser/HeaderUser";
+import {Button} from "../../Components/AuthorizationComponents/Button/Button";
+import {logout} from "../../../store/actions/auth";
 
 
 export const HeaderMainMenu = (props) => {
@@ -26,7 +28,10 @@ export const HeaderMainMenu = (props) => {
                           notification={notification} />
 
             <Cart href={CART}/>
-            <HeaderUser imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>
+
+            { user !== null ? <HeaderUser logOut={props.logOut} imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>:
+                <Button  className={"personal-area__settings__menu__button"} href={LOG_IN} text={"Войти"}/>
+            }
 
         </div>
     );
@@ -35,5 +40,7 @@ export const HeaderMainMenu = (props) => {
 const mapStateToProps = (state) => {
     return {user: state.auth.user,}
 };
-
-export default connect(mapStateToProps)(HeaderMainMenu);
+const mapDispatchToProps = {
+    logOut: logout,
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderMainMenu);

@@ -33,7 +33,6 @@ export const Container = () => {
             <Route exact path={CART} render={() => <Cart/>}/>
             <Route exact path={INFORMATION_ABOUT_PHOTO} render={() => <InformationAboutPhoto/>}/>
             <Route exact path={ADD_PHOTO} render={() => <AddPhoto/>}/>
-            {/*  <Route exact path={VIEW_PHOTO} render={()=><ViewPhoto/>}/>*/}
         </Switch>
 
     );
