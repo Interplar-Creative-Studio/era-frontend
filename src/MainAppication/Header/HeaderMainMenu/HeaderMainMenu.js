@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import {HeaderUser} from "./HeaderUser/HeaderUser";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {logout} from "../../../store/actions/auth";
+;
 
 
 export const HeaderMainMenu = (props) => {

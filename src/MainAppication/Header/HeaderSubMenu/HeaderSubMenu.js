@@ -26,7 +26,7 @@ const HeaderSubMenu = (props) => {
         let url = `${process.env.REACT_APP_API_URL}/api/categories/?limit=10`;
         fetchGet(setTags, url);
     }, []);
-    console.log("tags: ", tags);
+
     const onClick = (id) =>{
         props.tagsIdAction(id);
     };
@@ -34,7 +34,7 @@ const HeaderSubMenu = (props) => {
         <div className="menu__second-block container">
             <ul>
                {/* <MenuMap arr={menu}/>*/}
-                {tags.map(tag =><li onClick={()=>onClick(tag?.id)}><NavLink to={PICTURE_PAGE}>{tag?.tag}</NavLink></li>)}
+                {tags.map((tag, i)=><li key={i} onClick={()=>onClick(tag?.id)}><NavLink to={PICTURE_PAGE}>{tag?.tag}</NavLink></li>)}
             </ul>
             <TabPanelIcons/>
         </div>
