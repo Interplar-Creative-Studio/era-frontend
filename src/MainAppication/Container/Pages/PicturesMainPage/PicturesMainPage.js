@@ -22,7 +22,9 @@ const PicturesMainPage = (props) => {
         url = `${process.env.REACT_APP_API_URL}/api/photostock/?page=${page}&tag_id=${props.tagId ?? 1}`;
         fetch(url).then(response => {
             if (response.ok) {
-                response.json().then(res => setPictures(pictures.concat(res)))
+                // response.json().then(res => {setPictures(pictures.concat(res).reverse())})
+                response.json().then(res => setPictures(prev => [...prev, ...res]))
+                // response.json().then(res => setPictures(prev=>[...prev, res]))
             }
         });
         setPage(prev => getPage(0, 0));
@@ -39,7 +41,7 @@ const PicturesMainPage = (props) => {
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         check(props.tagId, currTag);
     }, [page, props.tagId]);
 
@@ -48,8 +50,10 @@ const PicturesMainPage = (props) => {
         getArr();
     }, [props.tagId]);
 
-    console.log(pictures);
-    console.log("page:", page);
+    for (const picture of pictures) {
+        console.log("pictures: ", JSON.stringify(picture.id), "\n");
+    }
+    console.log("\n");
 
     const onClick = () => {
         setShowPictures(!showPictures);
@@ -63,7 +67,6 @@ const PicturesMainPage = (props) => {
         getTime();
         return isTime && <LoginMenu/>
     }
-
 
     return (
         <>
