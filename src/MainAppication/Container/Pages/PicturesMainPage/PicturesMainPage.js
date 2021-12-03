@@ -6,7 +6,11 @@ import {connect} from "react-redux";
 import {LoginMenu} from "../../../Header/HeaderMainMenu/LoginMenu/LoginMenu";
 
 
-
+function getPage(num, index = 0) {
+    if (index >= num ) return 1
+    if (index < 0) return num
+    return index
+}
 
 const PicturesMainPage = (props) => {
     const [page, setPage] = useState(1);
@@ -14,14 +18,14 @@ const PicturesMainPage = (props) => {
     const [showPictures, setShowPictures] = useState(false);
     function getArr(){
         url = `${process.env.REACT_APP_API_URL}/api/photostock/?page=${page}&tag_id=${props.tagId ?? 1}`;
-        fetch(url).then(response => response.json().then(res => setPictures(res)));
-        setPage(prev=>prev+1);
+        fetch(url).then(response => response.json().then(res => setPictures( pictures.concat(res))));
+        setPage(prev=>getPage(3,prev+1));
     }
     let url = `${process.env.REACT_APP_API_URL}/api/photostock/?page=${page}&tag_id=${props.tagId ?? 1}`;
     useEffect(() => {
         getArr()
     }, [props.tagId]);
-    console.log(page);
+
     const onClick = () => {
         setShowPictures(!showPictures);
     };

@@ -18,7 +18,7 @@ export const PicturesMap = (props) => {
                                                    img={`${process.env.REACT_APP_API_URL}${pic?.series_photos[0]?.photo}`}
                                                    pictureNameLink={"#"} onClick={props.onClick}
                                                    onClickPictureId={onClickPictureId}
-                                                   pictureName={pic.name}/>)}
+                                                   pictureName={pic?.name}/>)}
             </div>
             {props.showPictures && <ViewPhoto pictureId={pictureId} onClick={props.onClick}/>}
         </div>
