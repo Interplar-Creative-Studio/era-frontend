@@ -19,11 +19,11 @@ export const Picture = (props) => {
         setSave(!save);
     };
     return (
-        <div className="main__page__picture" id={props.id} onClick={() => {
-            props.onClick();
-            props.onClickPictureId(props.id)
-        }}>
-            <NavLink to={props.imgLink}><img src={props.img} alt={""}/>
+        <div className="main__page__picture" id={props.id}>
+            <NavLink to={props.imgLink}><img src={props.img} alt={""} onClick={() => {
+                props.onClick();
+                props.onClickPictureId(props.id);
+            }}/>
                 <div className="main__page__picture__hidden-info">
                     <div className="main__page__picture__hidden-info__more-button">
                         <MoreOptions color={"white"}/>

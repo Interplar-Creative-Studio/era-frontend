@@ -22,7 +22,6 @@ export const PERSONAL_SETTINGS_PROFILE = `profile`;
 export const PERSONAL_SETTINGS_ACCOUNT = `account`;
 
 
-
 export const ADD_PHOTO_SETTINGS_PHOTO = "settingsPhoto";
 export const ADD_PHOTO_SETTINGS_SERIES = "settingsSeries";
 export const ADD_PHOTO_SETTINGS_MONETIZATION = "settingsMonetization";

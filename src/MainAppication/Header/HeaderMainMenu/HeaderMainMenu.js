@@ -8,10 +8,10 @@ import {connect} from "react-redux";
 import {HeaderUser} from "./HeaderUser/HeaderUser";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {logout} from "../../../store/actions/auth";
+;
 
 
 export const HeaderMainMenu = (props) => {
-    //let link = `${PERSONAL}?name=${PERSONAL_GALLERY}`;
     let link = `${PERSONAL_GALLERY}`;
     const [notification, setNotification] = useState(false);
     let user = props.user;
@@ -32,7 +32,6 @@ export const HeaderMainMenu = (props) => {
             { user !== null ? <HeaderUser logOut={props.logOut} imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>:
                 <Button  className={"personal-area__settings__menu__button"} href={LOG_IN} text={"Войти"}/>
             }
-
         </div>
     );
 };

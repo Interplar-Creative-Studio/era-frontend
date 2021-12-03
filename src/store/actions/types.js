@@ -20,3 +20,4 @@ export const LOGOUT = 'LOGOUT';
 
 export const GET_USER = "GET_USER";
 export const GET_INDEX = "GET_INDEX";
+export const TAG_ID = "TAG_ID";
