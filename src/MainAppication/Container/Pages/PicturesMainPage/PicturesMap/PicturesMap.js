@@ -15,7 +15,7 @@ export const PicturesMap = (props) => {
         <div className="main main-first">
             <div className="picture__page">
                 {pictures.map((pic, i) => <Picture key={i} id={pic.id} imgLink={pic.imgLink ?? "#"}
-                                                   img={`${process.env.REACT_APP_API_URL}${pic.series_photos[0]?.photo}`}
+                                                   img={`${process.env.REACT_APP_API_URL}${pic?.series_photos[0]?.photo}`}
                                                    pictureNameLink={"#"} onClick={props.onClick}
                                                    onClickPictureId={onClickPictureId}
                                                    pictureName={pic.name}/>)}

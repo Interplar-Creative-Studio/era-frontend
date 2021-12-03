@@ -20,7 +20,6 @@ let menu = [
 ];
 
 const HeaderSubMenu = (props) => {
-    // /api/categories/
     const [tags, setTags] = useState([]);
     useEffect(() => {
         let url = `${process.env.REACT_APP_API_URL}/api/categories/?limit=10`;
@@ -33,10 +32,9 @@ const HeaderSubMenu = (props) => {
     return (
         <div className="menu__second-block container">
             <ul>
-               {/* <MenuMap arr={menu}/>*/}
                 {tags.map((tag, i)=><li key={i} onClick={()=>onClick(tag?.id)}><NavLink to={PICTURE_PAGE}>{tag?.tag}</NavLink></li>)}
             </ul>
-            <TabPanelIcons/>
+            {props.user !== null && <TabPanelIcons/>}
         </div>
     );
 };
@@ -45,4 +43,8 @@ const mapDispatchToProps = {
     tagsIdAction: tagsIdActionCreator,
 };
 
-export default connect(null, mapDispatchToProps)(HeaderSubMenu);
+const mapStateToProps = (state) =>({
+    user: state.auth.user,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderSubMenu);
