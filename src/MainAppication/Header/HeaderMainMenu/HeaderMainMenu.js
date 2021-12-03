@@ -24,10 +24,11 @@ export const HeaderMainMenu = (props) => {
                 <p>Лента</p>
             </div>
             <Search/>
+            {props.user !== null &&
             <Notification amount={"1"} onClick={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}
-                          notification={notification} />
-
-            <Cart href={CART}/>
+                          notification={notification} />}
+            {props.user !== null &&
+                <Cart href={CART}/>}
 
             { user !== null ? <HeaderUser logOut={props.logOut} imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>:
                 <Button  className={"personal-area__settings__menu__button"} href={LOG_IN} text={"Войти"}/>
