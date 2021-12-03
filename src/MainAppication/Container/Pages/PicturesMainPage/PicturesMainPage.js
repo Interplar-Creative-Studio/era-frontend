@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
 import {PicturesMap} from "./PicturesMap/PicturesMap";
-import {fetchGet} from "../../../Components/functions/asyncFunctions";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {connect} from "react-redux";
 import {LoginMenu} from "../../../Header/HeaderMainMenu/LoginMenu/LoginMenu";
