@@ -17,29 +17,27 @@ const sendPhoto = (photo, access) => {
     formData.append('price', photo.price);
     formData.append('tag', photo.tag);
 
-    if (photo.series_photos.length === 0){
-         return
-    }
+    if (photo.series_photos[0].length !== 0) {
 
-    for (let i = 0; i < photo.series_photos.length; i++) {
-        formData.append(`series_photos[]`, photo.series_photos[i][0], photo.series_photos[i][0].name);
-    }
-
-    for (const [key, value] of formData) {
-        console.log(key, value);
-    }
-
-    axios.post(url, formData, {
-        headers: {
-            'content-type': 'multipart/form-data',
-            'Authorization': `Bearer ${access}`,
+        for (let i = 0; i < photo.series_photos.length; i++) {
+            formData.append(`series_photos[]`, photo.series_photos[i][0], photo.series_photos[i][0].name);
         }
-    })
-        .then(res => {
-            console.log(res.data);
-        })
-        .catch(err => console.log(err))
 
+        for (const [key, value] of formData) {
+            console.log(key, value);
+        }
+
+        axios.post(url, formData, {
+            headers: {
+                'content-type': 'multipart/form-data',
+                'Authorization': `Bearer ${access}`,
+            }
+        })
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => console.log(err))
+    }
 }
 
 const AddPhoto = (props) => {

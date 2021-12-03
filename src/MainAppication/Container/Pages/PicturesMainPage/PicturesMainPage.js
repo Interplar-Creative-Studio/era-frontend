@@ -49,10 +49,10 @@ const PicturesMainPage = (props) => {
         getArr();
     }, [props.tagId]);
 
-    for (const picture of pictures) {
+/*    for (const picture of pictures) {
         console.log("pictures: ", JSON.stringify(picture.id), "\n");
     }
-    console.log("\n");
+    console.log("\n");*/
 
     const onClick = () => {
         setShowPictures(!showPictures);
