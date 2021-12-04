@@ -28705,7 +28705,7 @@ textarea.form-control-lg {
         padding: 0 10px
     }
 
-    .menu__first-block__description, .menu__first-block__notification, .menu__first-block__cart, .menu__first-block__user-profile {
+    .menu__first-block__description, .menu__first-block__notification, .menu__first-block__cart{
         display: none
     }
 
