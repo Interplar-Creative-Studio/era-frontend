@@ -8,7 +8,9 @@ import {connect} from "react-redux";
 import {HeaderUser} from "./HeaderUser/HeaderUser";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {logout} from "../../../store/actions/auth";
-;
+import {ButtonHeader} from "./ButtonHeader/ButtonHeader";
+import {MdExitToApp} from "react-icons/all";
+
 
 
 export const HeaderMainMenu = (props) => {
@@ -31,7 +33,7 @@ export const HeaderMainMenu = (props) => {
                 <Cart href={CART}/>}
 
             { user !== null ? <HeaderUser logOut={props.logOut} imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>:
-                <Button  className={"personal-area__settings__menu__button"} href={LOG_IN} text={"Войти"}/>
+                <Button text={<MdExitToApp/>} style={{transform: "scale(3, 3)", marginTop:"15px", height: '20px', width:'20px'}} href={LOG_IN} />
             }
         </div>
     );
