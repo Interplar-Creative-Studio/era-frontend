@@ -3,7 +3,7 @@ import {ExitPanel} from "../ExitPanel/ExitPanel";
 import {User} from "../../../Components/User/User";
 
 export const HeaderUser = (props) => {
-    const [exitMenu, setExitMenu] = useState(false);
+    const [exitMenu, setExitMenu] = useState(true);
 /*    const onMouseOverMenu = () => {
         setExitMenu(true);
     }*/

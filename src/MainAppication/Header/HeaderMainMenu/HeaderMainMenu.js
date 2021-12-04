@@ -8,10 +8,31 @@ import {connect} from "react-redux";
 import {HeaderUser} from "./HeaderUser/HeaderUser";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {logout} from "../../../store/actions/auth";
-import {ButtonHeader} from "./ButtonHeader/ButtonHeader";
 import {MdExitToApp} from "react-icons/all";
 
-
+function f(){
+    window.addEventListener('load', function (){
+        const burgerActivator = document.getElementById('burgerActivator');
+        const burgerActive = document.querySelector('.menu__first-block__burger__block');
+        const toggleMenu = () => {
+            burgerActive.classList.toggle('menu__first-block__burger__block-active');
+        }
+        burgerActivator.addEventListener('click', e => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        document.addEventListener('click', e => {
+            let target = e.target;
+            let its_menu = target === burgerActive || burgerActivator.contains(target);
+            let its_hamburger = target === burgerActivator;
+            let menu_is_active = burgerActive.classList.contains('menu__first-block__burger__block-active');
+            if (!its_menu && !its_hamburger && menu_is_active) {
+                toggleMenu();
+                document.querySelector('.menu__first-block__burger__button__cheeckbox').checked = false;
+            }
+        })
+    })
+}
 
 export const HeaderMainMenu = (props) => {
     let link = `${PERSONAL_GALLERY}`;
@@ -32,7 +53,7 @@ export const HeaderMainMenu = (props) => {
             {props.user !== null &&
                 <Cart href={CART}/>}
 
-            { user !== null ? <HeaderUser logOut={props.logOut} imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>:
+            { user !== null ? <HeaderUser f={f} logOut={props.logOut} imgLink={link} img={user?.profile_pic ?? "#"} nameLink={link} name={user?.username}/>:
                 <Button text={<MdExitToApp/>} style={{transform: "scale(3, 3)", marginTop:"15px", height: '20px', width:'20px'}} href={LOG_IN} />
             }
         </div>

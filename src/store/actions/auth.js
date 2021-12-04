@@ -183,17 +183,18 @@ export const signup = (user) => async dispatch => {
     };
 
     const body = JSON.stringify(user);
-
+    let message = "";
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/users/`, body, config);
-
+        message = res.statusText
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data
         });
     } catch (err) {
         dispatch({
-            type: SIGNUP_FAIL
+            type: SIGNUP_FAIL,
+            payload: message,
         })
     }
 };

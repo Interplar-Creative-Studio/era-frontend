@@ -8,7 +8,7 @@ export const LoginMenu = (props) => {
             <div className="unregistred">
                 <div className="unregistred__block">
                     <div className="unregistred__block__description">
-                        <h2>Зарегистрируйтесь, чтобы находить больше идей</h2>
+                        <h2>Зарегистрируйтесь чтобы находить больше архивов</h2>
                     </div>
                     <div className="unregistred__block__form">
                         <LogIn/>

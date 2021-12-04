@@ -3,14 +3,14 @@ import {MenuMap} from "../../../Components/MenuElement/MenuMap";
 import {
     LOG_IN,
     PERSONAL,
-    PERSONAL_COLLECTIONS,
+    PERSONAL_COLLECTIONS, PERSONAL_GALLERY,
     PERSONAL_SETTINGS,
     PERSONAL_SETTINGS_PROFILE
 } from "../../../../UrlsConst";
 
 export const ExitPanel = (props) => {
     let menu = [
-        {href: `${PERSONAL_SETTINGS}?settings=${PERSONAL_SETTINGS_PROFILE}`, text: "Личный кабинет"},
+        {href: PERSONAL_GALLERY, text: "Личный кабинет"},
         {href: `${PERSONAL_COLLECTIONS}`, text: "Коллекция"},
         {href: LOG_IN, text: "Выход", onClick: props.logOut},
     ];

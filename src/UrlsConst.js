@@ -8,6 +8,7 @@ export const ADD_PHOTO = "/addPhoto";
 export const LOG_IN = "/login";
 export const CREATE_AN_ACCOUNT = "/createAnAccount";
 export const VIEW_PHOTO = "/viewPhoto";
+export const VERIFY = "/verify";
 
 export const PERSONAL_GALLERY = "/personal/gallery";
 export const PERSONAL_COLLECTIONS = "/personal/collections";

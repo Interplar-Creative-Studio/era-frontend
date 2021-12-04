@@ -27,6 +27,7 @@ const initialState = {
     user: null,
     idCollection: localStorage.getItem('idCollection'),
     tagId: localStorage.getItem('tagId'),
+    error: "normal",
 };
 
 export const auth = (state = initialState, action) => {
@@ -81,7 +82,8 @@ export const auth = (state = initialState, action) => {
                 access: null,
                 refresh: null,
                 isAuthenticated: false,
-                user: null
+                user: null,
+                error: payload,
             }
         case PASSWORD_RESET_SUCCESS:
         case PASSWORD_RESET_FAIL:

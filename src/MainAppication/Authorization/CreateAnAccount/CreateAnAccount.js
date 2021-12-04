@@ -6,6 +6,7 @@ import {LOG_IN, PICTURE_PAGE} from "../../../UrlsConst";
 import {connect} from 'react-redux';
 import {signup} from "../../../store/actions/auth";
 import {getApi} from "../asyncFunctions/testFunctions";
+import axios from "axios";
 
 
 /*let user1 = {
@@ -15,8 +16,23 @@ import {getApi} from "../asyncFunctions/testFunctions";
     first_name: "Anna",
     last_name: "Moklyakova"
 };*/
+function tempErrors(user) {
+    console.log("jhhkkjlk");
 
-const CreateAnAccount = ({signup, isAuthenticated}) => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    const body = JSON.stringify(user);
+
+    let res = axios.post(`${process.env.REACT_APP_API_URL}/api/auth/users/`, body, config).catch(res=>alert(res))
+
+    //res.then(r=>console.log("test: ", r.statusText));
+
+}
+
+const CreateAnAccount = ({signup, isAuthenticated, error}) => {
     const [createLogin, setCreateLogin] = useState("");
     const [createPassword, setCreatePassword] = useState("");
     const [createEmail, setCreateEmail] = useState("");
@@ -26,7 +42,6 @@ const CreateAnAccount = ({signup, isAuthenticated}) => {
     const [createUser, setCreateUser] = useState({});
 
     const passwordLength = 6;
-
     const changeCreateLogin = (e) => {
         setCreateLogin(e.target.value);
     }
@@ -54,6 +69,7 @@ const CreateAnAccount = ({signup, isAuthenticated}) => {
                 last_name: userSurname
             };
             signup(user);
+            tempErrors(user);
         }
     }
 
@@ -99,7 +115,11 @@ const CreateAnAccount = ({signup, isAuthenticated}) => {
 
 
 const mapStateToProps = (state) => {
-    return {isAuthenticated: state.auth.isAuthenticated};
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        user: state.auth.user,
+        error: state.auth.error,
+    };
 }
 
 export default connect(mapStateToProps, {signup})(CreateAnAccount)
