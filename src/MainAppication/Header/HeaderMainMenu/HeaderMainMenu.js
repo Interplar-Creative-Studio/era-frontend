@@ -26,7 +26,7 @@ export const HeaderMainMenu = (props) => {
                 <p>Лента</p>
             </div>
             <Search/>
-            {props.user !== null &&
+            {props.user !== null && window.innerWidth >540 &&
             <Notification amount={"1"} onClick={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}
                           notification={notification} />}
             {props.user !== null &&
