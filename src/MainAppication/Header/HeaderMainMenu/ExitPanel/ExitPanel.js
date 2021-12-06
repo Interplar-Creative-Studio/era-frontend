@@ -11,7 +11,7 @@ import {
 export const ExitPanel = (props) => {
     let menu = [
         {href: PERSONAL_GALLERY, text: "Личный кабинет"},
-        {href: `${PERSONAL_COLLECTIONS}`, text: "Коллекция"},
+        {href: `${PERSONAL_COLLECTIONS}`, text: "Фотоархив"},
         {href: LOG_IN, text: "Выход", onClick: props.logOut},
     ];
 

@@ -5,7 +5,7 @@ let titlesAndTags = [
     {title: "Недавно искали", tags: ['Wallpapers', 'Wallpapers', 'Wallpapers']},
     {title: "Популярные запросы", tags: ['Wallpapers', 'Wallpapers', 'Wallpapers']},
     {title: "Популярные темы", tags: ['Wallpapers', 'Wallpapers', 'Wallpapers', 'Wallpapers']},
-    {title: "Популярные коллекции", tags: ['Wallpapers', 'Wallpapers', 'Wallpapers']},
+    {title: "Популярные фотоархивы", tags: ['Wallpapers', 'Wallpapers', 'Wallpapers']},
 ];
 
 function searchOnClick(){

@@ -29,7 +29,7 @@ let collections = [
 
 let menu = [
     {href: `${PERSONAL_GALLERY}`, text: "Галерея"},
-    {href: `${PERSONAL_COLLECTIONS}`, text: "Коллекции"},
+    {href: `${PERSONAL_COLLECTIONS}`, text: "Фотоархив"},
     {href: `${PERSONAL_STATISTICS}`, text: "Статистика"},
 ];
 
