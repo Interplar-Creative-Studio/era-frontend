@@ -3,6 +3,7 @@ import {PicturesMap} from "./PicturesMap/PicturesMap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {connect} from "react-redux";
 import {LoginMenu} from "../../../Header/HeaderMainMenu/LoginMenu/LoginMenu";
+import {searchActionCreator} from "../../../../store/actions/searchActionCreator";
 
 
 function getPage(num, index = 0) {
@@ -17,23 +18,26 @@ const PicturesMainPage = (props) => {
     const [pictures, setPictures] = useState([]);
     const [showPictures, setShowPictures] = useState(false);
 
-    function getArr() {
-        url = `${process.env.REACT_APP_API_URL}/api/photostock/?page=${page}&tag_id=${props.tagId ?? 1}`;
+    function getArr(url) {
         fetch(url).then(response => {
             if (response.ok) {
-                // response.json().then(res => {setPictures(pictures.concat(res).reverse())})
                 response.json().then(res => setPictures(prev => [...prev, ...res]))
-                // response.json().then(res => setPictures(prev=>[...prev, res]))
             }
         });
         setPage(prev => getPage(0, 0));
+    }
+
+    function getInfinityArray() {
+        let url = `${process.env.REACT_APP_API_URL}/api/photostock/?page=${page}&tag_id=${props.tagId ?? 1}`;
+        getArr(url);
     }
 
     let url = `${process.env.REACT_APP_API_URL}/api/photostock/?page=${page}&tag_id=${props.tagId ?? 1}`;
     const [currTag, setCurrTag] = useState();
 
     function check(tag, curTag) {
-        if (tag !== curTag) {
+        if (tag !== curTag){
+            props.searchAction("");
             setPictures([]);
             setPage(0);
             setCurrTag(tag);
@@ -45,14 +49,15 @@ const PicturesMainPage = (props) => {
     }, [page, props.tagId]);
 
     useEffect(() => {
-        //check(props.tagId, currTag);
-        getArr();
+        getInfinityArray();
     }, [props.tagId]);
 
-/*    for (const picture of pictures) {
-        console.log("pictures: ", JSON.stringify(picture.id), "\n");
-    }
-    console.log("\n");*/
+    useEffect(() => {
+        url = `${process.env.REACT_APP_API_URL}/api/photostock/?search_query=${props.search ?? ""}`;
+        setPictures([]);
+        getArr(url);
+    }, [props.search]);
+
 
     const onClick = () => {
         setShowPictures(!showPictures);
@@ -71,7 +76,7 @@ const PicturesMainPage = (props) => {
         <>
             {props.user === null && getModal()}
             <div className="container">
-                <InfiniteScroll next={getArr} hasMore={true} loader={<div/>} dataLength={pictures.length}>
+                <InfiniteScroll next={props.search === "" && getInfinityArray} hasMore={true} loader={<div/>} dataLength={pictures.length}>
                     <PicturesMap showPictures={showPictures} setShowPictures={setShowPictures} onClick={onClick}
                                  pictures={pictures}/>
                 </InfiniteScroll>
@@ -85,9 +90,12 @@ const mapStateToProps = (state) => {
     return ({
         tagId: state.auth.tagId,
         user: state.auth.user,
-
+        search: state.container.search,
     });
 }
 
+const mapDispatchToProps = {
+    searchAction: searchActionCreator,
+};
 
-export default connect(mapStateToProps)(PicturesMainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(PicturesMainPage);

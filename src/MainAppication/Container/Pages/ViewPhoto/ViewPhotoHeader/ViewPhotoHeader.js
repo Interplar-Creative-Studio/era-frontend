@@ -15,7 +15,9 @@ export const ViewPhotoHeader = (props) => {
         let url = `${process.env.REACT_APP_API_URL}/api/user/shortinfo/${picture?.owner ?? 0}`;
         fetchGet(userSet, url);
     },[picture?.owner]);
+
     let date = new Date(picture?.created_at);
+
     return(
         <div className="photo-modal__header">
             <div className="photo-modal__header__user-profile">
@@ -35,7 +37,7 @@ export const ViewPhotoHeader = (props) => {
                         </div>
                     </div>
                     <div className="photo-modal__header__information__stats__date">
-                        <p>Published<span>{date.getDay()}.{date.getMonth()}.{date.getFullYear()}</span></p>
+                        <p>Published<span>{date.getDate()}.{date.getMonth()+1}.{date.getFullYear()}</span></p>
                     </div>
                 </div>
                     <MoreOptions/>

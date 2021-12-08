@@ -9,6 +9,7 @@ import {HeaderUser} from "./HeaderUser/HeaderUser";
 import {Button} from "../../Components/AuthorizationComponents/Button/Button";
 import {logout} from "../../../store/actions/auth";
 import {MdExitToApp} from "react-icons/all";
+import {searchActionCreator} from "../../../store/actions/searchActionCreator";
 
 function f(){
     window.addEventListener('load', function (){
@@ -34,6 +35,7 @@ function f(){
     })
 }
 
+
 export const HeaderMainMenu = (props) => {
     let link = `${PERSONAL_GALLERY}`;
     const [notification, setNotification] = useState(false);
@@ -46,7 +48,7 @@ export const HeaderMainMenu = (props) => {
             <div className="menu__first-block__description">
                 <p>Лента</p>
             </div>
-            <Search/>
+            <Search searchAction={props.searchAction}/>
             {props.user !== null && window.innerWidth >540 &&
             <Notification amount={"1"} onClick={() => setNotification(true) } onMouseLeave={()=>setNotification(false)}
                           notification={notification} />}
@@ -65,5 +67,6 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = {
     logOut: logout,
+    searchAction: searchActionCreator,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderMainMenu);

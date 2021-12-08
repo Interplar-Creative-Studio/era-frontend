@@ -6,18 +6,6 @@ import {tagsIdActionCreator} from "../../../store/actions/tagsIdActionCreator";
 import {connect} from "react-redux";
 import {NavLink} from "react-router-dom";
 
-let menu = [
-    {href: PICTURE_PAGE, text: "Wallpapers"},
-    {href: "#", text: "3D Renders"},
-    {href: "#", text: "Textures & Patterns"},
-    {href: "#", text: "Architecture"},
-    {href: "#", text: "Current "},
-    {href: "#", text: "Experimental"},
-    {href: "#", text: "Nature"},
-    {href: "#", text: "Fashion"},
-    {href: "#", text: "Film"},
-    {href: "#", text: "Food & Drink"},
-];
 
 const HeaderSubMenu = (props) => {
     const [tags, setTags] = useState([]);
