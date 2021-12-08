@@ -13,7 +13,13 @@ import {
     PICTURE_PAGE,
     PERSONAL,
     PERSONAL_SETTINGS,
-    ADD_PHOTO, PERSONAL_GALLERY, PERSONAL_COLLECTIONS, PERSONAL_STATISTICS, VERIFY
+    ADD_PHOTO,
+    PERSONAL_GALLERY,
+    PERSONAL_COLLECTIONS,
+    PERSONAL_STATISTICS,
+    VERIFY,
+    PERSONAL_SETTINGS_PROFILE,
+    PERSONAL_SETTINGS_ACCOUNT
 } from "../../UrlsConst";
 
 
@@ -26,7 +32,7 @@ export const Container = () => {
             <Route exact path={PICTURE_PAGE} render={() => <PicturesMainPage/>}/>
             <Route exact path={[PERSONAL, PERSONAL_GALLERY, PERSONAL_COLLECTIONS, PERSONAL_STATISTICS]}
                    render={() => <PersonalPage/>}/>
-            <Route exact path={PERSONAL_SETTINGS} render={() => <PersonalSettingsPage/>}/>
+            <Route exact path={[PERSONAL_SETTINGS, PERSONAL_SETTINGS_PROFILE, PERSONAL_SETTINGS_ACCOUNT]} render={() => <PersonalSettingsPage/>}/>
             <Route exact path={COLLECTIONS} render={() => <InfoAboutCollections/>}/>
             <Route exact path={CART} render={() => <Cart/>}/>
             <Route exact path={ADD_PHOTO} render={() => <AddPhoto/>}/>

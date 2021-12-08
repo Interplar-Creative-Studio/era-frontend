@@ -14,13 +14,13 @@ export const PERSONAL_GALLERY = "/personal/gallery";
 export const PERSONAL_COLLECTIONS = "/personal/collections";
 export const PERSONAL_STATISTICS = "/personal/statistics";
 
+export const PERSONAL_SETTINGS_PROFILE = `/personalSettings/profile`;
+export const PERSONAL_SETTINGS_ACCOUNT = `/personalSettings/account`;
 
 export const ALL_URL = [PICTURE_PAGE, PERSONAL, PERSONAL_SETTINGS,
     CART, COLLECTIONS, INFORMATION_ABOUT_PHOTO, ADD_PHOTO, VIEW_PHOTO,
-    PERSONAL_GALLERY, PERSONAL_COLLECTIONS, PERSONAL_STATISTICS];
-
-export const PERSONAL_SETTINGS_PROFILE = `profile`;
-export const PERSONAL_SETTINGS_ACCOUNT = `account`;
+    PERSONAL_GALLERY, PERSONAL_COLLECTIONS, PERSONAL_STATISTICS,
+    PERSONAL_SETTINGS_PROFILE, PERSONAL_SETTINGS_ACCOUNT];
 
 
 export const ADD_PHOTO_SETTINGS_PHOTO = "settingsPhoto";

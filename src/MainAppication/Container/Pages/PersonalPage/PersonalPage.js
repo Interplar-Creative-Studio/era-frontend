@@ -41,7 +41,6 @@ const PersonalPage = (props) => {
             <div className="personal-area">
                 <PersonalInfo/>
                 <PersonalMenu menu={menu}/>
-                {/*<Child name={query.get("name")} />*/}
                 <Switch>
                     <Route path={PERSONAL_GALLERY} render={()=> <Gallery/>}/>
                     <Route exact path={PERSONAL_COLLECTIONS}

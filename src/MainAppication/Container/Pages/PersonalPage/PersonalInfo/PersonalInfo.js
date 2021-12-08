@@ -22,7 +22,7 @@ const PersonalInfo = (props) => {
                     <UserFullInfo user={user}  subscribers={subscribers}/>
                     <div className="personal-area__profile__description__icons">
                         <Share color={"black"}/>
-                        <Settings color={"black"} href={`${PERSONAL_SETTINGS}?settings=${PERSONAL_SETTINGS_PROFILE}`}/>
+                        <Settings color={"black"} href={`${PERSONAL_SETTINGS_PROFILE}`}/>
                         <MoreOptions color={"black"}/>
                     </div>
                 </div>
