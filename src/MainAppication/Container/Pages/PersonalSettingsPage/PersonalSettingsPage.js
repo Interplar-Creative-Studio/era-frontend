@@ -26,9 +26,8 @@ function userSettingsPatch(userSettings, access){
         headers: {
             'content-type': 'application/json',
             'Authorization': `Bearer ${access}`,
+            'X-HTTP-Method-Override': 'PATCH'
         },
-        cache: "no-cache",
-        withCredentials: true,
     }).then(res=>console.log(res));
 }
 
