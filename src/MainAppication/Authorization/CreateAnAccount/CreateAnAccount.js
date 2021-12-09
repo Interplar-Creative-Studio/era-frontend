@@ -5,19 +5,11 @@ import {SocialNetworks} from "../SocialNetworks/SocialNetworks";
 import {LOG_IN, PICTURE_PAGE} from "../../../UrlsConst";
 import {connect} from 'react-redux';
 import {signup} from "../../../store/actions/auth";
-import {getApi} from "../asyncFunctions/testFunctions";
+
 import axios from "axios";
 
 
-/*let user1 = {
-    username: "syperOlao",
-    password: "2132343498LdsFS",
-    email: "olay1234538@gmail.com",
-    first_name: "Anna",
-    last_name: "Moklyakova"
-};*/
 function tempErrors(user) {
-    console.log("jhhkkjlk");
 
     const config = {
         headers: {
@@ -26,9 +18,7 @@ function tempErrors(user) {
     };
     const body = JSON.stringify(user);
 
-    let res = axios.post(`${process.env.REACT_APP_API_URL}/api/auth/users/`, body, config).catch(res=>alert(res))
-
-    //res.then(r=>console.log("test: ", r.statusText));
+    axios.post(`${process.env.REACT_APP_API_URL}/api/auth/users/`, body, config).catch(res=>alert(res))
 
 }
 

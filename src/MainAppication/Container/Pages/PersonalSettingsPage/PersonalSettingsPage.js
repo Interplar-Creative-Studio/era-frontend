@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {PersonalAvatar} from "../PersonalPage/PersonalInfo/UserFullInfo/PersonalAvatar/PersonalAvatar";
 import {MenuSettings} from "./MenuSettings/MenuSettings";
 import {PERSONAL_SETTINGS, PERSONAL_SETTINGS_ACCOUNT, PERSONAL_SETTINGS_PROFILE} from "../../../../UrlsConst";
@@ -20,15 +20,19 @@ let menu = [
 
 const PersonalSettingsPage = (props) => {
     let user = props.user;
-    let query = useQuery();
+    const [userSettings, setUserSettings] = useState({});
+    const onChangeUserSettings = e => setUserSettings({...userSettings, [e.target.name]: e.target.value });
+    const onClickSubmit = () => {
+        console.log("userSettings: ", userSettings);
+    };
     return (
         <div className="container">
             <div className="personal-area__settings">
                 <PersonalAvatar img={user?.profile_pic} href={"#"}/>
                 <div className="personal-area__settings__area">
-                    <SettingsRoute user={user} settings={query.get("settings")}/>
+                    <SettingsRoute user={user} onChangeUserSettings={onChangeUserSettings} />
                 </div>
-                <MenuSettings menu={menu}/>
+                <MenuSettings onClickSubmit={onClickSubmit} menu={menu}/>
             </div>
         </div>
     );

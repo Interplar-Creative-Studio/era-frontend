@@ -9,8 +9,8 @@ export const MenuSettings = (props) => {
             <ul>
                 <MenuMap arr={props.menu}/>
             </ul>
-            <div className="personal-area__settings__menu__button">
-                <NavLink to={`${PERSONAL_SETTINGS}?settings=${PERSONAL_SETTINGS_PROFILE}`}>Сохранить изменения</NavLink>
+            <div className="personal-area__settings__menu__button" onClick={props.onClickSubmit}>
+                <NavLink to={`${PERSONAL_SETTINGS_PROFILE}`}>Сохранить изменения</NavLink>
             </div>
         </div>
     );

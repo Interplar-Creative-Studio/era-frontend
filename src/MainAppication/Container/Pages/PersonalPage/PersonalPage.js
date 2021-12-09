@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import Gallery from "./Gallery/Gallery";
 import {
-    COLLECTIONS,
-    PERSONAL,
     PERSONAL_COLLECTIONS,
     PERSONAL_GALLERY,
     PERSONAL_STATISTICS
@@ -11,21 +9,10 @@ import {
 import Collections from "./Collections/Collections";
 import {Statistics} from "./Statistics/Statistics";
 import {PersonalMenu} from "./PersonalInfo/PersonalMenu/PersonalMenu";
-import {useQuery} from "../../../Components/functions/functions";
 import {connect} from "react-redux";
 import {Switch} from "react-router";
 import {Route} from "react-router";
 
-
-let collections = [
-    {imgLink: COLLECTIONS, img: "https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg", pictureName: "Caption caption"},
-    {imgLink: COLLECTIONS, img: "https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg", pictureName: "Caption caption"},
-    {imgLink: COLLECTIONS, img: "https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg", pictureName: "Caption caption"},
-    {imgLink: COLLECTIONS, img: "https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg", pictureName: "Caption caption"},
-    {imgLink: COLLECTIONS, img: "https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg", pictureName: "Caption caption"},
-    {imgLink: COLLECTIONS, img: "https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg", pictureName: "Caption caption"},
-    {imgLink: COLLECTIONS, img: "https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg", pictureName: "Caption caption"},
-];
 
 let menu = [
     {href: `${PERSONAL_GALLERY}`, text: "Галерея"},
@@ -35,7 +22,6 @@ let menu = [
 
 
 const PersonalPage = (props) => {
-    let query = useQuery();
     return (
         <div className="container">
             <div className="personal-area">
@@ -44,7 +30,7 @@ const PersonalPage = (props) => {
                 <Switch>
                     <Route path={PERSONAL_GALLERY} render={()=> <Gallery/>}/>
                     <Route exact path={PERSONAL_COLLECTIONS}
-                           render={()=> <Collections collections={collections} user={props.user}/>}/>
+                           render={()=> <Collections user={props.user}/>}/>
                     <Route exact path={PERSONAL_STATISTICS} render={()=> <Statistics/>} />
                 </Switch>
             </div>
@@ -57,13 +43,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(PersonalPage);
-
-function Child({name, user}) {
-    return (
-        <div>
-            {name === PERSONAL_GALLERY && <Gallery/>}
-            {name === PERSONAL_COLLECTIONS && <Collections collections={collections} user={user}/>}
-            {name === PERSONAL_STATISTICS && <Statistics/>}
-        </div>
-    );
-}
