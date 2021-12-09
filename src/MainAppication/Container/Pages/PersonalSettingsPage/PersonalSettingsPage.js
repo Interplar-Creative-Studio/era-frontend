@@ -27,7 +27,8 @@ function userSettingsPatch(userSettings, access){
             'content-type': 'application/json',
             'Authorization': `Bearer ${access}`,
         },
-        cache: "no-cache"
+        cache: "no-cache",
+        withCredentials: true,
     }).then(res=>console.log(res));
 }
 
