@@ -14017,6 +14017,13 @@ textarea.form-control-lg {
     margin: 20px 0 0 0
 }
 
+.auth__block__form__button, .reg__block__form__button {
+    position: absolute;
+    top: 20px;
+    right: 20px
+}
+
+
 .auth__block__form__reg-button a, .reg__block__form__reg-button a {
     background: none;
     color: #000;

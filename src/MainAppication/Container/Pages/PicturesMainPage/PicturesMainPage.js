@@ -63,13 +63,16 @@ const PicturesMainPage = (props) => {
         setShowPictures(!showPictures);
     };
     const [isTime, setTime] = useState(false);
+    const [showFirst, setShowFirst] = useState(true);
     const getTime = () => {
         setTimeout(() => setTime(true), 5000);
     }
-
+    const onClickLoginExit = () =>{
+        setShowFirst(false);
+    }
     const getModal = () => {
         getTime();
-        return isTime && <LoginMenu/>
+        return isTime && showFirst && <LoginMenu onClickLoginExit={onClickLoginExit}/>
     }
 
     return (

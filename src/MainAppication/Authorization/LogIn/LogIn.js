@@ -32,7 +32,7 @@ const LogIn = (props) => {
     return (
         <div>
             <LoginForm changeUsername={changeUsername} username={username} changePassword={changePassword}
-                       password={password}
+                       password={password} isExit={props.isExit} onClickLoginExit={props.onClickLoginExit}
                        submitButtonClick={submitButtonClick} isAuthenticated={props.isAuthenticated}
                        onClickGoogle={continueWithGoogle}
                        onClickFacebook={continueWithFacebook}

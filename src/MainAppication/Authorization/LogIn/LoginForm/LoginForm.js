@@ -3,12 +3,14 @@ import {Input} from "../../../Components/AuthorizationComponents/Input/Input";
 import {Button} from "../../../Components/AuthorizationComponents/Button/Button";
 import {SocialNetworks} from "../../SocialNetworks/SocialNetworks";
 import {CREATE_AN_ACCOUNT, PICTURE_PAGE} from "../../../../UrlsConst";
+import {ExitIcon} from "../../../Components/Icons/ExitIcon";
 
 export const LoginForm = (props) => {
 
     return (
         <div className="auth__block reg__block"><h3>Era</h3>
             <div className="auth__block__form"><h2>Вход</h2>
+
                 <Input onChange={props.changeUsername} value={props.username} className={"auth__block__form__input"}
                        text={"Логин"} type={"type"}
                        placeholder={"Введите логин"}/>
@@ -26,8 +28,11 @@ export const LoginForm = (props) => {
                 </div>
                 <Button className={"auth__block__form__reg-button"} href={CREATE_AN_ACCOUNT}
                         text={"Нет аккаунта"}/>
-            </div>
 
+            </div>
+            {props.isExit && <div className="auth__block__form__button" onClick={props.onClickLoginExit}>
+                <ExitIcon />
+            </div>}
         </div>
     );
 };

@@ -11,8 +11,9 @@ export const LoginMenu = (props) => {
                         <h2>Зарегистрируйтесь чтобы находить больше архивов</h2>
                     </div>
                     <div className="unregistred__block__form">
-                        <LogIn/>
+                        <LogIn isExit={true} onClickLoginExit={props.onClickLoginExit}/>
                     </div>
+
                 </div>
             </div>
         </div>
