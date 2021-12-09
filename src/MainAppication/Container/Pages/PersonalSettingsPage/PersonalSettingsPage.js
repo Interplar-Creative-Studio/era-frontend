@@ -7,6 +7,7 @@ import {SettingsRoute} from "./SettingsPages/SettingsRoute";
 import {ExitButton} from "./ExitButton/ExitButton";
 import {connect} from "react-redux";
 import {load_user} from "../../../../store/actions/auth";
+import axios from "axios";
 
 
 let menu = [
@@ -21,13 +22,11 @@ let menu = [
 
 function userSettingsPatch(userSettings, access){
     const url = `${process.env.REACT_APP_API_URL}/api/auth/users/me/`;
-    fetch(url, {
-        method: 'PATCH',
+    axios.patch(url, JSON.stringify(userSettings),{
         headers: {
             'content-type': 'application/json',
             'Authorization': `Bearer ${access}`,
-        },
-        body: JSON.stringify(userSettings)
+        }
     }).then(res=>console.log(res));
 }
 
