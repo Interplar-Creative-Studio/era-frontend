@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 export const Cart = (props) => {
     return(
-        <div className="menu__first-block__cart">
+
             <NavLink to={props.href ?? "#"}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -18,6 +18,6 @@ export const Cart = (props) => {
                       strokeLinejoin="round"/>
             </svg>
         </NavLink>
-        </div>
+
     );
 };

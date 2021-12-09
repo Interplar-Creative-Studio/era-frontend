@@ -28827,7 +28827,7 @@ textarea.form-control-lg {
     .menu__first-block__burger__block {
         display: block;
         position: absolute;
-        right: -200px;
+        right: 20px;
         top: 52px;
         background: #fff;
         border: 1px solid rgba(92, 92, 92, .2);
@@ -28851,7 +28851,6 @@ textarea.form-control-lg {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        pointer-events: none
     }
 
     .menu__first-block__burger__block__icons__notification, .menu__first-block__burger__block__icons__cart {
