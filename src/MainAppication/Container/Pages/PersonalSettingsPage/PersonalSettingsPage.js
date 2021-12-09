@@ -6,6 +6,7 @@ import {useQuery} from "../../../Components/functions/functions";
 import {SettingsRoute} from "./SettingsPages/SettingsRoute";
 import {ExitButton} from "./ExitButton/ExitButton";
 import {connect} from "react-redux";
+import {load_user} from "../../../../store/actions/auth";
 
 
 let menu = [
@@ -18,12 +19,28 @@ let menu = [
     {href: `${PERSONAL_SETTINGS}`, text: "Безопасность"},
 ];
 
+function userSettingsPatch(userSettings, access){
+    const url = `${process.env.REACT_APP_API_URL}/api/auth/users/me/`;
+    fetch(url, {
+        method: 'PATCH',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${access}`,
+        },
+        body: JSON.stringify(userSettings)
+    }).then(res=>console.log(res));
+}
+
+
 const PersonalSettingsPage = (props) => {
     let user = props.user;
     const [userSettings, setUserSettings] = useState({});
+
     const onChangeUserSettings = e => setUserSettings({...userSettings, [e.target.name]: e.target.value });
     const onClickSubmit = () => {
         console.log("userSettings: ", userSettings);
+        userSettingsPatch(userSettings, props.access);
+        props.loadUser();
     };
     return (
         <div className="container">
@@ -39,7 +56,15 @@ const PersonalSettingsPage = (props) => {
 };
 
 const mapStateToProps = (state) =>{
-    return {user: state.auth.user,}
+    return {
+        user: state.auth.user,
+        access: state.auth.access,
+    }
 }
 
-export default connect(mapStateToProps)(PersonalSettingsPage);
+const mapDispatchToProps = {
+    loadUser: load_user,
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalSettingsPage);

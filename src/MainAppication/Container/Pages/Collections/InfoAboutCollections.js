@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import DescriptionOfCollection from "./DescriptionOfCollection/DescriptionOfCollection";
 import {PicturesMap} from "../PicturesMainPage/PicturesMap/PicturesMap";
-import {indexActionCreator} from "../../../../store/actions/indexActionCreator";
 import {connect} from "react-redux";
 import {fetchGet} from "../../../Components/functions/asyncFunctions";
 

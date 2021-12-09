@@ -48,11 +48,10 @@ const deleteElem = (arr, key) => {
 
 export const Cart = (props) => {
     const [userCart, setUserCart] = useState(cart);
-    console.log(userCart);
+
     const deleteBtnOnClick = (key) => {
         setUserCart(elem=>
             deleteElem(elem, key)
-            
         );
     }
     return (
