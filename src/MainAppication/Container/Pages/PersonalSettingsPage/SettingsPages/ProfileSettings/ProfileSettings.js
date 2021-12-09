@@ -19,8 +19,8 @@ export const ProfileSettings = (props) => {
                           maxlength="300" id={"taNumber"} onChange={props.onChange}/>
                 <Input text={"Ваше место проживания"} type={"text"} placeholder={getUser?.location} name={"location"} onChange={props.onChange}
                        className={"personal-area__settings__area__profile__personal-information__input-simple"}/>
-                <Input text={"Интересы"} type={"text"} id={"interestsTa"} name={"username"} onChange={props.onChange}
-                       className={"personal-area__settings__area__profile__personal-information__interests"}/>
+               {/* <Input text={"Интересы"} type={"text"} id={"interestsTa"} name={"username"} onChange={props.onChange}
+                       className={"personal-area__settings__area__profile__personal-information__interests"}/>*/}
                 <Input text={"Instagram"} type={"text"} placeholder={getUser?.instagram_url} name={"instagram_url"} onChange={props.onChange}
                        className={"personal-area__settings__area__profile__personal-information__input-simple"}/>
                 <Input text={"VK"} type={"text"} placeholder={getUser?.vk_url} name={"vk_url"} onChange={props.onChange}

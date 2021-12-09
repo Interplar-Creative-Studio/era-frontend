@@ -21,14 +21,15 @@ let sex = [
 
 export const AccountSettings = (props) => {
     let getUser = props.user;
-    return(
+    return (
         <div className="personal-area__settings__area__account">
             <h2>Настройки аккаунта</h2>
             <div className="personal-area__settings__area__account__personal-information">
 
                 <Authentication
                     classNameContainer={"personal-area__settings__area__account__personal-information__input-simple simple-input"}
-                    className={"simple-input"} text={"Электронная почта"} type={"email"} name={"email"} onChange={props.onChange}
+                    className={"simple-input"} text={"Электронная почта"} type={"email"} name={"email"}
+                    onChange={props.onChange} disabled="disabled" invisible={true}
                     placeholder={getUser?.email} href={"#"} buttonText={"Изменить"}/>
                 <Authentication
                     classNameContainer={"personal-area__settings__area__account__personal-information__input-simple"}
@@ -36,24 +37,26 @@ export const AccountSettings = (props) => {
                     className="simple-input" text={"Логин"} type="text" href={"#"} buttonText={"Изменить"}/>
                 <Authentication
                     classNameContainer="personal-area__settings__area__account__personal-information__input-simple"
-                    className="simple-input" text={"Пароль"} type={"password"} href={"#"} name={"password"} onChange={props.onChange}
+                    className="simple-input" text={"Пароль"} type={"password"} href={"#"} name={"password"}
+                    onChange={props.onChange}
                     buttonText={"Изменить"}/>
 
-                <div className="personal-area__settings__area__account__personal-information__input-simple">
+                {/*            <div className="personal-area__settings__area__account__personal-information__input-simple">
                     <Option text={"Язык"} options={languages}/>
                     <Option text={"Страна/Регион"} options={countries}/>
-                </div>
+                </div>*/}
                 <div className="personal-area__settings__area__account__personal-information__input-simple">
                     <Option text={"Пол"} options={sex} value={getUser?.sex}/>
                 </div>
-                <div className="personal-area__settings__area__account__personal-information__input-radio">
+                {/*           <div className="personal-area__settings__area__account__personal-information__input-radio">
                     <h3>Параметры входа</h3>
                     <Checkbox text={"Использовать аккаунт Google для входа"} id={"radioGoogle"}/>
                     <Checkbox text={"Подключить аккаунт Facebook"} id={"radioFacebook"}/>
-                </div>
-                <div
+                </div>*/}
+           {/*     <div
                     className="personal-area__settings__area__account__personal-information__delete-button">
-                    <a href="#">Удалить аккаунт</a></div>
+                    <a href="#">Удалить аккаунт</a>
+                </div>*/}
             </div>
         </div>
     );

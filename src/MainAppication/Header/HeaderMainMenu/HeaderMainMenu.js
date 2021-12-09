@@ -70,9 +70,8 @@ export const HeaderMainMenu = (props) => {
             <Search searchAction={props.searchAction}/>
             {props.user !== null &&
             <HeaderUserBurger f={f} logOut={props.logOut} imgLink={link} img={user?.profile_pic ?? "#"} burger={burger}
-                              onClickOnBtn={onClickOnBtn}
-                              nameLink={link} name={user?.username} amount={"1"} onClick={() => setNotification(true)}
-                              onMouseLeave={() => setNotification(false)}
+                              onClickOnBtn={onClickOnBtn} nameLink={link} name={user?.username}
+                              amount={"1"} onClick={() => setNotification(true)} onMouseLeave={() => setNotification(false)}
                               notification={notification}/>}
             {props.user !== null && width > 540 &&
             <div onClick={() => setNotification(true)} onMouseLeave={() => setNotification(false)}

@@ -12,7 +12,7 @@ import {
 export const AddPhotoMenu = (props) => {
     let menu = [
         {href: `${ADD_PHOTO}?settings=${ADD_PHOTO_SETTINGS_PHOTO}`, text: "Настройки фото"},
-        {href: `${ADD_PHOTO}?settings=${ADD_PHOTO_SETTINGS_SERIES}`, text: "Настройки серии работ"},
+       // {href: `${ADD_PHOTO}?settings=${ADD_PHOTO_SETTINGS_SERIES}`, text: "Настройки серии работ"},
         {href: `${ADD_PHOTO}?settings=${ADD_PHOTO_SETTINGS_MONETIZATION}`, text: "Настройки монетизации"},
     ];
     return(

@@ -13,11 +13,11 @@ import axios from "axios";
 let menu = [
     {href: `${PERSONAL_SETTINGS_PROFILE}`, text: "Настройки профиля"},
     {href: `${PERSONAL_SETTINGS_ACCOUNT}`, text: "Настройки аккаунта"},
-    {href: `${PERSONAL_SETTINGS}`, text: "Настройки ленты"},
+/*    {href: `${PERSONAL_SETTINGS}`, text: "Настройки ленты"},
     {href: `${PERSONAL_SETTINGS}`, text: "Подтвердить аккаунт"},
     {href: `${PERSONAL_SETTINGS}`, text: "Разрешения"},
     {href: `${PERSONAL_SETTINGS}`, text: "Конфиденциальность"},
-    {href: `${PERSONAL_SETTINGS}`, text: "Безопасность"},
+    {href: `${PERSONAL_SETTINGS}`, text: "Безопасность"},*/
 ];
 
 function userSettingsPatch(userSettings, access){

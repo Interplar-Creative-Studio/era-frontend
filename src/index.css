@@ -29233,7 +29233,9 @@ textarea.form-control-lg {
         -ms-flex-direction: column;
         flex-direction: column
     }
-
+    .photo-modal__slider__slide__next-button, .photo-modal__slider__slide__prev-button{
+        top: 25%;
+    }
     .unregistred-modal .unregistred__block__description {
         max-width: 100%;
         text-align: center;
