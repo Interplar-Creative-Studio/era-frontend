@@ -32,12 +32,12 @@ export const AccountSettings = (props) => {
                     onChange={props.onChange} disabled="disabled" invisible={true}
                     placeholder={getUser?.email} href={"#"} buttonText={"Изменить"}/>
                 <Authentication
-                    classNameContainer={"personal-area__settings__area__account__personal-information__input-simple"}
+                    classNameContainer={"personal-area__settings__area__account__personal-information__input-simple"} disabled="disabled"
                     placeholder={getUser?.username} name={"username"} onChange={props.onChange} onClickSubmit={props.onClickShowResetPassword}
                     className="simple-input" text={"Логин"} type="text" href={"#"} buttonText={"Изменить"} />
                 <Authentication
                     classNameContainer="personal-area__settings__area__account__personal-information__input-simple"
-                    className="simple-input" text={"Пароль"} type={"password"} href={"#"} name={"password"}
+                    className="simple-input" text={"Пароль"} type={"password"} href={"#"} name={"password"} disabled="disabled"
                     onChange={props.onChange} onClickSubmit={props.onClickShowResetPassword}
                     buttonText={"Изменить"}/>
 
