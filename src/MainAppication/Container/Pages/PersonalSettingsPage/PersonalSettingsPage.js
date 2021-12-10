@@ -34,6 +34,14 @@ function userSettingsPatch(userSettings, access) {
     }).then(res => console.log(res));
 }
 
+const fetchSubmitUserSettings = (url, userSendData, access) =>{
+    axios.post(url, JSON.stringify(userSendData), {
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${access}`,
+        },
+    }).then();
+}
 
 const PersonalSettingsPage = (props) => {
     let user = props.user;
@@ -77,9 +85,9 @@ const PersonalSettingsPage = (props) => {
     const onChangeResetPassword = e => setResetUserPassword({...resetUserPassword, [e.target.name]: e.target.value});
 
     let inputsLogin = [
-        {text: "Введите username", type:"text", placeholder: "", onChange: onChangeUserName,
+        {text: "Введите логин", type:"text", placeholder: "", onChange: onChangeUserName,
             value: resetUserName.new_username, name: "new_username"},
-        {text: "Подтвердите username", type:"text", placeholder: "", onChange: onChangeUserName,
+        {text: "Подтвердите логин", type:"text", placeholder: "", onChange: onChangeUserName,
             value: resetUserName.re_new_username, name: "re_new_username"},
         {text: "Введите пароль", type:"password", placeholder: "", onChange: onChangeUserName,
             value: resetUserName.current_password, name: "current_password"},
@@ -94,6 +102,14 @@ const PersonalSettingsPage = (props) => {
             value: resetUserPassword.current_password, name: "current_password"},
     ];
 
+    const resetUserNameSubmit = () =>{
+        const url = `${process.env.REACT_APP_API_URL}/api/auth/users/set_username/`;
+        fetchSubmitUserSettings(url, resetUserName, props.access);
+    };
+    const resetUserPasswordSubmit = () =>{
+        const url = `${process.env.REACT_APP_API_URL}/api/auth/users/set_password/`;
+        fetchSubmitUserSettings(url, resetUserPassword,props.access);
+    };
 
     return (
         <div className="container">
@@ -101,10 +117,11 @@ const PersonalSettingsPage = (props) => {
                 <PersonalAvatar img={user?.profile_pic} href={"#"} onClickShowResetPassword={onClickShowResetPassword}/>
                 {showChangeAvatar && <LoadPhoto />}
                 <div className="personal-area__settings__area">
-                    {showResetPassword && <ResetUserSettings inputs={inputsLogin} onClickShowResetPassword={onClickShowResetPassword}/>}
-                    {showResetUser && <ResetUserSettings inputs={inputsPassword} onClickShowResetPassword={onClickShowResetUser}/>}
+                    {showResetPassword && <ResetUserSettings text={"Сменить пароль"} inputs={inputsPassword} onClickSubmit={resetUserPasswordSubmit} onClickShowResetPassword={onClickShowResetPassword}/>}
+                    {showResetUser && <ResetUserSettings text={"Сменить логин"} inputs={inputsLogin} onClickSubmit={resetUserNameSubmit} onClickShowResetPassword={onClickShowResetUser}/>}
                     {!showResetPassword && !showResetUser && <SettingsRoute user={user} onChangeUserSettings={onChangeUserSettings}
-                                   onClickShowResetPassword={onClickShowResetPassword}
+                                   onClickShowResetPassword={onClickShowResetPassword}  onClickShowResetUser={onClickShowResetUser}
+
                                    resetPassword={() => {
                                        const url = `${process.env.REACT_APP_API_URL}/api/auth/users/reset_password/`;
                                        resetUserData(url, {email: user?.email})

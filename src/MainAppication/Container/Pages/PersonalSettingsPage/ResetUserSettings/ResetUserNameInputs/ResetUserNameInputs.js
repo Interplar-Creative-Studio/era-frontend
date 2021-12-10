@@ -10,7 +10,7 @@ export const ResetUserNameInputs = (props) => {
                        className={"auth__block__form__input"}
                        text={input.text} type={input.type}
                        placeholder={input.placeholder}
-                name={props.name}/>
+                name={input.name}/>
 
             )}
         </div>

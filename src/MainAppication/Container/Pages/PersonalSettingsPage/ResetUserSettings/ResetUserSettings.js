@@ -7,9 +7,9 @@ export const ResetUserSettings = (props) => {
     return(
         <div className="auth">
             <div className="auth__block"><h3>Era</h3>
-                <div className="auth__block__form"><h2>Сменить пароль</h2>
+                <div className="auth__block__form"><h2>{props.text}</h2>
                     <ResetUserNameInputs inputs={props.inputs}/>
-                    <div className="auth__block__form__auth-button" onClick={props.onClickShowResetPassword}><NavLink to="#">Подтвердить</NavLink></div>
+                    <div className="auth__block__form__auth-button" onClick={()=>{props.onClickSubmit();props.onClickShowResetPassword()}}><NavLink to="#">Подтвердить</NavLink></div>
                     <div className="auth__block__form__reg-button" onClick={props.onClickShowResetPassword}><NavLink to="#">Отменить</NavLink></div>
                 </div>
             </div>

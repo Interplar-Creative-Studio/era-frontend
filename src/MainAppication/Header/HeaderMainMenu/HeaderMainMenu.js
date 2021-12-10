@@ -57,7 +57,7 @@ export const HeaderMainMenu = (props) => {
     const onClickOnBtn = () => {
         setBurger(!burger)
     };
-    console.log("width: ", width);
+
     let user = props.user;
     return (
         <div className="menu__first-block">

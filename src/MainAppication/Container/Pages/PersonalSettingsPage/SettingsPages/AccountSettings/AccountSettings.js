@@ -33,7 +33,7 @@ export const AccountSettings = (props) => {
                     placeholder={getUser?.email} href={"#"} buttonText={"Изменить"}/>
                 <Authentication
                     classNameContainer={"personal-area__settings__area__account__personal-information__input-simple"} disabled="disabled"
-                    placeholder={getUser?.username} name={"username"} onChange={props.onChange} onClickSubmit={props.onClickShowResetPassword}
+                    placeholder={getUser?.username} name={"username"} onChange={props.onChange} onClickSubmit={props.onClickShowResetUser}
                     className="simple-input" text={"Логин"} type="text" href={"#"} buttonText={"Изменить"} />
                 <Authentication
                     classNameContainer="personal-area__settings__area__account__personal-information__input-simple"
