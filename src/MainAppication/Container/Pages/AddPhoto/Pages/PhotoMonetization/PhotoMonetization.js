@@ -7,7 +7,8 @@ export const PhotoMonetization = (props) => {
             <h2>Настройки серии работ</h2>
             <div className="personal-area__settings__area__account__personal-information">
                 <Input className={"personal-area__settings__area__profile__personal-information__input-simple simple-input"}
-                       text={"Цена"} type={"text"} placeholder={"Ведите цену"} onChange={props.onChange} name={'price'}/>
+                       text={"Цена"} type={"text"} placeholder={"Ведите цену"} onChange={props.onChange} name={'price'}
+                       value={props.photoSetting.price}/>
             </div>
 
         </div>

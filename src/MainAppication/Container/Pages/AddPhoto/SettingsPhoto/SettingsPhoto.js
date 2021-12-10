@@ -16,20 +16,20 @@ export const SettingsPhoto = (props) => {
     return(
         <div className="add-photo__description">
             <div className="personal-area__settings__area">
-                {settingsRoute(settings, props.onChange)}
+                {settingsRoute(settings, props.onChange, props.photoSetting)}
             </div>
             <AddPhotoMenu onClickSubmit={props.onClickSubmit}/>
         </div>
     );
 };
 
-function settingsRoute(settings, onChange) {
+function settingsRoute(settings, onChange, photoSetting) {
     switch (settings) {
         case ADD_PHOTO_SETTINGS_PHOTO:
-            return <PhotoDescription onChange={onChange} />;
+            return <PhotoDescription onChange={onChange} photoSetting={photoSetting}/>;
         case ADD_PHOTO_SETTINGS_SERIES:
-            return <PhotoSettings onChange={onChange}/>;
+            return <PhotoSettings onChange={onChange} photoSetting={photoSetting}/>;
         case ADD_PHOTO_SETTINGS_MONETIZATION:
-            return <PhotoMonetization onChange={onChange}/>
+            return <PhotoMonetization onChange={onChange} photoSetting={photoSetting}/>
     }
 }

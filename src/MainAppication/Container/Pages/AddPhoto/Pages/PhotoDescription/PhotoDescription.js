@@ -7,11 +7,13 @@ export const PhotoDescription = (props) => {
         <div className="personal-area__settings__area__profile">
             <h2>Настройки фото</h2>
             <div className="personal-area__settings__area__profile__personal-information">
-                <Input className={"personal-area__settings__area__profile__personal-information__input-simple simple-input"}
+                <Input className={"personal-area__settings__area__profile__personal-information__input-simple simple-input"} value={props.photoSetting.name}
                        text={"Название фото"} type={"text"} placeholder={"Ведите название фото"} onChange={props.onChange} name={'name'}/>
-                <Input className={"personal-area__settings__area__profile__personal-information__interests"}
+
+                <Input className={"personal-area__settings__area__profile__personal-information__interests"} value={props.photoSetting.tag}
                        text={"Теги для поиска"} type={"text"} id="interestsTaPhoto" placeholder={"Начните вводить тег"} onChange={props.onChange} name={'tag'}/>
-                <Textarea className={"personal-area__settings__area__profile__personal-information__text-area"}
+
+                <Textarea className={"personal-area__settings__area__profile__personal-information__text-area"} value={props.photoSetting.description}
                           text={"Описание фото"} type={"text"} maxLength={"300"} onChange={props.onChange} name={'description'}/>
             </div>
         </div>

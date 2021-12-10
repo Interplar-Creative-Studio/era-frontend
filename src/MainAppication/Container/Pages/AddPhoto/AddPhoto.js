@@ -42,21 +42,22 @@ const sendPhoto = (photo, access) => {
 
 const AddPhoto = (props) => {
     const [photo, setPhoto] = useState([]);
+    const [photoUrl, setPhotoUrl] = useState();
     const [photoSetting, setPhotoSetting] = useState({
         name: "",
         description: "default",
-        price: 0,
+        price: "",
         tag: [1],
         series_photos: []
     });
 
     const onChange = e => setPhotoSetting({...photoSetting, [e.target.name]: e.target.value});
-    const upLoadPhoto = e => setPhoto([...photo, e.target.files[0]]);
+    const upLoadPhoto = e => {setPhoto([...photo, e.target.files[0]]); setPhotoUrl(URL.createObjectURL(e.target.files[0]))};
     const onClickSubmit = () => {
         let photoUpt = {...photoSetting, series_photos: [photo],};
         sendPhoto(photoUpt, props.access);
-
     }
+
     return (
         <div className="add-photo-modal">
             <div className="add-photo">
@@ -65,8 +66,8 @@ const AddPhoto = (props) => {
                         <AiOutlineClose style={{transform: "scale(2, 2)"}}/>
                     </NavLink>
                 </div>
-                <ElemsAddPhoto photo={photo} upLoadPhoto={upLoadPhoto}/>
-                <SettingsPhoto onChange={onChange} onClickSubmit={onClickSubmit}/>
+                <ElemsAddPhoto photoUrl={photoUrl} upLoadPhoto={upLoadPhoto} />
+                <SettingsPhoto photoSetting={photoSetting} photo={photo} onChange={onChange} onClickSubmit={onClickSubmit}/>
             </div>
         </div>
     );

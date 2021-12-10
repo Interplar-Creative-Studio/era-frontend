@@ -6,9 +6,10 @@ export const Authentication = (props) => {
         <div className={props.classNameContainer}>
             <div className={props.className}>
                 <p>{props.text}</p>
-                <input type={props.type} placeholder={props.placeholder} name={props.name} disabled={props.disabled} onChange={props.onChange}/>
+                <input type={props.type} placeholder={props.placeholder} name={props.name}
+                       disabled={props.disabled} onChange={props.onChange}/>
             </div>
-            {!props.invisible && <div className="input-button">
+            {!props.invisible && <div className="input-button" onClick={props.onClickSubmit}>
                 <NavLink to={props.href}>{props.buttonText}</NavLink>
             </div>}
         </div>

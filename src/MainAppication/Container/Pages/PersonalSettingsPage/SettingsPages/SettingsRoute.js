@@ -10,7 +10,9 @@ export const SettingsRoute = (props) => {
         <div>
             <Switch>
                 <Route exact path={PERSONAL_SETTINGS_PROFILE} render={()=><ProfileSettings onChange={props.onChangeUserSettings} user={props.user}/>}/>
-                <Route exact path={PERSONAL_SETTINGS_ACCOUNT} render={()=><AccountSettings onChange={props.onChangeUserSettings} user={props.user}/>}/>
+                <Route exact path={PERSONAL_SETTINGS_ACCOUNT} render={()=><AccountSettings resetPassword={props.resetPassword} resetLogin={props.resetLogin}
+                                                                                           onClickShowResetPassword={props.onClickShowResetPassword}
+                                                                                           onChange={props.onChangeUserSettings} user={props.user}/>}/>
             </Switch>
         </div>
     );
