@@ -6,7 +6,7 @@ import {CREATE_AN_ACCOUNT, PICTURE_PAGE} from "../../../../UrlsConst";
 import {ExitIcon} from "../../../Components/Icons/ExitIcon";
 
 export const LoginForm = (props) => {
-
+    console.log("era");
     return (
         <div className="auth__block reg__block"><h3>Era</h3>
             <div className="auth__block__form"><h2>Вход</h2>
